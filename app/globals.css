@@ -1,27 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'Millik';
+  src: url('../public/fonts/Millik/MillikRegular.otf') format('opentype');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.millik {
+  font-family: 'Millik';
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.bgWrap {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.selectedtext {
+  color: #3C4043;
+}
+
+.gr2auto {
+  grid-template-columns: auto auto;
+  gap:10px
 }
