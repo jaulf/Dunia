@@ -11,7 +11,10 @@ export default function Home() {
   return (
     <>
       <header class="flex justify-between w-full">
-        <div id="Image-sidebar" className="sticky top-0 max-w-[770px] h-[100vh] w-[100vw]">
+        <div
+          id="Image-sidebar"
+          className="sticky top-0 max-w-[770px] h-[100vh] w-[100vw]"
+        >
           <Image
             src={sidebarImage}
             alt="Hero Section Image"
@@ -21,7 +24,7 @@ export default function Home() {
             sizes="100vw"
             style={{
               objectFit: "cover",
-              objectPosition: "right bottom"
+              objectPosition: "right bottom",
             }}
           />
         </div>
@@ -53,7 +56,10 @@ export default function Home() {
                   Continue with Facebook
                 </span>
               </div>
-              <Link href="/onboarding/signup/email" className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]">
+              <Link
+                href="/onboarding/signup/email"
+                className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]"
+              >
                 <Image class="w-4 h-4" src={mail} alt="Mail Icon" />
                 <span class="font-medium leading-[18px]">
                   Continue with email
@@ -74,10 +80,14 @@ export default function Home() {
                 <span class=" font-semibold">Terms of Use, Conditions</span> and{" "}
                 <span class=" font-semibold">Privacy policy</span>
               </div>
+
               <div className=" leading-5 text-center">
-                Don’t you have an account?{" "}
-                <Link className="text-[#FF3333] font-semibold" href="/">
-                  Sign up
+                Already have an account?{" "}
+                <Link
+                  className="text-[#FF3333] font-semibold"
+                  href="/onboarding/login"
+                >
+                  Login
                 </Link>
               </div>
             </div>

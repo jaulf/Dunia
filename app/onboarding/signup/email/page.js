@@ -82,7 +82,7 @@ export default function Home() {
                   <input
                     className="outline-none w-full"
                     type="Password"
-                    placeholder="pasword"
+                    placeholder="Password"
                   />
                 </div>
                 <div className="w-full pt-5">
@@ -100,9 +100,9 @@ export default function Home() {
                 </div>
 
                 <div className=" leading-5 text-center">
-                  Don’t you have an account?{" "}
-                  <Link className="text-[#FF3333] font-semibold" href="/">
-                    Sign up
+                  Already have an account?{" "}
+                  <Link className="text-[#FF3333] font-semibold" href="/onboarding/login">
+                    Login
                   </Link>
                 </div>
               </div>

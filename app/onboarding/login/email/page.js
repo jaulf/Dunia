@@ -75,7 +75,7 @@ export default function Home() {
                     src={passcode}
                     alt="Password Icon"
                   />
-                  <input className="outline-none w-full" type="Password" placeholder="pasword" />
+                  <input className="outline-none w-full" type="Password" placeholder="Password" />
                 </div>
                 <div className="w-full pt-5">
                   <button className="bg-[#F2665B] rounded-full text-white text-xl font-semibold py-5 w-full">
@@ -87,7 +87,7 @@ export default function Home() {
               <div className="font-medium text-[#666] flex flex-col justify-center items-center gap-10">
                 <div className=" leading-5 text-center">
                   Don’t you have an account?{" "}
-                  <Link className="text-[#FF3333] font-semibold" href="/">
+                  <Link className="text-[#FF3333] font-semibold" href="/onboarding/signup">
                     Sign up
                   </Link>
                 </div>

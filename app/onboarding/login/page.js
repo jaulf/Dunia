@@ -64,7 +64,7 @@ export default function Home() {
             <div className="font-medium text-[#666] flex flex-col justify-center items-center gap-10">
               <div className=" leading-5 text-center">
                 Don’t you have an account?{" "}
-                <Link className="text-[#FF3333] font-semibold" href="/">
+                <Link className="text-[#FF3333] font-semibold" href="/onboarding/signup">
                   Sign up
                 </Link>
               </div>
