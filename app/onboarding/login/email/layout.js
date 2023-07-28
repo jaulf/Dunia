@@ -1,4 +1,3 @@
-import './globals.css'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ 
@@ -8,9 +7,9 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Dunia ',
+  title: 'Create an account | Dunia',
   description: 'Created by Howard Otuya',
-} 
+}
 
 export default function RootLayout({ children }) {
   return (
