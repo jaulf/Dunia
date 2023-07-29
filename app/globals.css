@@ -17,6 +17,13 @@ body {
   line-height: normal;
 }
 
+.bodyCon {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
 .millik {
   font-family: "Millik";
 }
@@ -76,7 +83,7 @@ input:-ms-input-placeholder {
   color: #919191;
   font-family: Inter;
   border: none;
-  margin:0;
+  margin: 0;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -87,7 +94,7 @@ input:-ms-input-placeholder {
   color: #919191;
   font-family: Inter;
   border: none;
-  margin:0;
+  margin: 0;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -98,7 +105,7 @@ input:-ms-input-placeholder {
   color: #919191;
   font-family: Inter;
   border: none;
-  margin:0;
+  margin: 0;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -109,20 +116,52 @@ input:-ms-input-placeholder {
   color: #919191;
   font-family: Inter;
   border: none;
-  margin:0;
+  margin: 0;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
+.l-h2 {
+  color: #2d2c2c;
+  font-family: "millik";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 68px; /* 121.429% */
+  letter-spacing: -1.68px;
+}
+
+.dunia-gradient {
+  background: var(--dunia-gradient, linear-gradient(88deg, #F2665B 0%, #BB9F39 20.31%, #009F00 47.92%, #FFC000 73.46%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#h-ri {
+  background: url('../public/images/glasseffect.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
 @media only screen and (min-width: 768px) {
 }
 
 @media only screen and (min-width: 1024x) {
+  .bodyCon {
+    max-width: 1440px;
+  }
+
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1400px) {
+  .bodyCon {
+    padding: 0;
+    max-width: 1440px;
+  }
 }
 
 @media only screen and (min-width: 1900px) {

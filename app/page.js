@@ -10,6 +10,10 @@ import chevdown from "../public/images/Arrow.png";
 import chevdown2 from "../public/images/chev-down.png";
 import search from "../public/images/search.png";
 import shoppingbag from "../public/images/shopping-bag.png";
+import hleftimg from "../public/images/hleft-img.png";
+import r1 from "../public/images/r1.png";
+import r2 from "../public/images/r2.png";
+import avatar from "../public/images/avatar.png";
 
 export default function Home() {
   // const router = useRouter()
@@ -19,7 +23,7 @@ export default function Home() {
 
   return (
     <div class="text-[#4D4D4D] m-0">
-      <header>
+      <header className="bodyCon">
         <nav className="flex justify-between py-[26px] px-10">
           <div class="flex gap-11 items-center">
             <Image className="w-[91px] h-[28px]" src={dunia} alt="Dunia Logo" />
@@ -30,7 +34,11 @@ export default function Home() {
               </Link>
               <div className="flex gap-[10px] items-center">
                 <span class="nli">Categories</span>
-                <Image class="w-[10px] h-[10px]" src={chevdown} alt="Arrow Down Icon" />
+                <Image
+                  class="w-[10px] h-[10px]"
+                  src={chevdown}
+                  alt="Arrow Down Icon"
+                />
               </div>
             </div>
           </div>
@@ -74,8 +82,71 @@ export default function Home() {
           </div>
         </nav>
 
-        <div>
-          
+        <div class="p-10 flex justify-between gap-[75px] items-center">
+
+          <div className="left flex flex-col gap-8">
+            <div className="flex flex-col gap-4  max-w-[583px]">
+              <div class="bg-[#f2f2f2] px-6 rounded-3xl py-2 text-[#6d6d6d] self-start w-auto text-xs font-medium">
+                Democratizing climate knowledge 🍀
+              </div>
+              <div className="flex flex-col gap-2">
+                <h2 class="l-h2">
+                  Accelerating climate literacy through{" "}
+                  <span class="dunia-gradient">creative storytelling</span>
+                </h2>
+                <p className="text-xl leading-7">
+                  Gain access to affordable climate learning resources that’s
+                  engaging, up to date and in your mother tongue.
+                </p>
+              </div>
+
+              <div className="pt-2 flex">
+                <Link
+                  className="py-[14px] px-12 bg-[#009F00] text-white text-xl font-bold rounded-full"
+                  href=""
+                >
+                  Shop now
+                </Link>
+              </div>
+            </div>
+            <div>
+              <Image class="h-10 w-auto" src={hleftimg} alt="Memoji" />
+            </div>
+          </div>
+
+          <div id="h-ri" className="right rounded-[50px]">
+            <div id="card" className="px-6 py-7 pb-[59px] flex flex-col gap-[30px]">
+              <div class="flex gap-[10px]">
+                <div>
+                  <Image
+                    class="rounded-[30px] w-auto h-auto max-h-[552px]"
+                    src={r1}
+                    alt="one"
+                  />
+                </div>
+                <div>
+                  <Image
+                    class="rounded-[30px] w-auto h-auto max-h-[552px]"
+                    src={r2}
+                    alt="two"
+                  />
+                </div>
+              </div>
+
+              <div className="text-white">
+                <h5 className="font-semibold">Featured today⚡</h5>
+                <h3 className="millik text-[36px] max-w-[483px] pt-5">The True Story of Nature’s Dwellers</h3>
+                <div className="flex justify-between items-center py-[6px]">
+                  <div class="flex gap-3 items-center">
+                    <Image src={avatar} class="w-8 h-8" alt="Memoji" />
+                    <span class="font-semibold">Josh Debs</span>
+                  </div>
+                  <div class="rounded-full px-[27px] py-[14px] font-bold text-white bg-black">Check it out</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </header>
 
