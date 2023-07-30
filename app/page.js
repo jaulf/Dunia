@@ -184,10 +184,11 @@ export default function Home() {
           <Image
             src={curlyarrow}
             className="w-[121.339px] h-auto flex absolute bottom-[164px] left-[370px]"
+            alt="Curly Arrow Icon"
           />
           <Image
             src={clover}
-            alt=""
+            alt="Clover Icon"
             className="w-10 h-10 flex self-start absolute top-[149px] left-[485px]"
           />
         </div>
@@ -281,7 +282,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth. Org's
+                      As climate change grips the planet, here is Earth. Org&apos;s
                       selection of must-read books on climate change and
                       sustainability to enlighten you.
                     </p>
@@ -323,7 +324,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth. Org's
+                      As climate change grips the planet, here is Earth. Org&apos;s
                       selection of must-read books on climate change and
                       sustainability to enlighten you.
                     </p>
@@ -368,7 +369,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth. Org's
+                      As climate change grips the planet, here is Earth. Org&apos;s
                       selection of must-read books on climate change and
                       sustainability to enlighten you.
                     </p>
@@ -409,7 +410,7 @@ export default function Home() {
                       </span>
                     </div>
                     <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth. Org's
+                      As climate change grips the planet, here is Earth. Org&apos;s
                       selection of must-read books on climate change and
                       sustainability to enlighten you.
                     </p>
