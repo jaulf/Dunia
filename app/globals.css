@@ -146,6 +146,48 @@ input:-ms-input-placeholder {
   background-size: cover;
 }
 
+.dun10 {
+  display: flex;
+  overflow: hidden;
+}
+
+.dun10 > div:nth-child(1) {
+  width: calc(60% - 8px);
+  padding-left: 64px;
+  padding-bottom: 171px;
+  padding-top: 239px;
+  border-radius: 30px;
+}
+
+.dun10 > div:nth-child(2) {
+  background: #009F00;
+  z-index: 9999;
+  width: 16px;
+}
+
+.dun10> div:nth-child(3) {
+  width: calc(40% - 8px);
+  border-radius: 30px;
+}
+
+.dun10 > div:nth-child(1) > p {
+  max-width: 647px;
+}
+
+.catb > button {
+  padding: 10px 21px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+.catb-active {
+  background: #009f00;
+  border-radius: 30px;
+  font-weight: 600!important;
+  color: white!important;
+}
+
 @media only screen and (min-width: 768px) {
 }
 
