@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css?family=Inter");
+@import url("https://fonts.googleapis.com/css?family=Inter:200,300,400,500,600,700,800,900&display=swap");
 @font-face {
   font-family: "Millik";
   src: url("../public/fonts/Millik/MillikRegular.otf") format("opentype");
@@ -80,7 +80,6 @@ input:-ms-input-placeholder {
 
 .search::placeholder {
   color: #919191;
-  font-family: Inter;
   border: none;
   margin: 0;
   font-size: 16px;
@@ -91,7 +90,6 @@ input:-ms-input-placeholder {
 
 .search::-webkit-input-placeholder {
   color: #919191;
-  font-family: Inter;
   border: none;
   margin: 0;
   font-size: 16px;
@@ -102,7 +100,6 @@ input:-ms-input-placeholder {
 
 .search::-moz-placeholder {
   color: #919191;
-  font-family: Inter;
   border: none;
   margin: 0;
   font-size: 16px;
@@ -113,7 +110,51 @@ input:-ms-input-placeholder {
 
 .search:-ms-input-placeholder {
   color: #919191;
-  font-family: Inter;
+  border: none;
+  margin: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.subscribe {
+  background: rgba(0, 0, 0, 0.05);
+  width: 500px;
+}
+
+.subscribe::placeholder {
+  color: #919191;
+  border: none;
+  margin: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.subscribe::-webkit-input-placeholder {
+  color: #919191;
+  border: none;
+  margin: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.subscribe::-moz-placeholder {
+  color: #919191;
+  border: none;
+  margin: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.subscribe:-ms-input-placeholder {
+  color: #919191;
   border: none;
   margin: 0;
   font-size: 16px;
@@ -132,19 +173,43 @@ input:-ms-input-placeholder {
   letter-spacing: -1.68px;
 }
 
+.dunia-grd2 {
+  background: var(
+    --dunia-gradient,
+    linear-gradient(88deg, #f2665b 0%, #bb9f39 1%, #009f00 80.92%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "millik";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 64px;
+}
+
 .dunia-gradient {
-  background: var(--dunia-gradient, linear-gradient(88deg, #F2665B 0%, #BB9F39 20.31%, #009F00 47.92%, #FFC000 73.46%));
+  background: var(
+    --dunia-gradient,
+    linear-gradient(
+      88deg,
+      #f2665b 0%,
+      #bb9f39 20.31%,
+      #009f00 47.92%,
+      #ffc000 73.46%
+    )
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+/* 
 #h-ri {
-  background: url('../public/images/glasseffect.png');
+  background: url("../public/images/glasseffect.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-}
+} */
 
 .dun10 {
   display: flex;
@@ -160,12 +225,12 @@ input:-ms-input-placeholder {
 }
 
 .dun10 > div:nth-child(2) {
-  background: #009F00;
+  background: #009f00;
   z-index: 9999;
   width: 16px;
 }
 
-.dun10> div:nth-child(3) {
+.dun10 > div:nth-child(3) {
   width: calc(40% - 8px);
   border-radius: 30px;
 }
@@ -184,8 +249,52 @@ input:-ms-input-placeholder {
 .catb-active {
   background: #009f00;
   border-radius: 30px;
-  font-weight: 600!important;
-  color: white!important;
+  font-weight: 600 !important;
+  color: white !important;
+}
+
+.foot-acc-left {
+  color: #cffccf;
+  font-family: "millik";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 80px;
+  letter-spacing: -1.68px;
+  max-width: 549px;
+  width: 100%;
+}
+
+.foot-left > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.foot-left > div > h3 {
+  font-family: "millik";
+  color: #a0f8a0;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.foot-left > div > p {
+  color: #e7fde7;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.cent-dun {
+  left: 50%;
+  top: 578px;
+  transform: translateX(-50%);
 }
 
 @media only screen and (min-width: 768px) {
@@ -195,7 +304,6 @@ input:-ms-input-placeholder {
   .bodyCon {
     max-width: 1440px;
   }
-
 }
 
 @media only screen and (min-width: 1400px) {
