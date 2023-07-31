@@ -35,6 +35,7 @@ import c4 from "../public/images/c4.png";
 import hearte from "../public/images/heart-empty.png";
 import heartf from "../public/images/heart-full.png";
 import glasseffect from "../public/images/glasseffect.png";
+import author1 from "../public/images/author-jj.png";
 
 export default function Home() {
   // const router = useRouter()
@@ -636,6 +637,72 @@ export default function Home() {
 
             <div class="absolute flex self-start top-[38px] right-[158px]">
               <Image class="w-10 h-10" src={d7} alt="clover" />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#0B0C0B]">
+          <div class="bodyCon">
+            <div>
+              <div id="left">
+                <div>
+                  <p>Discover</p>
+                  <h1>Featured authors & creators</h1>
+                </div>
+                <div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="41"
+                      height="3"
+                      viewBox="0 0 41 3"
+                      fill="none"
+                    >
+                      <path
+                        d="M40 2.5C40.5523 2.5 41 2.05228 41 1.5C41 0.947715 40.5523 0.5 40 0.5V2.5ZM0 2.5H40V0.5H0V2.5Z"
+                        fill="#009F00"
+                      />
+                    </svg>
+                    <span>James Jones</span>
+                  </div>
+                  <div>
+                    <div>💗</div>
+                    <div>4.5/5 hearts</div>
+                    <div>|</div>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M16 3.46776C17.4817 4.20411 18.5 5.73314 18.5 7.5C18.5 9.26686 17.4817 10.7959 16 11.5322M18 16.7664C19.5115 17.4503 20.8725 18.565 22 20M2 20C3.94649 17.5226 6.58918 16 9.5 16C12.4108 16 15.0535 17.5226 17 20M14 7.5C14 9.98528 11.9853 12 9.5 12C7.01472 12 5 9.98528 5 7.5C5 5.01472 7.01472 3 9.5 3C11.9853 3 14 5.01472 14 7.5Z"
+                          stroke="#B3B3B3"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div>127.4k followers</div>
+                  </div>
+                </div>
+                <div>
+                  <h6>About author</h6>
+                  <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua."Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.
+                  </p>
+                </div>
+              </div>
+              <div id="right">
+                <Image src={author1} alt="James Jones" />
+              </div>
             </div>
           </div>
         </section>
