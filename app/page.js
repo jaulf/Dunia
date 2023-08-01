@@ -1,15 +1,8 @@
 "use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 // Images
-import dunia from "../public/images/dunia.png";
-import chevdown from "../public/images/Arrow.png";
-import chevdown2 from "../public/images/chev-down.png";
-import search from "../public/images/search.png";
-import shoppingbag from "../public/images/shopping-bag.png";
 import hleftimg from "../public/images/hleft-img.png";
 import r1 from "../public/images/r1.png";
 import r2 from "../public/images/r2.png";
@@ -46,83 +39,15 @@ import author3 from "../public/images/authors/TJ.png";
 import author4 from "../public/images/authors/EF.png";
 import author5 from "../public/images/authors/EM.png";
 import author6 from "../public/images/authors/FB.png";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export default function Home() {
-  // const router = useRouter()
-  // useEffect(() => {
-  //   router.push('/onboarding/signup')
-  // })
-
   return (
     <div className="text-[#4D4D4D] m-0">
       <header className="bodyCon">
         <div className="relative">
-          <nav className="flex justify-between py-[26px] px-10">
-            <div className="flex gap-11 items-center">
-              <Image
-                className="w-full max-w-[91px] h-auto"
-                src={dunia}
-                alt="Dunia Logo"
-              />
-
-              <div className="flex gap-6 items-center">
-                <Link className="nli" href="/">
-                  Featured
-                </Link>
-                <div className="flex gap-[10px] items-center">
-                  <span className="nli">Categories</span>
-                  <Image
-                    className="w-[10px] h-[10px]"
-                    src={chevdown}
-                    alt="Arrow Down Icon"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex self-center px-5 py-[14px] gap-[10px] items-center rounded-full w-full max-w-[500px] bg-[#0000000d]">
-              <Image
-                className="w-[18px] h-[18px]"
-                src={search}
-                alt="Search Icon"
-              />
-              <input
-                className="search bg-transparent outline-none"
-                type="text"
-                placeholder="Search Books or authors"
-              />
-            </div>
-
-            <div className="flex items-center gap-6">
-              <Link
-                className="text-[#212121] px-7 py-[14px] self-center rounded-full flex bg-[#f5f5f5] font-bold text-center"
-                href="/"
-              >
-                Log In
-              </Link>
-              <div className="flex items-center gap-[32px]">
-                <div className="relative">
-                  <Image
-                    className="w-6 h-6"
-                    src={shoppingbag}
-                    alt="Shopping Bag Icon"
-                  />
-                  <div className="absolute top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white py-[1px] rounded-full px-[3px]">
-                    3
-                  </div>
-                </div>
-                <div className="flex gap-1 py-1 px-3 border-2 border-[#f5f5f5] rounded-full">
-                  <span className="font-medium text-sm ">ENG</span>
-                  <Image
-                    className="self-center w-4 h-4"
-                    src={chevdown2}
-                    alt="Arrow Down Icon"
-                  />
-                </div>
-              </div>
-            </div>
-          </nav>
-
+          <Navbar />
           <div className="p-10 pb-[72px] relative flex justify-between gap-[75px] items-center">
             <div className="left flex flex-col gap-8">
               <div className="flex flex-col gap-4  max-w-[583px]">
@@ -162,21 +87,23 @@ export default function Home() {
                 className="px-6 py-7 pb-[59px] relative z-50 flex flex-col gap-[30px]"
               >
                 <div className="flex gap-[10px]">
-                  <div class="flex flex-col max-h-[552px]">
+                  <div class="flex flex-col">
                     <Image
-                      className="rounded-[30px] w-auto h-full max-h-[552px]"
+                      className="rounded-[30px] w-full h-full max-h-[552px]"
                       quality={100}
                       src={r1}
                       alt="one"
                       placeholder="blur"
+                      sizes="100vw"
                     />
                   </div>
-                  <div class="flex flex-col max-h-[552px]">
+                  <div class="flex flex-col">
                     <Image
-                      className="rounded-[30px] w-auto h-full max-h-[552px]"
+                      className="rounded-[30px] w-full h-full max-h-[552px]"
                       quality={100}
                       src={r2}
                       alt="two"
+                      sizes="100vw"
                       placeholder="blur"
                     />
                   </div>
@@ -213,13 +140,11 @@ export default function Home() {
             src={curlyarrow}
             className="w-[121.339px] h-auto flex absolute bottom-[164px] left-[370px]"
             alt="Curly Arrow Icon"
-            placeholder="blur"
             quality={100}
           />
           <Image
             src={clover}
             alt="Clover Icon"
-            placeholder="blur"
             quality={100}
             className="w-10 h-10 flex self-start absolute top-[149px] left-[485px]"
           />
@@ -277,7 +202,7 @@ export default function Home() {
 
         <section className="bodyCon">
           <div className="px-10 pt-[88px] pb-[134px] flex gap-12 flex-col">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <h3 className="millik text-[32px] text-black leading-[30.94px]">
                 Top picks this week🌟
               </h3>
@@ -577,9 +502,9 @@ export default function Home() {
                     <span class="block">The reader’s conference</span>
                   </h2>
                   <p className="text-[#4d4d4d] max-w-[612px]">
-                    As climate change grips the planet, here is Earth. Org&apos;s
-                    selection of must-read books on climate change and
-                    sustainability to enlighten you.
+                    As climate change grips the planet, here is Earth.
+                    Org&apos;s selection of must-read books on climate change
+                    and sustainability to enlighten you.
                   </p>
                 </div>
                 <button className="text-xl flex self-start font-bold px-10 py-[14px] rounded-[32px] text-white bg-[#009F00] ">
@@ -676,11 +601,11 @@ export default function Home() {
                   <div className="flex flex-col gap-[10px]">
                     <h6 className="text-[#009f00] millik">About author</h6>
                     <p className="text-[#B3B3B3] max-w-[484px]">
-                      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.&quot;Lorem ipsum dolor sit amet, consectetur adipiscing
+                      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing
                       elit, sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua.
+                      magna aliqua.&quot;Lorem ipsum dolor sit amet, consectetur
+                      adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua.
                     </p>
                   </div>
                 </div>
@@ -721,7 +646,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author2} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                Debbie Mays
+                  Debbie Mays
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -729,7 +654,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author3} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                Trevor Jones
+                  Trevor Jones
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -737,7 +662,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author4} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                Etty Fidele
+                  Etty Fidele
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -745,7 +670,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author5} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                Ella Mayers
+                  Ella Mayers
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -753,12 +678,13 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author6} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                Fray Bekele
+                  Fray Bekele
                 </h4>
               </div>
             </div>
           </div>
         </section>
+
         <section className="bodyCon">
           <div className="pt-[82px] pb-[132px] relative flex gap-6 justify-center items-center flex-col">
             <div className="flex flex-col justify-center items-center gap-3 ">
@@ -789,42 +715,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-
       </main>
 
-      <footer className="bg-[#009F00] overflow-hidden">
-        <div className="bodyCon ">
-          <div className="pt-[70px] px-14 relative pb-[658px] flex gap-[151px]">
-            <div>
-              <h1 className="foot-acc-left">
-                Climate literacy: Creative storytelling acceleration.
-              </h1>
-            </div>
-            <div class="foot-left flex gap-[72px]">
-              <div>
-                <h3>Dunia</h3>
-                <p>Terms of Service</p>
-                <p>Refund Policy</p>
-              </div>
-              <div>
-                <h3>Socials</h3>
-                <p>Instagram</p>
-                <p>Twitter</p>
-                <p>Youtube</p>
-                <p>LinkedIn</p>
-              </div>
-              <div>
-                <h3>Interact with us</h3>
-                <p>Shop</p>
-                <p>Contact us</p>
-              </div>
-            </div>
-            <div className="text-[560px] text-white leading-[542px] cent-dun self-center absolute millik font-normal tracking-[-5.6px]">
-              dunia
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
