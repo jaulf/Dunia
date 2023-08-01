@@ -112,7 +112,7 @@ export default function Home() {
                   </h3>
                   <div className="flex justify-between items-center py-[6px]">
                     <div className="flex gap-3 items-center">
-                      <Image src={avatar} className="w-8 h-8" placeholder="blur" alt="Memoji" />
+                      <Image src={avatar} className="w-8 h-8" plac alt="Memoji" />
                       <span className="font-semibold">Josh Debs</span>
                     </div>
                     <div className="rounded-full px-[27px] py-[14px] font-bold text-white bg-black">
