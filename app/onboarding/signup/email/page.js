@@ -14,7 +14,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <header class="flex w-full">
+      <header className="flex w-full">
         <div
           id="Image-sidebar"
           className="sticky top-0 max-w-[770px] h-[100vh] w-[100vw]"
@@ -37,7 +37,7 @@ export default function Home() {
           <Link
           id="baxk"
             href="/onboarding/signup/"
-            class="grid gr2auto items-center self-start pl-9 pt-11"
+            className="grid gr2auto items-center self-start pl-9 pt-11"
           >
             <Image
               quality={100}
@@ -45,7 +45,7 @@ export default function Home() {
               src={arrowleft}
               alt="back arrow"
             />
-            <span class="text-[#FF3333] font-medium text-xl leading-5">
+            <span className="text-[#FF3333] font-medium text-xl leading-5">
               Back
             </span>
           </Link>
@@ -53,16 +53,16 @@ export default function Home() {
           <div className="px-[140px] pt-[27px] flex flex-col justify-center items-center">
             <h2 className="millik text-[96px] tracking-[-1%]">Dunia</h2>
 
-            <div class=" flex flex-col justify-center items-center gap-10 pt-[100px]">
+            <div className=" flex flex-col justify-center items-center gap-10 pt-[100px]">
               <h2 className="text-[28px] font-medium leading-8 text-center">
                 Create an account
               </h2>
 
-              <div class="w-[389px] flex justify-center items-center flex-col gap-5">
+              <div className="w-[389px] flex justify-center items-center flex-col gap-5">
                 <div className="flex whitespace-nowrap rounded-full gap-[10px] items-center w-full max-w-[389px] px-[35px] py-5 border-[1.5px] border-[#d9d9d9]">
                   <Image
                     quality={100}
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     src={mail2}
                     alt="Email Icon"
                   />
@@ -75,7 +75,7 @@ export default function Home() {
                 <div className="flex whitespace-nowrap rounded-full gap-[10px] items-center w-full max-w-[389px] px-[35px] py-5 border-[1.5px] border-[#d9d9d9]">
                   <Image
                     quality={100}
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     src={passcode}
                     alt="Password Icon"
                   />
@@ -95,8 +95,8 @@ export default function Home() {
               <div className="font-medium text-[#666] flex flex-col justify-center items-center gap-10">
                 <div className=" leading-5 w-full max-w-[370px] text-center">
                   By continuing, you agree to our company’s{" "}
-                  <span class=" font-semibold">Terms of Use, Conditions</span>{" "}
-                  and <span class=" font-semibold">Privacy policy</span>
+                  <span className=" font-semibold">Terms of Use, Conditions</span>{" "}
+                  and <span className=" font-semibold">Privacy policy</span>
                 </div>
 
                 <div className=" leading-5 text-center">

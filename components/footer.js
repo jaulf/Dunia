@@ -8,7 +8,7 @@ export default function Footer() {
               Climate literacy: Creative storytelling acceleration.
             </h1>
           </div>
-          <div class="foot-left flex gap-[72px]">
+          <div className="foot-left flex gap-[72px]">
             <div>
               <h3>Dunia</h3>
               <p>Terms of Service</p>

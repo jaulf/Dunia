@@ -22,7 +22,7 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <div className="text-[#4D4D4D] m-0">
-      <header class="bodyCon">
+      <header className="bodyCon">
         <Navbar />
       </header>
 
@@ -304,7 +304,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center gap-3 ">
               <h3 className="millik text-[#121212] max-w-[845px] text-center text-[56px] leading-[64px]">
                 Be the first to know when new{" "}
-                <span class="dunia-grd2">resources</span> are available
+                <span className="dunia-grd2">resources</span> are available
               </h3>
               <p className="max-w-[612px] text-[#4d4d4d] text-center">
                 As climate change grips the planet, here is Earth. Org&apos;s
@@ -324,8 +324,8 @@ export default function Home() {
               </button>
             </div>
 
-            <div class="absolute flex self-start top-[38px] right-[158px]">
-              <Image class="w-10 h-10" src={d7} alt="clover" />
+            <div className="absolute flex self-start top-[38px] right-[158px]">
+              <Image className="w-10 h-10" src={d7} alt="clover" />
             </div>
           </div>
         </section>

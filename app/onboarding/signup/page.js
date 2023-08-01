@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <header class="flex justify-between w-full">
+      <header className="flex justify-between w-full">
         <div
           id="Image-sidebar"
           className="sticky top-0 max-w-[770px] h-[100vh] w-[100vw]"
@@ -34,25 +34,25 @@ export default function Home() {
         >
           <h2 className="millik text-[96px] tracking-[-1%]">Dunia</h2>
 
-          <div class=" flex flex-col justify-center items-center gap-10 pt-[100px]">
+          <div className=" flex flex-col justify-center items-center gap-10 pt-[100px]">
             <h2 className="text-[28px] font-medium leading-8 text-center">
               Create an account
             </h2>
 
-            <div class="w-[389px] flex justify-center items-center flex-col gap-5">
+            <div className="w-[389px] flex justify-center items-center flex-col gap-5">
               <div className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]">
                 <Image
-                  class="w-[18px] h-[18px]"
+                  className="w-[18px] h-[18px]"
                   src={google}
                   alt="Google Icon"
                 />
-                <span class="font-medium leading-[18px] selectedtext">
+                <span className="font-medium leading-[18px] selectedtext">
                   Continue with Google
                 </span>
               </div>
               <div className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]">
-                <Image class="w-4 h-4" src={fb} alt="Facebook Icon" />
-                <span class="font-medium leading-[18px]">
+                <Image className="w-4 h-4" src={fb} alt="Facebook Icon" />
+                <span className="font-medium leading-[18px]">
                   Continue with Facebook
                 </span>
               </div>
@@ -60,8 +60,8 @@ export default function Home() {
                 href="/onboarding/signup/email"
                 className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]"
               >
-                <Image class="w-4 h-4" src={mail} alt="Mail Icon" />
-                <span class="font-medium leading-[18px]">
+                <Image className="w-4 h-4" src={mail} alt="Mail Icon" />
+                <span className="font-medium leading-[18px]">
                   Continue with email
                 </span>
               </Link>
@@ -77,8 +77,8 @@ export default function Home() {
               </div>
               <div className=" leading-5 w-full max-w-[370px] text-center">
                 By continuing, you agree to our company’s{" "}
-                <span class=" font-semibold">Terms of Use, Conditions</span> and{" "}
-                <span class=" font-semibold">Privacy policy</span>
+                <span className=" font-semibold">Terms of Use, Conditions</span> and{" "}
+                <span className=" font-semibold">Privacy policy</span>
               </div>
 
               <div className=" leading-5 text-center">
