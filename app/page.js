@@ -87,19 +87,23 @@ export default function Home() {
                 className="px-6 py-7 pb-[59px] relative z-50 flex flex-col gap-[30px]"
               >
                 <div className="inline-flex gap-[10px]">
-                  <div className="inline-flex justify-center items-center">
+                  <div className="inline-flex justify-center items-center ">
                     <Image
-                      className="rounded-[30px] w-[249px] h-[552px]"
+                      className="rounded-[30px]"
                       quality={100}
                       src={r1}
+                      width={249}
+                      height={552}
                       placeholder="blur"
                     />
                   </div>
                   <div className="inline-flex justify-center items-center">
                     <Image
-                      className="rounded-[30px] w-[395px] h-[552px]"
+                      className="rounded-[30px]"
                       quality={100}
                       src={r2}
+                      width={395}
+                      height={552}
                       placeholder="blur"
                     />
                   </div>
@@ -112,7 +116,7 @@ export default function Home() {
                   </h3>
                   <div className="flex justify-between items-center py-[6px]">
                     <div className="flex gap-3 items-center">
-                      <Image src={avatar} className="w-8 h-8" plac alt="Memoji" />
+                      <Image src={avatar} className="w-8 h-8" alt="Memoji" />
                       <span className="font-semibold">Josh Debs</span>
                     </div>
                     <div className="rounded-full px-[27px] py-[14px] font-bold text-white bg-black">
@@ -510,9 +514,7 @@ export default function Home() {
 
               <div className="bg-[#F2F2F2] w-full pb-8 pt-12 pl-[42px] rounded-[48px] flex flex-col gap-8">
                 <div className="flex flex-col gap-4">
-                  <h6 className=" text-xl font-medium text-black">
-                    Our community
-                  </h6>
+                  <h6 className=" text-xl font-medium text-black">Our community</h6>
                   <Image
                     className="h-10 w-auto self-start"
                     placeholder="blur"
@@ -547,14 +549,9 @@ export default function Home() {
           <div className="bodyCon relative overflow-hidden">
             <div>
               <div className="flex pl-[120px] pr-[70px]">
-                <div
-                  id="left"
-                  className=" flex pt-[85px] flex-col gap-5 w-full"
-                >
+                <div id="left" className=" flex pt-[85px] flex-col gap-5 w-full">
                   <div className="flex flex-col gap-[18px]">
-                    <p className="uppercase text-[#f3f3f3] font-medium">
-                      Discover
-                    </p>
+                    <p className="uppercase text-[#f3f3f3] font-medium">Discover</p>
                     <h1 className="text-[56px] millik text-white w-full max-w-[694px]">
                       Featured authors & creators
                     </h1>
