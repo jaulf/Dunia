@@ -577,7 +577,7 @@ export default function Home() {
                     <span class="block">The reader’s conference</span>
                   </h2>
                   <p className="text-[#4d4d4d] max-w-[612px]">
-                    As climate change grips the planet, here is Earth. Org's
+                    As climate change grips the planet, here is Earth. Org&apos;s
                     selection of must-read books on climate change and
                     sustainability to enlighten you.
                   </p>
@@ -676,9 +676,9 @@ export default function Home() {
                   <div className="flex flex-col gap-[10px]">
                     <h6 className="text-[#009f00] millik">About author</h6>
                     <p className="text-[#B3B3B3] max-w-[484px]">
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua."Lorem ipsum dolor sit amet, consectetur adipiscing
+                      aliqua.&quot;Lorem ipsum dolor sit amet, consectetur adipiscing
                       elit, sed do eiusmod tempor incididunt ut labore et dolore
                       magna aliqua.
                     </p>
@@ -721,7 +721,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author2} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                  Debbie Mays
+                Debbie Mays
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -729,7 +729,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author3} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                  Trevor Jones
+                Trevor Jones
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -737,7 +737,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author4} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                  Etty Fidele
+                Etty Fidele
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -745,7 +745,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author5} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                  Ella Mayers
+                Ella Mayers
                 </h4>
               </div>
               <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
@@ -753,7 +753,7 @@ export default function Home() {
                   <Image classname="w-full h-full" src={author6} alt="" />
                 </div>
                 <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
-                  Fray Bekele
+                Fray Bekele
                 </h4>
               </div>
             </div>
@@ -767,7 +767,7 @@ export default function Home() {
                 <span class="dunia-grd2">resources</span> are available
               </h3>
               <p className="max-w-[612px] text-[#4d4d4d] text-center">
-                As climate change grips the planet, here is Earth. Org's
+                As climate change grips the planet, here is Earth. Org&apos;s
                 selection of must-read books on climate change and
                 sustainability to enlighten you.
               </p>
@@ -789,6 +789,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
       </main>
 
       <footer className="bg-[#009F00] overflow-hidden">
