@@ -297,6 +297,30 @@ input:-ms-input-placeholder {
   transform: translateX(-50%);
 }
 
+.author-pic-bg {
+  background: linear-gradient(180deg, rgba(11, 12, 11, 0) 58.83%, #0b0c0b 100%);
+}
+
+.arrows {
+  border-radius: 27px;
+  border: 1.5px solid #009f00;
+}
+
+.left-aarow {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+.right-aarow {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+}
+
+
 @media only screen and (min-width: 768px) {
 }
 

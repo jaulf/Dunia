@@ -37,6 +37,16 @@ import heartf from "../public/images/heart-full.png";
 import glasseffect from "../public/images/glasseffect.png";
 import author1 from "../public/images/author-jj.png";
 
+import arrowright from "../public/images/arrow-right.png";
+import warrowleft from "../public/images/w-arrow-left.png";
+
+//Authors
+import author2 from "../public/images/authors/DM.png";
+import author3 from "../public/images/authors/TJ.png";
+import author4 from "../public/images/authors/EF.png";
+import author5 from "../public/images/authors/EM.png";
+import author6 from "../public/images/authors/FB.png";
+
 export default function Home() {
   // const router = useRouter()
   // useEffect(() => {
@@ -610,6 +620,145 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="bg-[#0B0C0B]">
+          <div class="bodyCon relative overflow-hidden">
+            <div>
+              <div className="flex pl-[120px] pr-[70px]">
+                <div id="left" class=" flex pt-[85px] flex-col gap-5 w-full">
+                  <div class="flex flex-col gap-[18px]">
+                    <p class="uppercase text-[#f3f3f3] font-medium">Discover</p>
+                    <h1 class="text-[56px] millik text-white w-full max-w-[694px]">
+                      Featured authors & creators
+                    </h1>
+                  </div>
+                  <div class="flex flex-col gap-[10px]">
+                    <div className="flex gap-4 items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="41"
+                        height="3"
+                        viewBox="0 0 41 3"
+                        fill="none"
+                      >
+                        <path
+                          d="M40 2.5C40.5523 2.5 41 2.05228 41 1.5C41 0.947715 40.5523 0.5 40 0.5V2.5ZM0 2.5H40V0.5H0V2.5Z"
+                          fill="#009F00"
+                        />
+                      </svg>
+                      <span className="text-[#009f00] text-xl millik">
+                        James Jones
+                      </span>
+                    </div>
+                    <div className="flex gap-[10px] items-center font-medium leading-6 text-[#b3b3b3]">
+                      <div>💗</div>
+                      <div>4.5/5 hearts</div>
+                      <div>|</div>
+                      <div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M16 3.46776C17.4817 4.20411 18.5 5.73314 18.5 7.5C18.5 9.26686 17.4817 10.7959 16 11.5322M18 16.7664C19.5115 17.4503 20.8725 18.565 22 20M2 20C3.94649 17.5226 6.58918 16 9.5 16C12.4108 16 15.0535 17.5226 17 20M14 7.5C14 9.98528 11.9853 12 9.5 12C7.01472 12 5 9.98528 5 7.5C5 5.01472 7.01472 3 9.5 3C11.9853 3 14 5.01472 14 7.5Z"
+                            stroke="#B3B3B3"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div>127.4k followers</div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-[10px]">
+                    <h6 className="text-[#009f00] millik">About author</h6>
+                    <p className="text-[#B3B3B3] max-w-[484px]">
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua."Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit, sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  id="right"
+                  class="relative bg-[#0B0C0B] w-full h-full max-w-[570px] max-h-[570px] inline-flex flex-col justify-center items-center"
+                >
+                  <Image
+                    className="bg-[#0B0C0B] w-full h-full"
+                    src={author1}
+                    alt="James Jones"
+                  />
+                  <div className="author-pic-bg absolute w-full h-full max-w-[570px] max-h-[568px]"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="inline-flex flex-col justify-center py-[10px] px-6 arrows left-aarow w-auto items-center">
+                <Image
+                  src={warrowleft}
+                  alt="Left Arrow"
+                  class="w-6 h-6"
+                  placeholder="blur"
+                />
+              </div>
+              <div class="inline-flex flex-col justify-center py-[10px] px-6 arrows right-aarow w-auto items-center">
+                <Image
+                  src={arrowright}
+                  alt="Left Arrow"
+                  class="w-6 h-6"
+                  placeholder="blur"
+                />
+              </div>
+            </div>
+            <div class="flex gap-[25px] pb-[37px] pl-[120px] mt-[-26px] z-[99999] relative">
+              <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+                <div class="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
+                  <Image classname="w-full h-full" src={author2} alt="" />
+                </div>
+                <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                  Debbie Mays
+                </h4>
+              </div>
+              <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+                <div class="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
+                  <Image classname="w-full h-full" src={author3} alt="" />
+                </div>
+                <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                  Trevor Jones
+                </h4>
+              </div>
+              <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+                <div class="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
+                  <Image classname="w-full h-full" src={author4} alt="" />
+                </div>
+                <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                  Etty Fidele
+                </h4>
+              </div>
+              <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+                <div class="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
+                  <Image classname="w-full h-full" src={author5} alt="" />
+                </div>
+                <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                  Ella Mayers
+                </h4>
+              </div>
+              <div class="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+                <div class="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
+                  <Image classname="w-full h-full" src={author6} alt="" />
+                </div>
+                <h4 class="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                  Fray Bekele
+                </h4>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="bodyCon">
           <div className="pt-[82px] pb-[132px] relative flex gap-6 justify-center items-center flex-col">
             <div className="flex flex-col justify-center items-center gap-3 ">
@@ -637,72 +786,6 @@ export default function Home() {
 
             <div class="absolute flex self-start top-[38px] right-[158px]">
               <Image class="w-10 h-10" src={d7} alt="clover" />
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#0B0C0B]">
-          <div class="bodyCon">
-            <div>
-              <div id="left">
-                <div>
-                  <p>Discover</p>
-                  <h1>Featured authors & creators</h1>
-                </div>
-                <div>
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="41"
-                      height="3"
-                      viewBox="0 0 41 3"
-                      fill="none"
-                    >
-                      <path
-                        d="M40 2.5C40.5523 2.5 41 2.05228 41 1.5C41 0.947715 40.5523 0.5 40 0.5V2.5ZM0 2.5H40V0.5H0V2.5Z"
-                        fill="#009F00"
-                      />
-                    </svg>
-                    <span>James Jones</span>
-                  </div>
-                  <div>
-                    <div>💗</div>
-                    <div>4.5/5 hearts</div>
-                    <div>|</div>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M16 3.46776C17.4817 4.20411 18.5 5.73314 18.5 7.5C18.5 9.26686 17.4817 10.7959 16 11.5322M18 16.7664C19.5115 17.4503 20.8725 18.565 22 20M2 20C3.94649 17.5226 6.58918 16 9.5 16C12.4108 16 15.0535 17.5226 17 20M14 7.5C14 9.98528 11.9853 12 9.5 12C7.01472 12 5 9.98528 5 7.5C5 5.01472 7.01472 3 9.5 3C11.9853 3 14 5.01472 14 7.5Z"
-                          stroke="#B3B3B3"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <div>127.4k followers</div>
-                  </div>
-                </div>
-                <div>
-                  <h6>About author</h6>
-                  <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua."Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                </div>
-              </div>
-              <div id="right">
-                <Image src={author1} alt="James Jones" />
-              </div>
             </div>
           </div>
         </section>
