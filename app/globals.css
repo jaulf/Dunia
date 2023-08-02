@@ -364,6 +364,34 @@ input:-ms-input-placeholder {
   line-height: 48px;
 }
 
+.comment-input {
+  border: 1.5px solid #f2f2f2;
+  border-radius: 40px;
+  padding-left: 30px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  width: 100%;
+  outline: none;
+}
+
+.comment-textarea {
+  padding: 30px;
+  height: 228px;
+  border: 1.5px solid #f2f2f2;
+  border-radius: 30px;
+  width: 100%;
+  outline: none;
+}
+
+.comment-input::placeholder , .comment-textarea::placeholder {
+  color: #808080;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 28px; /* 116.667% */
+letter-spacing: -0.48px;
+}
+
 @media only screen and (min-width: 768px) {
 }
 

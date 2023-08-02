@@ -25,6 +25,7 @@ import chevleft from "@/public/images/pr-left.png";
 import chevright from "@/public/images/pr-right.png";
 import ratingsLarge from "@/public/images/ratingsLarge.png";
 import pvavatar from "@/public/images/pv-avatar.png";
+import zeroratings from "@/public/images/0ratings.png";
 
 export default function Home() {
   return (
@@ -33,7 +34,7 @@ export default function Home() {
         <Navbar />
       </header>
 
-      <main className="py-16">
+      <main className="pt-16">
         <div className="bodyCon">
           <div className=" px-10">
             <div class="flex gap-[50px] w-full py-6 justify-center items-center bg-[#EFEFEF] rounded-full">
@@ -181,14 +182,20 @@ export default function Home() {
               <div className="h-1 w-full bg-[#F2F2F2]"></div>
             </div>
 
-            <section id="customer-reviews" className="flex flex-col px-[120px] gap-10">
+            <section
+              id="customer-reviews"
+              className="flex flex-col px-[120px] gap-10"
+            >
               <div>
                 <h3 className="text-[32px] text-[#121212] font-bold leading-9 tracking-[-0.64px]">
                   Customer reviews
                 </h3>
               </div>
 
-              <div id="cont-per-comment" class=" flex flex-col pb-[88px] gap-[30px]">
+              <div
+                id="cont-per-comment"
+                class=" flex flex-col pb-[88px] gap-[30px]"
+              >
                 <div
                   id="per-comment"
                   className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
@@ -291,6 +298,48 @@ export default function Home() {
               </div>
             </section>
 
+            <section
+              id="comment-reviews"
+              className="flex flex-col pt-10 pb-[122px] px-[120px] gap-24"
+            >
+              <div>
+                <Link
+                  href="#"
+                  className="font-medium text-[#009F00] underline text-2xl leading-[29px] tracking-[-0.48px]"
+                >
+                  Leave a review
+                </Link>
+              </div>
+
+              <div>
+                <div className="flex gap-4 shrink-0 items-center">
+                  <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+                    Rate the Book
+                  </span>
+                  <Image
+                    className="h-[35px] w-auto"
+                    src={zeroratings}
+                    alt="rating Icon"
+                  />
+                </div>
+
+                <div class="flex flex-col gap-5 pt-[34px] pb-[50px]">
+                  <div class="w-full flex gap-5">
+                    <input class="comment-input" type="text" placeholder="Name or nickname" />
+                    <input class="comment-input" type="text" placeholder="Summary" />
+                  </div>
+                  <div>
+                    <textarea className="comment-textarea" placeholder="Review" />
+                  </div>
+                </div>
+
+                <div>
+                  <button class="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]">
+                    Submit review
+                  </button>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </main>
