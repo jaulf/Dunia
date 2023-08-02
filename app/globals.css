@@ -320,6 +320,49 @@ input:-ms-input-placeholder {
   transform: translateY(-50%);
 }
 
+.filter {
+  display: grid;
+  width: 100%;
+  max-width: 256px;
+  gap: 13px;
+}
+
+.filter > h6 {
+  color: #b1b5c3;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.filter > select {
+  width: 100%;
+  display: block;
+  padding: 13.5px 24px 13.5px 14px;
+  color: #000;
+  outline: none;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 151px;
+  border-radius: 12px;
+  border: 2px solid #ededed;
+  background: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.filter > select:after {
+  padding-right: 24px;
+}
+
+.filter > select > option {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 48px;
+}
 
 @media only screen and (min-width: 768px) {
 }
