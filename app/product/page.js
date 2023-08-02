@@ -21,9 +21,10 @@ import ratings from "@/public/images/ratings.png";
 import heartf from "@/public/images/heart-empty.png";
 import share from "@/public/images/share.png";
 import shopcart from "@/public/images/shopping-cart.png";
-
 import chevleft from "@/public/images/pr-left.png";
 import chevright from "@/public/images/pr-right.png";
+import ratingsLarge from "@/public/images/ratingsLarge.png";
+import pvavatar from "@/public/images/pv-avatar.png";
 
 export default function Home() {
   return (
@@ -56,9 +57,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div
+            <section
               id="hero-cont"
-              className="flex pt-16 px-[120px] justify-between gap-"
+              className="flex pt-16 px-[120px] justify-between"
             >
               <div id="left" className="flex flex-col gap-6">
                 <div className="w-[401px] rounded-[30px] relative overflow-hidden h-[454px]">
@@ -174,11 +175,122 @@ export default function Home() {
 
                 <div></div>
               </div>
+            </section>
+
+            <div id="divider" className="py-16 px-[87px]">
+              <div className="h-1 w-full bg-[#F2F2F2]"></div>
             </div>
 
-            <div id="divider" className="">
-              <div></div>
-            </div>
+            <section id="customer-reviews" className="flex flex-col px-[120px] gap-10">
+              <div>
+                <h3 className="text-[32px] text-[#121212] font-bold leading-9 tracking-[-0.64px]">
+                  Customer reviews
+                </h3>
+              </div>
+
+              <div id="cont-per-comment" class=" flex flex-col pb-[88px] gap-[30px]">
+                <div
+                  id="per-comment"
+                  className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="flex gap-[10px] shrink-0 items-center">
+                      <Image
+                        className="h-[35px] w-auto"
+                        src={ratingsLarge}
+                        alt="rating Icon"
+                      />
+                      <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+                        Great Read
+                      </span>
+                    </div>
+                    <p className="w-full max-w-[1001px] text-black text-xl leading-8">
+                      The sound is good and the battery life is also okay, but
+                      it will be more cool if the size of the case can be
+                      reduce. I wish the next edition case can be smaller than
+                      this, everything else about it is cool
+                    </p>
+                  </div>
+                  <div className="flex gap-[10px] items-center">
+                    <Image
+                      className="w-11 h-11"
+                      src={pvavatar}
+                      alt="Customer Avatar"
+                    />
+                    <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+                      Lemonade Me
+                    </span>
+                  </div>
+                </div>
+                <div
+                  id="per-comment"
+                  className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="flex gap-[10px] shrink-0 items-center">
+                      <Image
+                        className="h-[35px] w-auto"
+                        src={ratingsLarge}
+                        alt="rating Icon"
+                      />
+                      <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+                        Great Read
+                      </span>
+                    </div>
+                    <p className="w-full max-w-[1001px] text-black text-xl leading-8">
+                      The sound is good and the battery life is also okay, but
+                      it will be more cool if the size of the case can be
+                      reduce. I wish the next edition case can be smaller than
+                      this, everything else about it is cool
+                    </p>
+                  </div>
+                  <div className="flex gap-[10px] items-center">
+                    <Image
+                      className="w-11 h-11"
+                      src={pvavatar}
+                      alt="Customer Avatar"
+                    />
+                    <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+                      Lemonade Me
+                    </span>
+                  </div>
+                </div>
+                <div
+                  id="per-comment"
+                  className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="flex gap-[10px] shrink-0 items-center">
+                      <Image
+                        className="h-[35px] w-auto"
+                        src={ratingsLarge}
+                        alt="rating Icon"
+                      />
+                      <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+                        Great Read
+                      </span>
+                    </div>
+                    <p className="w-full max-w-[1001px] text-black text-xl leading-8">
+                      The sound is good and the battery life is also okay, but
+                      it will be more cool if the size of the case can be
+                      reduce. I wish the next edition case can be smaller than
+                      this, everything else about it is cool
+                    </p>
+                  </div>
+                  <div className="flex gap-[10px] items-center">
+                    <Image
+                      className="w-11 h-11"
+                      src={pvavatar}
+                      alt="Customer Avatar"
+                    />
+                    <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+                      Lemonade Me
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
           </div>
         </div>
       </main>
