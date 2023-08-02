@@ -118,7 +118,7 @@ export default function Home() {
                     </h1>
                     <div class="flex flex-col gap-4">
                       <p className="max-w-[543px] text-[#282828] leading-6 ">
-                        As climate change grips the planet, here is Earth. Org's
+                        As climate change grips the planet, here is Earth. Org&apos;s
                         selection of must-read books on climate change and
                         sustainability to enlighten you.
                       </p>
