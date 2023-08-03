@@ -392,6 +392,28 @@ line-height: 28px; /* 116.667% */
 letter-spacing: -0.48px;
 }
 
+.sub2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.sub2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.sub2 > div > span {
+  font-weight: 500;
+}
+
+.popup > div, .popup > div > div {
+  align-self: start;
+}
+
 @media only screen and (min-width: 768px) {
 }
 

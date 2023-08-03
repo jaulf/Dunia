@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import dunia from "../public/images/dunia.png";
-import chevdown from "../public/images/Arrow.png";
-import chevdown2 from "../public/images/chev-down.png";
-import search from "../public/images/search.png";
-import shoppingbag from "../public/images/shopping-bag.png";
+import dunia from "@/public/images/dunia.png";
+import chevdown from "@/public/images/Arrow.png";
+import chevdown2 from "@/public/images/chev-down.png";
+import search from "@/public/images/search.png";
+import shoppingbag from "@/public/images/shopping-bag.png";
 
 function Navbar() {
   return (
