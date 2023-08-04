@@ -45,9 +45,13 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <div className="text-[#4D4D4D] m-0">
+      <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
+        <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+          <Navbar />
+        </div>
+      </div>
       <header className="bodyCon">
         <div className="relative">
-          <Navbar />
           <div className="p-10 pb-[72px] relative flex justify-between gap-[75px] items-center">
             <div className="left flex flex-col gap-8">
               <div className="flex flex-col gap-4  max-w-[583px]">
@@ -514,7 +518,9 @@ export default function Home() {
 
               <div className="bg-[#F2F2F2] w-full pb-8 pt-12 pl-[42px] rounded-[48px] flex flex-col gap-8">
                 <div className="flex flex-col gap-4">
-                  <h6 className=" text-xl font-medium text-black">Our community</h6>
+                  <h6 className=" text-xl font-medium text-black">
+                    Our community
+                  </h6>
                   <Image
                     className="h-10 w-auto self-start"
                     placeholder="blur"
@@ -549,9 +555,14 @@ export default function Home() {
           <div className="bodyCon relative overflow-hidden">
             <div>
               <div className="flex pl-[120px] pr-[70px]">
-                <div id="left" className=" flex pt-[85px] flex-col gap-5 w-full">
+                <div
+                  id="left"
+                  className=" flex pt-[85px] flex-col gap-5 w-full"
+                >
                   <div className="flex flex-col gap-[18px]">
-                    <p className="uppercase text-[#f3f3f3] font-medium">Discover</p>
+                    <p className="uppercase text-[#f3f3f3] font-medium">
+                      Discover
+                    </p>
                     <h1 className="text-[56px] millik text-white w-full max-w-[694px]">
                       Featured authors & creators
                     </h1>

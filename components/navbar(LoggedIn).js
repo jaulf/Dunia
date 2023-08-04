@@ -29,6 +29,7 @@ export default function NavbarLoggedIn() {
             className="w-[91px] h-[28px]"
             src={dunia}
             alt="Dunia Logo"
+            placeholder="blur"
           />
         </Link>
 

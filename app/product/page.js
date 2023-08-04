@@ -30,9 +30,11 @@ import zeroratings from "@/public/images/0ratings.png";
 export default function Home() {
   return (
     <div className="text-[#4D4D4D] m-0">
-      <header className="bodyCon">
-        <Navbar />
-      </header>
+      <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
+        <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+          <Navbar />
+        </div>
+      </div>
 
       <main className="pt-16">
         <div className="bodyCon">
@@ -118,9 +120,9 @@ export default function Home() {
                     </h1>
                     <div class="flex flex-col gap-4">
                       <p className="max-w-[543px] text-[#282828] leading-6 ">
-                        As climate change grips the planet, here is Earth. Org&apos;s
-                        selection of must-read books on climate change and
-                        sustainability to enlighten you.
+                        As climate change grips the planet, here is Earth.
+                        Org&apos;s selection of must-read books on climate
+                        change and sustainability to enlighten you.
                       </p>
                       <div className="flex flex-col gap-5">
                         <div className="flex gap-[10px] items-center">
@@ -325,11 +327,22 @@ export default function Home() {
 
                 <div class="flex flex-col gap-5 pt-[34px] pb-[50px]">
                   <div class="w-full flex gap-5">
-                    <input class="comment-input" type="text" placeholder="Name or nickname" />
-                    <input class="comment-input" type="text" placeholder="Summary" />
+                    <input
+                      class="comment-input"
+                      type="text"
+                      placeholder="Name or nickname"
+                    />
+                    <input
+                      class="comment-input"
+                      type="text"
+                      placeholder="Summary"
+                    />
                   </div>
                   <div>
-                    <textarea className="comment-textarea" placeholder="Review" />
+                    <textarea
+                      className="comment-textarea"
+                      placeholder="Review"
+                    />
                   </div>
                 </div>
 

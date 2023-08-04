@@ -24,9 +24,11 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <div className="text-[#4D4D4D] m-0">
-      <header className="bodyCon">
-        <Navbar />
-      </header>
+      <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
+        <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+          <Navbar />
+        </div>
+      </div>
 
       <main>
         <section id="Discover" className="bodyCon">
