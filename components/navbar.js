@@ -9,11 +9,11 @@ import shoppingbag from "@/public/images/shopping-bag.png";
 
 function Navbar() {
   return (
-    <nav className="flex justify-between py-[26px] px-10">
+    <nav className="flex justify-between py-4 px-10">
       <div className="flex gap-11 items-center">
         <Link href="/">
           <Image
-            className="w-full max-w-[91px] h-auto"
+            className="w-[91px] h-[28px]"
             src={dunia}
             alt="Dunia Logo"
           />

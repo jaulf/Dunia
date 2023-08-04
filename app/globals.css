@@ -383,20 +383,20 @@ input:-ms-input-placeholder {
   outline: none;
 }
 
-.comment-input::placeholder , .comment-textarea::placeholder {
+.comment-input::placeholder,
+.comment-textarea::placeholder {
   color: #808080;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-line-height: 28px; /* 116.667% */
-letter-spacing: -0.48px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 116.667% */
+  letter-spacing: -0.48px;
 }
 
 .sub2 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
 }
 
 .sub2 > div {
@@ -410,7 +410,8 @@ letter-spacing: -0.48px;
   font-weight: 500;
 }
 
-.popup > div, .popup > div > div {
+.popup > div,
+.popup > div > div {
   align-self: start;
 }
 
@@ -431,6 +432,37 @@ letter-spacing: -0.48px;
 
 .dropdown:hover .dropdown-menu {
   display: flex;
+}
+
+.content {
+  color: #344054;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+}
+
+.active-c {
+  color: #000;
+  border-radius: 6px;
+  font-weight: 600;
+  background: #fef0ef;
+}
+
+.content-sub-active {
+  display: flex;
+  padding: 2px 8px;
+  align-items: center;
+  border-radius: 16px;
+  background-color: #fef0ef;
+  color: #4e4e4e;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 @media only screen and (min-width: 768px) {

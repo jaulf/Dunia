@@ -49,7 +49,6 @@ export default function Home() {
         <div class="max-w-[1440px] shrink-0 w-full navspace px-10">
           <Navbar />
         </div>
-        
       </div>
       <header className="bodyCon">
         <div className="relative">
