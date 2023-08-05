@@ -27,7 +27,7 @@ import mastercard from "@/public/images/profile/mastercard.png";
 import visa from "@/public/images/profile/visa1.png";
 import plus from "@/public/images/profile/plus.png";
 import paypass from "@/public/images/profile/PayPass.png";
-import lines from "@/public/images/profile/lines.png";
+import lines from "@/public/images/profile/Lines.png";
 import bgvisa from "@/public/images/profile/visa-bg.png";
 
 export default function NavbarUser() {
