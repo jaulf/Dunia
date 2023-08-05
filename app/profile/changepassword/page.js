@@ -352,18 +352,16 @@ export default function NavbarUser() {
               </div>
             </div>
             <div id="account-details">
-              <h2>Account Details</h2>
+              <h2>Change Password</h2>
               <form>
                 <div>
-                  <input type="text" placeholder="nuel0x" />
+                  <input type="password" placeholder="Old password" />
                 </div>
-                <div class="flex items-center gap-[29px]">
-                  <input type="password" placeholder="*************" />
-                  <span class="detail-cta">Change password</span>
+                <div>
+                  <input type="password" placeholder="New password" />
                 </div>
-                <div class="flex items-center gap-[29px]">
-                  <input type="email" placeholder="adelekenuel@gmail.com" />
-                  <span class="detail-cta">Change Email</span>
+                <div>
+                  <input type="password" placeholder="Confirm password" />
                 </div>
                 <div class="pt-5">
                   <button className="profile-cta">Save changes</button>

@@ -17,18 +17,19 @@ import dp6 from "@/public/images/profile/star.png";
 import dp7 from "@/public/images/profile/logout.png";
 
 import avatar2 from "@/public/images/profile/avatar2.png";
-import avatar3 from "@/public/images/profile/avatar3.png";
-import tick from "@/public/images/profile/Verified-tick.png";
-import sign1 from "@/public/images/profile/facebook.png";
-import sign2 from "@/public/images/profile/google.png";
-import mesh from "@/public/images/profile/colorful-mesh.png";
 
-import mastercard from "@/public/images/profile/mastercard.png";
-import visa from "@/public/images/profile/visa1.png";
-import plus from "@/public/images/profile/plus.png";
-import paypass from "@/public/images/profile/PayPass.png";
-import lines from "@/public/images/profile/Lines.png";
-import bgvisa from "@/public/images/profile/visa-bg.png";
+// Images
+import d7 from "@/public/images/D7.png";
+import ratings from "@/public/images/ratings.png";
+
+import tp1 from "@/public/images/tp1.png";
+import tp2 from "@/public/images/tp2.png";
+import tp3 from "@/public/images/tp3.png";
+import tp4 from "@/public/images/tp4.png";
+import hearte from "@/public/images/heart-empty.png";
+import heartf from "@/public/images/heart-green.png";
+import share from "@/public/images/share.png";
+import shopcart from "@/public/images/shopping-cart.png";
 
 export default function NavbarUser() {
   return (
@@ -170,8 +171,13 @@ export default function NavbarUser() {
         </div>
         <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
           <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
-            <div className="content active-c">Profile</div>
-            <div className="content">Favourites</div>
+            <div className="content">Profile</div>
+            <div className="content active-c">
+              Favourites{" "}
+              <div className="pl-2">
+                <span class="f-active">2</span>
+              </div>
+            </div>
             <div className="content">
               {2 == 1 ? (
                 <span>Downloads</span>
@@ -194,181 +200,136 @@ export default function NavbarUser() {
         </nav>
       </header>
 
-      <main class="bodyCon">
-        <section className="flex justify-center gap-5 pt-10 px-28">
-          <div id="left-profile" className="flex flex-col gap-5">
-            <div id="user" className="rounded-2xl overflow-hidden pb-5">
-              <div id="colorful" className="relative w-[392px] h-[120px]">
-                <Image
-                  src={mesh}
-                  className="object-cover"
-                  alt="rainbow gradient"
-                  sizes="100vw"
-                  fill
-                />
-              </div>
-              <div
-                id="user-info"
-                className=" mt-[-32px] px-6 flex flex-col gap-6"
-              >
-                <div class="relative w-24 h-24">
-                  <div
-                    id="image"
-                    className="relative w-24 h-24 shadow-uinfo rounded-full overflow-hidden border-[4px] border-white"
-                  >
-                    <Image
-                      src={avatar3}
-                      className="object-cover w-full h-auto"
-                      fill
-                      sizes="100vw"
-                      alt="avatar"
-                      placeholder="blur"
-                    />
-                  </div>
-                  <Image
-                    src={tick}
-                    className="w-6 h-6 bottom-[6px] right-[6px] absolute"
-                    alt="verfied-tick"
-                  />
-                </div>
-                <div class="ui-content">
-                  <div>
-                    <h3>Nuel Adeleke</h3>
-                    <span>Premium</span>
-                  </div>
-                  <h5>adelekenuel.com</h5>
-                </div>
-              </div>
-            </div>
-
-            <div id="card" class="flex flex-col gap-7">
-              <div className="flex justify-between items-start">
-                <h4>My cards</h4>
-                <div className="flex items-center gap-2">
-                  <Image src={plus} className="w-5 h-auto" alt="Add Icon" />
-                  <h6 className=" text-xs leading-5 circular">Add card</h6>
-                </div>
-              </div>
-              <div id="MasterandVisa" className="relative">
+      <main>
+        <section id="Discover" className="bodyCon">
+          <div className="px-10 pt-10 pb-[134px] flex gap-12 flex-col">
+            <div className="grid gap-5 grid-cols-4">
+              <div className="flex flex-col gap-4">
                 <div
-                  id="mastercard"
-                  className="inner-flex z-40 flex-col justify-center items-center relative w-[316px] h-[190px] rounded-[20px] overflow-hidden bg-[#F2F4F7]"
+                  id="img-ccard"
+                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
                 >
                   <Image
-                    className="w-[653.761px] h-[219px] absolute top-9"
-                    src={lines}
-                    alt="lines"
-                  />
-                  <h2 className=" text-[#344054] font-semibold absolute top-5 left-5">
-                    Nuel Adeleke
-                  </h2>
-                  <Image
-                    className="w-5 h-5 absolute top-5 right-5"
-                    src={paypass}
-                    alt=""
+                    className="rounded-[30px] w-full h-auto"
+                    sizes="100vw"
                     placeholder="blur"
+                    src={tp2}
+                    quality={100}
+                    alt="Top Pick Two"
                   />
-                  <Image
-                    className="w-auto h-8 absolute bottom-4 right-4 z-10"
-                    src={mastercard}
-                    alt=""
-                    placeholder="blur"
-                  />
-                  <div className="card-dets absolute bottom-4 left-6 flex flex-col gap-2">
-                    <div className="flex justify-between items-center">
-                      <p>OLIVIA RHYE</p>
-                      <p>06/24</p>
+                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
+                  </div>
+                  <div className="absolute bottom-6 right-6 flex gap-3">
+                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                      <Image className="w-6 h-6" src={share} alt="Share Icon" />
                     </div>
-                    <div class="acc-no">1234 1234 1234 1234</div>
+                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                      <Image
+                        className="w-6 h-6"
+                        src={shopcart}
+                        alt="Shopping Cart Icon"
+                      />
+                    </div>
                   </div>
                 </div>
+                <div id="img-text">
+                  <div className="flex gap-3 flex-col">
+                    <div className="flex justify-between">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-[#121212] millik leading-[15.47px]">
+                          All We Can Save
+                        </span>
+                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
+                          Naomi Klein
+                        </span>
+                      </div>
 
-                <div className="absolute top-7 left-7">
-                  <div
-                    id="visa"
-                    className="text-[#fff!important] inline-flex flex-col justify-center items-center relative w-[316px] h-[190px] rounded-[20px] overflow-hidden"
-                  >
-                    <Image
-                      className="w-[653.761px] h-[219px] z-10 absolute top-2"
-                      src={lines}
-                      alt="lines"
-                    />
-                    <Image
-                      className="w-full h-auto object-cover"
-                      fill
-                      sizes="100vw"
-                      src={bgvisa}
-                      alt="Colorful Background"
-                    />
-                    <div class="bg-[#344054] h-full absolute w-[228px] left-0 z-20"></div>
-                    <h2 className="  font-semibold absolute top-5 left-5 z-20">
-                      Nuel Adeleke
-                    </h2>
-                    <Image
-                      className="w-5 h-5 absolute top-5 right-5"
-                      src={paypass}
-                      alt=""
-                      placeholder="blur"
-                    />
-                    <Image
-                      className="w-auto h-8 absolute bottom-4 right-4 z-10"
-                      src={visa}
-                      alt=""
-                      placeholder="blur"
-                    />
-                    <div className="card-dets absolute bottom-4 left-6 flex flex-col gap-2 z-20">
-                      <div className="flex justify-between items-center">
-                        <p className="text-[#fff!important]">OLIVIA RHYE</p>
-                        <p className="text-[#fff!important]">06/24</p>
-                      </div>
-                      <div class="acc-no text-[#fff!important]">
-                        1234 1234 1234 1234
-                      </div>
+                      <span className="text-[#318736] font-semibold leading-[19.36px]">
+                        $40
+                      </span>
+                    </div>
+                    <p className="text-xs leading-5 text-[#121212]">
+                      As climate change grips the planet, here is Earth.
+                      Org&apos;s selection of must-read books on climate change
+                      and sustainability to enlighten you.
+                    </p>
+                    <div className="flex gap-[3px] items-center">
+                      <Image
+                        className="h-3 w-auto"
+                        src={ratings}
+                        alt="rating Icon"
+                      />
+                      <span className="font-medium text-[10px]">
+                        4.5 (55 ratings)
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div id="right-profile" className="flex flex-col gap-10">
-            <div id="connect">
-              <h2>Connect</h2>
-              <div id="FacebookandGoogle">
-                <div className="">
-                  <Image className="w-4 h-4" src={sign1} alt="Facebook" />
-                  <span className=" shrink-0 connect-active">
-                    Connect with Facebook
-                  </span>
-                </div>
-                <div>
+              <div className="flex flex-col gap-4">
+                <div
+                  id="img-ccard"
+                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
+                >
                   <Image
-                    className="w-[18px] h-[18px]"
-                    src={sign2}
-                    alt="Google"
+                    className="rounded-[30px] w-full h-auto"
+                    sizes="100vw"
+                    placeholder="blur"
+                    src={tp3}
+                    quality={100}
+                    alt="Top Pick Three"
                   />
-                  <span className=" shrink-0">Connected with Google</span>
+                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
+                  </div>
+                  <div className="absolute bottom-6 right-6 flex gap-3">
+                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                      <Image className="w-6 h-6" src={share} alt="Share Icon" />
+                    </div>
+                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                      <Image
+                        className="w-6 h-6"
+                        src={shopcart}
+                        alt="Shopping Cart Icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div id="img-text">
+                  <div className="flex gap-3 flex-col">
+                    <div className="flex justify-between">
+                      <div className="flex flex-col gap-2">
+                        <span className="text-[#121212] millik leading-[15.47px]">
+                          Drawdown
+                        </span>
+                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
+                          Paul Hawken
+                        </span>
+                      </div>
+
+                      <span className="text-[#318736] font-semibold leading-[19.36px]">
+                        $65
+                      </span>
+                    </div>
+                    <p className="text-xs leading-5 text-[#121212]">
+                      As climate change grips the planet, here is Earth.
+                      Org&apos;s selection of must-read books on climate change
+                      and sustainability to enlighten you.
+                    </p>
+                    <div className="flex gap-[3px] items-center">
+                      <Image
+                        className="h-3 w-auto"
+                        src={ratings}
+                        alt="rating Icon"
+                      />
+                      <span className="font-medium text-[10px]">
+                        4.5 (55 ratings)
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div id="account-details">
-              <h2>Account Details</h2>
-              <form>
-                <div>
-                  <input type="text" placeholder="nuel0x" />
-                </div>
-                <div class="flex items-center gap-[29px]">
-                  <input type="password" placeholder="*************" />
-                  <span class="detail-cta">Change password</span>
-                </div>
-                <div class="flex items-center gap-[29px]">
-                  <input type="email" placeholder="adelekenuel@gmail.com" />
-                  <span class="detail-cta">Change Email</span>
-                </div>
-                <div class="pt-5">
-                  <button className="profile-cta">Save changes</button>
-                </div>
-              </form>
             </div>
           </div>
         </section>

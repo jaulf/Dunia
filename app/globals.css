@@ -497,7 +497,7 @@ input:-ms-input-placeholder {
   border-radius: 15px;
   background: #fcfcfc;
   padding: 50px 40px;
-  width: max-content;
+  width: 100%;
 }
 
 #connect {
@@ -704,6 +704,33 @@ input:-ms-input-placeholder {
   line-height: normal;
   letter-spacing: 2.4px;
   line-height: 22px;
+}
+
+.active-c-g {
+  color: #344054;
+  border-radius: 6px;
+  font-weight: 500;
+  background: #EFFEEF;
+}
+
+.connect-active {
+  color: #000 !important;
+}
+
+.f-active {
+  display: flex;
+  padding: 2px 8px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #009f00;
+  mix-blend-mode: multiply;
+  color: #fff;
+  font-family: "Circular";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 @media only screen and (min-width: 768px) {
