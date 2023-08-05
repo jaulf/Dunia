@@ -4,11 +4,7 @@ import Image from "next/image";
 
 // Images
 import dunia from "@/public/images/dunia.png";
-import chevdown from "@/public/images/Arrow.png";
 import chevdown2 from "@/public/images/chev-down.png";
-import search from "@/public/images/search.png";
-import uavatarL from "@/public/images/profile/uavatarL.png";
-import uavatar from "@/public/images/profile/uavatar.png";
 import bell from "@/public/images/bell.png";
 import shoppingbag from "@/public/images/shopping-bag.png";
 
@@ -21,12 +17,17 @@ import dp6 from "@/public/images/profile/star.png";
 import dp7 from "@/public/images/profile/logout.png";
 
 import avatar2 from "@/public/images/profile/avatar2.png";
+import avatar3 from "@/public/images/profile/avatar3.png";
+import tick from "@/public/images/profile/Verified-tick.png";
+import sign1 from "@/public/images/profile/facebook.png";
+import sign2 from "@/public/images/profile/google.png";
+import mesh from "@/public/images/profile/colorful-mesh.png";
 
 export default function NavbarUser() {
   return (
     <>
-      <header>
-        <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
+      <header className="bg-white sticky top-0 z-[100]">
+        <div class="flex justify-center shrink-0 items-center">
           <div class="max-w-[1440px] shrink-0 w-full navspace px-20">
             <nav className="flex justify-between py-4 px-8">
               <div className="flex gap-11 items-center">
@@ -185,6 +186,91 @@ export default function NavbarUser() {
           </div>
         </nav>
       </header>
+
+      <main>
+        <section className="flex justify-center gap-5 pt-10">
+          <div id="left-profile">
+            <div id="user" className="rounded-2xl overflow-hidden pb-5">
+              <div id="colorful" className="relative w-[392px] h-[120px]">
+                <Image
+                  src={mesh}
+                  className="object-cover"
+                  alt="rainbow gradient"
+                  sizes="100vw"
+                  fill
+                />
+              </div>
+              <div id="user-info" className=" mt-[-32px] px-6 flex flex-col gap-6">
+                <div class="relative w-24 h-24">
+                  <div
+                    id="image"
+                    className="relative w-24 h-24 shadow-uinfo rounded-full overflow-hidden border-[4px] border-white"
+                  >
+                    <Image
+                      src={avatar3}
+                      className="object-cover w-full h-auto"
+                      fill
+                      sizes="100vw"
+                      alt="avatar"
+                    />
+                  </div>
+                  <Image src={tick} className="w-6 h-6 bottom-[6px] right-[6px] absolute" alt="verfied-tick" />
+                </div>
+                <div class="ui-content">
+                  <div>
+                    <h3>Nuel Adeleke</h3>
+                    <span>Premium</span>
+                  </div>
+                  <h5>adelekenuel.com</h5>
+                </div>
+              </div>
+            </div>
+
+            <div id="card"></div>
+          </div>
+
+          <div id="right-profile" className="flex flex-col gap-10">
+            <div id="connect">
+              <h2>Connect</h2>
+              <div id="FacebookandGoogle">
+                <div className="">
+                  <Image className="w-4 h-4" src={sign1} alt="Facebook" />
+                  <span className=" shrink-0 text-black">
+                    Connect with Facebook
+                  </span>
+                </div>
+                <div>
+                  <Image
+                    className="w-[18px] h-[18px]"
+                    src={sign2}
+                    alt="Google"
+                  />
+                  <span className=" shrink-0">Connected with Google</span>
+                </div>
+              </div>
+            </div>
+            <div id="account-details">
+              <h2>Account Details</h2>
+              <form>
+                <div>
+                  <input type="text" placeholder="nuel0x" />
+                </div>
+                <div class="flex items-center gap-[29px]">
+                  <input type="password" placeholder="*************" />
+                  <span class="detail-cta">Change password</span>
+                </div>
+                <div class="flex items-center gap-[29px]">
+                  <input type="email" placeholder="adelekenuel@gmail.com" />
+                  <span class="detail-cta">Change Email</span>
+                </div>
+                <div class="pt-5">
+                  <button className="profile-cta">Save changes</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   );
 }
