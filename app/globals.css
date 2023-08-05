@@ -10,7 +10,24 @@
 
 @font-face {
   font-family: "Circular";
-  src: url("../public/fonts/circular-std.ttf") format("truetype");
+  src: url("../public/fonts/Circular/CircularStd-Book.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("../public/fonts/Circular/CircularStd-Medium.otf") format("opentype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Circular";
+  src: url("../public/fonts/Circular/CircularStd-Bold.otf") format("opentype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("../public/fonts/manrope/semibold.otf") format("opentype");
+  font-weight: 600;
 }
 
 html,
@@ -31,6 +48,10 @@ body {
 
 .millik {
   font-family: "Millik";
+}
+
+.circular {
+  font-family: "Circular";
 }
 
 .bgWrap {
@@ -605,7 +626,7 @@ input:-ms-input-placeholder {
   font-family: "Circular";
   font-size: 16px;
   font-style: normal;
-  font-weight: 450;
+  font-weight: 400;
   line-height: 24px;
 }
 
@@ -637,6 +658,52 @@ input:-ms-input-placeholder {
   font-weight: 500;
   line-height: 20px; /* 142.857% */
   align-self: center;
+}
+
+#card h4 {
+  color: #101828;
+  font-family: "Circular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 155.556% */
+}
+
+#card h6 {
+  color: #475467;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+}
+
+.card-dets p {
+  color: #344054;
+  font-family: "Manrope";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+#visa {
+  border-radius: 20px;
+  box-shadow: 8px 10px 16px 0px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+}
+
+.acc-no {
+  color: var(--gray-700, #344054);
+  font-family: "Manrope";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.4px;
+  line-height: 22px;
 }
 
 @media only screen and (min-width: 768px) {

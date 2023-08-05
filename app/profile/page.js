@@ -23,6 +23,13 @@ import sign1 from "@/public/images/profile/facebook.png";
 import sign2 from "@/public/images/profile/google.png";
 import mesh from "@/public/images/profile/colorful-mesh.png";
 
+import mastercard from "@/public/images/profile/mastercard.png";
+import visa from "@/public/images/profile/visa1.png";
+import plus from "@/public/images/profile/plus.png";
+import paypass from "@/public/images/profile/PayPass.png";
+import lines from "@/public/images/profile/lines.png";
+import bgvisa from "@/public/images/profile/visa-bg.png";
+
 export default function NavbarUser() {
   return (
     <>
@@ -189,7 +196,7 @@ export default function NavbarUser() {
 
       <main>
         <section className="flex justify-center gap-5 pt-10">
-          <div id="left-profile">
+          <div id="left-profile" className="flex flex-col gap-5">
             <div id="user" className="rounded-2xl overflow-hidden pb-5">
               <div id="colorful" className="relative w-[392px] h-[120px]">
                 <Image
@@ -200,7 +207,10 @@ export default function NavbarUser() {
                   fill
                 />
               </div>
-              <div id="user-info" className=" mt-[-32px] px-6 flex flex-col gap-6">
+              <div
+                id="user-info"
+                className=" mt-[-32px] px-6 flex flex-col gap-6"
+              >
                 <div class="relative w-24 h-24">
                   <div
                     id="image"
@@ -214,7 +224,11 @@ export default function NavbarUser() {
                       alt="avatar"
                     />
                   </div>
-                  <Image src={tick} className="w-6 h-6 bottom-[6px] right-[6px] absolute" alt="verfied-tick" />
+                  <Image
+                    src={tick}
+                    className="w-6 h-6 bottom-[6px] right-[6px] absolute"
+                    alt="verfied-tick"
+                  />
                 </div>
                 <div class="ui-content">
                   <div>
@@ -226,7 +240,94 @@ export default function NavbarUser() {
               </div>
             </div>
 
-            <div id="card"></div>
+            <div id="card" class="flex flex-col gap-7">
+              <div className="flex justify-between items-start">
+                <h4>My cards</h4>
+                <div className="flex items-center gap-2">
+                  <Image src={plus} className="w-5 h-auto" alt="Add Icon" />
+                  <h6 className=" text-xs leading-5 circular">Add card</h6>
+                </div>
+              </div>
+              <div id="MasterandVisa" className="relative">
+                <div
+                  id="mastercard"
+                  className="inner-flex z-40 flex-col justify-center items-center relative w-[316px] h-[190px] rounded-[20px] overflow-hidden bg-[#F2F4F7]"
+                >
+                  <Image
+                    className="w-[653.761px] h-[219px] absolute top-9"
+                    src={lines}
+                    alt="lines"
+                  />
+                  <h2 className=" text-[#344054] font-semibold absolute top-5 left-5">
+                    Nuel Adeleke
+                  </h2>
+                  <Image
+                    className="w-5 h-5 absolute top-5 right-5"
+                    src={paypass}
+                    alt=""
+                    placeholder="blur"
+                  />
+                  <Image
+                    className="w-auto h-8 absolute bottom-4 right-4 z-10"
+                    src={mastercard}
+                    alt=""
+                    placeholder="blur"
+                  />
+                  <div className="card-dets absolute bottom-4 left-6 flex flex-col gap-2">
+                    <div className="flex justify-between items-center">
+                      <p>OLIVIA RHYE</p>
+                      <p>06/24</p>
+                    </div>
+                    <div class="acc-no">1234 1234 1234 1234</div>
+                  </div>
+                </div>
+
+                <div className="absolute top-7 left-7">
+                  <div
+                    id="visa"
+                    className="text-[#fff!important] inline-flex flex-col justify-center items-center relative w-[316px] h-[190px] rounded-[20px] overflow-hidden"
+                  >
+                    <Image
+                      className="w-[653.761px] h-[219px] z-10 absolute top-2"
+                      src={lines}
+                      alt="lines"
+                    />
+                    <Image
+                      className="w-full h-auto object-cover"
+                      fill
+                      sizes="100vw"
+                      src={bgvisa}
+                      alt="Colorful Background"
+                    />
+                    <div class="bg-[#344054] h-full absolute w-[228px] left-0 z-20"></div>
+                    <h2 className="  font-semibold absolute top-5 left-5 z-20">
+                      Nuel Adeleke
+                    </h2>
+                    <Image
+                      className="w-5 h-5 absolute top-5 right-5"
+                      src={paypass}
+                      alt=""
+                      placeholder="blur"
+                    />
+                    <Image
+                      className="w-auto h-8 absolute bottom-4 right-4 z-10"
+                      src={visa}
+                      alt=""
+                      placeholder="blur"
+                    />
+                    <div className="card-dets absolute bottom-4 left-6 flex flex-col gap-2 z-20">
+                      <div className="flex justify-between items-center">
+                        <p className="text-[#fff!important]">OLIVIA RHYE</p>
+                        <p className="text-[#fff!important]">06/24</p>
+                      </div>
+                      <div class="acc-no text-[#fff!important]">
+                        1234 1234 1234 1234
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div id="right-profile" className="flex flex-col gap-10">
