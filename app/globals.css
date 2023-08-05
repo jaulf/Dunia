@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css?family=Inter:200,300,400,500,600,700,800,900&display=swap");
+
 @font-face {
   font-family: "Millik";
   src: url("../public/fonts/Millik/MillikRegular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Circular";
+  src: url("../public/fonts/circular-std.ttf") format("truetype");
 }
 
 html,
@@ -456,6 +462,7 @@ input:-ms-input-placeholder {
   display: flex;
   padding: 2px 8px;
   align-items: center;
+  font-family: "Circular";
   border-radius: 16px;
   background-color: #fef0ef;
   color: #4e4e4e;
@@ -509,6 +516,8 @@ input:-ms-input-placeholder {
   font-size: 16px;
   line-height: 18px;
   font-weight: 500;
+  color: #3c4043;
+  line-height: normal;
 }
 
 #FacebookandGoogle img {
@@ -593,7 +602,7 @@ input:-ms-input-placeholder {
 
 .ui-content h5 {
   color: #676767;
-  font-family: Circular Std;
+  font-family: "Circular";
   font-size: 16px;
   font-style: normal;
   font-weight: 450;
@@ -622,11 +631,12 @@ input:-ms-input-placeholder {
   border: 1.5px solid #009f00;
   color: #000;
   text-align: center;
-  font-family: Circular Std;
+  font-family: "Circular";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px; /* 142.857% */
+  align-self: center;
 }
 
 @media only screen and (min-width: 768px) {
