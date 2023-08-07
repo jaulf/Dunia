@@ -46,6 +46,18 @@ body {
   max-width: 1440px;
 }
 
+.setbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.setbody > div {
+  max-width: 1440px;
+  width: 100%;
+  height: 100%;
+}
+
 .millik {
   font-family: "Millik";
 }
@@ -710,7 +722,7 @@ input:-ms-input-placeholder {
   color: #344054;
   border-radius: 6px;
   font-weight: 500;
-  background: #EFFEEF;
+  background: #effeef;
 }
 
 .connect-active {
@@ -733,6 +745,44 @@ input:-ms-input-placeholder {
   line-height: 18px;
 }
 
+.h2-one {
+  color: #000;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.8px;
+}
+
+td,
+th {
+  text-align: left;
+}
+
+th {
+  padding-bottom: 20px;
+  color: #4D4D4D;
+  font-size: 14px;
+}
+
+td {
+  border-top: 1.5px solid #f2f2f2;
+  border-bottom: 1.5px solid #f2f2f2;
+  padding: 10px 0;
+}
+
+tr:nth-child(1):hover {
+  background-color: #fff;
+}
+
+tr:hover {
+  background-color: #F1FEF1;
+}
+
+td:last-child {
+ padding-right: 20px;
+}
+
 @media only screen and (min-width: 768px) {
 }
 
@@ -749,7 +799,7 @@ input:-ms-input-placeholder {
   }
 }
 
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1700px) {
   #Image-sidebar {
     max-width: 100%;
   }
