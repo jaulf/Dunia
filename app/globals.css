@@ -783,6 +783,46 @@ td:last-child {
  padding-right: 20px;
 }
 
+#following-card {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;border-top: 1.5px solid #F0F0F0;
+  border-bottom: 1.5px solid #F0F0F0;
+  padding: 24px 0;
+}
+
+.image-grid  {
+  display: flex;
+  gap: 20px;
+  overflow: hidden
+}
+
+.image-grid > div  {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: 237px;
+  height: 159px;
+  border-radius: 15px;
+  overflow: hidden;
+  justify-content: center; 
+  align-items: center;
+}
+
+.image-grid > div:nth-child(1) > img {
+  object-fit: cover;
+  height: 370px!important;
+  object-position: -28px 0;
+}
+
+.image-grid > div:nth-child(4) > img {
+  object-fit: cover;
+  height: 370px!important;
+  object-position: -28px 0;
+}
+
+
+
 @media only screen and (min-width: 768px) {
 }
 
