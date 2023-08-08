@@ -41,15 +41,12 @@ import author5 from "@/public/images/authors/EM.png";
 import author6 from "@/public/images/authors/FB.png";
 import Navbar from "@/components/navbar(LoggedIn)";
 import Footer from "@/components/footer";
+import NavbarLoggedIn from "@/components/navbar(LoggedIn)";
 
 export default function Home() {
   return (
     <div className="text-[#4D4D4D] m-0">
-      <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
-        <div class="max-w-[1440px] shrink-0 w-full navspace px-10">
-          <Navbar />
-        </div>
-      </div>
+      <NavbarLoggedIn />
       <header className="bodyCon">
         <div className="relative">
           <div className="p-10 pb-[72px] relative flex justify-between gap-[75px] items-center">

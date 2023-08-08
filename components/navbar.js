@@ -9,17 +9,18 @@ import shoppingbag from "@/public/images/shopping-bag.png";
 
 function Navbar() {
   return (
-    <nav className="flex justify-between">
+    <nav className="flex justify-between items-center w-full">
       <div className="flex gap-11 items-center">
-        <Link href="/">
+        <Link class="relative block w-[91px] h-[28px]" href="/">
           <Image
-            className="w-[91px] h-[28px]"
+            className="object-cover object-center"
             src={dunia}
+            fill
             alt="Dunia Logo"
             placeholder="blur"
+            sizes="100vw"
           />
         </Link>
-
         <div className="flex gap-6 items-center">
           <Link className="nli" href="/">
             Featured
@@ -58,7 +59,7 @@ function Navbar() {
               src={shoppingbag}
               alt="Shopping Bag Icon"
             />
-            <div className="absolute top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white py-[1px] rounded-full px-[3px]">
+            <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white rounded-full ">
               3
             </div>
           </div>

@@ -4,14 +4,9 @@ import Image from "next/image";
 
 // Images
 import dunia from "@/public/images/dunia.png";
-import chevdown from "@/public/images/Arrow.png";
 import chevdown2 from "@/public/images/chev-down.png";
-import search from "@/public/images/search.png";
-import uavatarL from "@/public/images/profile/uavatarL.png";
-import uavatar from "@/public/images/profile/uavatar.png";
 import bell from "@/public/images/bell.png";
 import shoppingbag from "@/public/images/shopping-bag.png";
-import avatar2 from "@/public/images/profile/uavatar.png";
 
 import dp1 from "@/public/images/profile/heart.png";
 import dp2 from "@/public/images/profile/download.png";
@@ -20,13 +15,14 @@ import dp4 from "@/public/images/profile/fileheart.png";
 import dp5 from "@/public/images/profile/archive.png";
 import dp6 from "@/public/images/profile/star.png";
 import dp7 from "@/public/images/profile/logout.png";
+import avatar2 from "@/public/images/profile/uavatar.png";
 
-export default function NavbarLoggedIn() {
+export default function Navbaralt() {
   return (
-    <div class="setbody">
-      <div class="shrink-0 w-full navspace px-10">
-        <nav className="flex justify-between py-4">
-          <div className="flex gap-11 items-center">
+    <>
+      <div class="setbody">
+        <div class="shrink-0 w-full navspace px-10">
+          <nav className="flex justify-between items-center py-4">
             <Link class="relative block w-[91px] h-[28px]" href="/">
               <Image
                 className="object-cover object-center"
@@ -38,53 +34,25 @@ export default function NavbarLoggedIn() {
               />
             </Link>
 
-            <div className="flex gap-6 items-center">
-              <Link className="nli" href="/">
-                Featured
-              </Link>
-              <div className="flex gap-[10px] items-center">
-                <span className="nli">Categories</span>
-                <Image
-                  className="w-[10px] h-[10px]"
-                  src={chevdown}
-                  alt="Arrow Down Icon"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="flex self-center px-5 py-[14px] gap-[10px] items-center rounded-full w-full max-w-[500px] bg-[#0000000d]">
-            <Image
-              className="w-[18px] h-[18px]"
-              src={search}
-              alt="Search Icon"
-            />
-            <input
-              className="search bg-transparent outline-none"
-              type="text"
-              placeholder="Search Books or authors"
-            />
-          </div>
-
-          <div className="flex items-center gap-6">
-            <div className="dropdown">
-              <div className="dropdown-button relative w-[47px] h-[47px]">
-                <Image
-                  className="object-cover object-center"
-                  placeholder="blur"
-                  quality={100}
-                  sizes="100vw"
-                  fill
-                  src={avatar2}
-                  alt="User Avatar"
-                />
-              </div>
-
-              <div className="dropdown-menu pt-8 ">
+            <div className="flex items-center gap-6">
+              <div className="dropdown">
+                <div className="dropdown-button relative w-[47px] h-[47px]">
+                  <Image
+                    className="object-cover object-center"
+                    placeholder="blur"
+                    quality={100}
+                    sizes="100vw"
+                    fill
+                    src={avatar2}
+                    alt="User Avatar"
+                  />
+                </div>
+                {/* Dropdown menu if needed */}
+                {/* <div className="dropdown-menu pt-8 ">
                 <div className="text-black flex max-w-fit popup border-[2px] rounded-[15px] border-[#f2f2f2] bg-white flex-col gap-[30px] px-6 py-[34px]">
                   <div className="flex flex-col gap-5">
                     <div class="flex flex-row items-center gap-[15px]">
-                      <Image className="w-[70px] h-auto" placeholder="blur" src={uavatar} alt="" />
+                      <Image className="w-[70px] h-auto" src={uavatar} alt="" />
                       <div className="flex flex-col gap-[6px]">
                         <h2 className="font-medium text-xl leading-6">
                           Nuel Adeleke
@@ -153,39 +121,41 @@ export default function NavbarLoggedIn() {
                     </div>
                   </div>
                 </div>
+              </div> */}
               </div>
-            </div>
-            <div className="flex gap-[31px] items-center">
-              <div className="flex gap-6 items-center">
-                <div className="relative">
-                  <Image className="w-6 h-6" src={bell} alt="Bell Icon" />
-                  <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-4px] font-semibold text-[8px] bg-black text-white rounded-full ">
-                    3
+
+              <div className="flex gap-[31px] items-center">
+                <div className="flex gap-6 items-center">
+                  <div className="relative">
+                    <Image className="w-6 h-6" src={bell} alt="Bell Icon" />
+                    <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-4px] font-semibold text-[8px] bg-black text-white rounded-full ">
+                      3
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <Image
+                      className="w-6 h-6"
+                      src={shoppingbag}
+                      alt="Shopping Bag Icon"
+                    />
+                    <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-4px] font-semibold text-[8px] bg-black text-white rounded-full ">
+                      3
+                    </div>
                   </div>
                 </div>
-                <div className="relative">
+                <div className="flex gap-1 py-1 px-3 border-2 border-[#f5f5f5] rounded-full">
+                  <span className="font-medium text-sm ">ENG</span>
                   <Image
-                    className="w-6 h-6"
-                    src={shoppingbag}
-                    alt="Shopping Bag Icon"
+                    className="self-center w-4 h-4"
+                    src={chevdown2}
+                    alt="Arrow Down Icon"
                   />
-                  <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white rounded-full ">
-                    3
-                  </div>
                 </div>
               </div>
-              <div className="flex gap-1 py-1 px-3 border-2 border-[#f5f5f5] rounded-full">
-                <span className="font-medium text-sm ">ENG</span>
-                <Image
-                  className="self-center w-4 h-4"
-                  src={chevdown2}
-                  alt="Arrow Down Icon"
-                />
-              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
