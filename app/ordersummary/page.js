@@ -26,6 +26,9 @@ import chevright from "@/public/images/pr-right.png";
 import ratingsLarge from "@/public/images/ratingsLarge.png";
 import pvavatar from "@/public/images/pv-avatar.png";
 import zeroratings from "@/public/images/0ratings.png";
+import fedex from "@/public/images/fedex.png";
+import DHL from "@/public/images/DHL.png";
+import email from "@/public/images/mail3.png";
 
 export default function Home() {
   return (
@@ -38,8 +41,7 @@ export default function Home() {
 
       <main className="pt-16">
         <div className="bodyCon">
-
-          <div className=" px-10">
+          <div className="px-10">
             <div class="flex gap-[50px] w-full py-6 justify-center items-center bg-[#EFEFEF] rounded-full">
               <div className="flex shrink-0 gap-[10px]">
                 <Image className="w-[28px] h-[28px]" src={pv1} alt="" />
@@ -62,19 +64,189 @@ export default function Home() {
             </div>
           </div>
 
-          <div id="summary" className="pt-16 pb-10 px-[70px]">
+          <div
+            id="summary"
+            className="pt-16 pb-10 px-[70px] flex justify-between"
+          >
             <div className="flex flex-col gap-3">
-              <h2 className="text-[#212121] text-[40px] font-bold leading-[44px]">Order Summary</h2>
-              <p className="text-[#808080] text-2xl max-w-[556px] tracking-[-0.48px] leading-[38px]">Check your item and select your shipping for a better shopping experience</p>
+              <h2 className="text-[#212121] text-[40px] font-bold leading-[44px]">
+                Order Summary
+              </h2>
+              <p className="text-[#808080] text-2xl max-w-[556px] tracking-[-0.48px] leading-[38px]">
+                Check your item and select your shipping for a better shopping
+                experience
+              </p>
             </div>
 
-            <div class="bg-[#FCFCFC] border-[1.5px] border-[#e6e6e6] rounded-[28px]">
-              <div class="w-[120px] h-[116px] relative"><Image fill sizes="100vw" className="object-cover object-center" src={pr1} alt="" /></div>
-              <div></div>
+            <div class="bg-[#FCFCFC] border-[1.5px] border-[#e6e6e6] flex gap-5 items-center p-5 rounded-[28px]">
+              <div class="w-[120px] h-[116px] relative rounded-[14px] overflow-hidden shrink-0">
+                <Image
+                  fill
+                  sizes="100vw"
+                  className="object-cover object-center"
+                  src={pr1}
+                  alt=""
+                />
+              </div>
+              <div class="flex gap-[22px]">
+                <div id="inner-one" className="flex flex-col gap-[10px]">
+                  <h2 class="millik text-[28px] text-[#121212]">
+                    The Uninhabitable Earth
+                  </h2>
+                  <div class="flex gap-[10px] items-center text-[#686868]">
+                    <h6 className="font-medium">David Wallace-Wells</h6>
+                    <span className="flex items-center gap-[3px]">
+                      <Image
+                        src={ratingsLarge}
+                        className="w-[59px] h-auto"
+                        alt="4.5 ratings"
+                      />
+                      <p class=" text-[10px] font-medium tracking-[-0.2px]">
+                        4.5 (55 ratings)
+                      </p>
+                    </span>
+                  </div>
+                  <p className="max-w-[358px] text-[#121212] text-[10px] font-medium tracking-[-0.2px] leading-[14px]">
+                    As climate change grips the planet, here is Earth. Org's
+                    selection of must-read books on climate change and
+                    sustainability to enlighten you.
+                  </p>
+                </div>
+                <p
+                  id="inner-two"
+                  className="bg-[#EAF3EB] self-start rounded-full py-[10px] px-6 text-[#318736] text-xl font-semibold"
+                >
+                  $50
+                </p>
+              </div>
             </div>
-
           </div>
 
+          <div className="w-full px-10">
+            <div className="w-full h-[3px] bg-[#EFEFEF]"></div>
+          </div>
+
+          <div className="px-[70px] flex flex-col undersummary">
+            <div
+              id="available-shipping-methods"
+              className="flex flex-col gap-12"
+            >
+              <div className="flex flex-col gap-8">
+                <h2 className="h2-am">Available Methods</h2>
+                <div class="bg-[#FCFCFC] border-[2px] border-[#009F00] flex gap-5 items-center p-5 rounded-[28px]">
+                  <div class="w-[120px] h-[116px] inline-flex justify-center items-center relative rounded-[14px] overflow-hidden shrink-0">
+                    <Image
+                      className="w-[89px] h-auto"
+                      src={fedex}
+                      alt="FedEx"
+                    />
+                  </div>
+                  <div class="flex gap-[22px]">
+                    <div
+                      id="inner-one"
+                      className="flex flex-col text-[#121212] gap-[10px]"
+                    >
+                      <h2 class="text-[28px] font-bold tracking-[-0.56px]">
+                        FedEx Delivery
+                      </h2>
+                      <h6 className="font-medium leading-5 tracking-[-0.32px]">
+                        Should arrive within 2 days
+                      </h6>
+                      <p className="bg-[#EFFEEF] self-start rounded-full py-[5px] px-[18.5px] text-[#009F00] leading-5 tracking-[-0.32px] font-semibold">
+                        Free
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-[30px]">
+                <h2 className="text-[#808080] text-2xl leading-7 font-semibold tracking-[-0.48px]">
+                  Available international shipping
+                </h2>
+                <div class="bg-[#FCFCFC] border-[2px] border-[#F2F2F2] flex gap-5 items-center p-5 rounded-[28px]">
+                  <div class="w-[120px] h-[116px] bg-[#FC0] inline-flex justify-center items-center relative rounded-[14px] overflow-hidden shrink-0">
+                    <Image className="w-[88px]  h-auto" src={DHL} alt="DHL" />
+                  </div>
+                  <div class="flex gap-[22px]">
+                    <div
+                      id="inner-one"
+                      className="flex flex-col text-[#121212] gap-[10px]"
+                    >
+                      <h2 class="text-[28px] font-bold tracking-[-0.56px]">
+                        DHL Delivery
+                      </h2>
+                      <h6 className="font-medium leading-5 tracking-[-0.32px]">
+                        Should arrive within 2 weeks
+                      </h6>
+                      <p className="bg-[#EFFEEF] self-start rounded-full py-[5px] px-[18.5px] text-[#009F00] leading-5 tracking-[-0.32px] font-semibold">
+                        $12.99
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="payment-methods" className="">
+              <div id="pm-one" className="flex flex-col gap-2">
+                <h2>Payment method</h2>
+                <p className="text-[#808080] max-w-[520px] text-xl leading-8 tracking-[-0.4px]">
+                  Complete your purchase by providing your payment details in
+                  order
+                </p>
+              </div>
+
+              <div id="pm-two" className="flex flex-col gap-[30px] pt-[34px]">
+                <div>
+                  <h2>Full name</h2>
+                  <div>
+                    <div>
+                      <Image
+                        className="w-6 h-6"
+                        width={24}
+                        height={24}
+                        src={email}
+                        alt="mail"
+                      />
+                    </div>
+                    <input type="text" placeholder="Full name" />
+                  </div>
+                </div>
+                <div>
+                  <h2>Email address</h2>
+                  <div>
+                    <div>
+                      <Image
+                        className="w-6 h-6"
+                        width={24}
+                        height={24}
+                        src={email}
+                        alt="mail"
+                      />
+                    </div>
+                    <input type="email" placeholder="name@address.com" />
+                  </div>
+                </div>
+                <div>
+                  <h2>Billing address</h2>
+                  <div className="address">
+                    <div>
+                      <input type="text" placeholder="Please select a state, region or province" />
+                    </div>
+                    <div className="address-sub">
+                      <div>
+                        <input type="text" placeholder="Hi there" />
+                      </div>
+                      <div> 
+                        <input type="text" placeholder="Hi there" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
