@@ -977,11 +977,14 @@ input {
 
 .zuti-final-t {
   color: #212121;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-line-height: 28px; /* 116.667% */
-letter-spacing: -0.48px;
+}
+
+.zuti-final-t > p:nth-child(1) {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 116.667% */
+  letter-spacing: -0.48px;
 }
 
 @media only screen and (min-width: 768px) {
