@@ -833,7 +833,8 @@ td:last-child {
 
 .undersummary {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  grid-template-columns: 50% 50%;
   padding: auto 30px;
 }
 
@@ -844,12 +845,12 @@ td:last-child {
 
 .undersummary > div:nth-child(1) {
   padding-right: 40px;
-  border-right: 1.5px solid #f2f2f2;
+  border-right: 2px solid #f2f2f2;
 }
 
 .undersummary > div:nth-child(2) {
   padding-left: 40px;
-  border-left: 1.5px solid #f2f2f2;
+  border-left: 2px solid #f2f2f2;
 }
 
 #pm-one > h2 {
@@ -876,6 +877,7 @@ td:last-child {
   letter-spacing: -0.48px;
 }
 
+.em-bg,
 #pm-two > div:nth-child(1) > div,
 #pm-two > div:nth-child(2) > div {
   display: flex;
@@ -891,6 +893,22 @@ input {
   outline: none;
 }
 
+#pm-two input::placeholder {
+  color: #808080;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#pm-two input {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.em-bg,
 #pm-two > div:nth-child(1) > div > div,
 #pm-two > div:nth-child(2) > div > div {
   padding: 10px;
@@ -905,15 +923,65 @@ input {
   border-radius: 15px;
   border: 2px solid #f2f2f2;
   background: #fff;
+  overflow: hidden;
 }
 
-.address > input {
+.address input {
   padding: 30px;
 }
 
 .address-sub {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-top: 2px solid #f2f2f2;
+}
+
+.address-sub > div:nth-child(1) {
+  border-right: 1px solid #f2f2f2;
+}
+
+.address-sub > div:nth-child(2) {
+  border-left: 1px solid #f2f2f2;
+}
+
+.zuti-t {
+  color: #808080;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.4px;
+}
+
+.zuti-t > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-cta {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  display: flex;
+  border-radius: 32px;
+  background: #009f00;
+  padding: 14px 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.zuti-final-t {
+  color: #212121;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 28px; /* 116.667% */
+letter-spacing: -0.48px;
 }
 
 @media only screen and (min-width: 768px) {

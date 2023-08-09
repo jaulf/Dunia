@@ -29,6 +29,7 @@ import zeroratings from "@/public/images/0ratings.png";
 import fedex from "@/public/images/fedex.png";
 import DHL from "@/public/images/DHL.png";
 import email from "@/public/images/mail3.png";
+import card from "@/public/images/card.png";
 
 export default function Home() {
   return (
@@ -231,19 +232,72 @@ export default function Home() {
                   <h2>Billing address</h2>
                   <div className="address">
                     <div>
-                      <input type="text" placeholder="Please select a state, region or province" />
+                      <input
+                        type="text"
+                        placeholder="Please select a state, region or province"
+                      />
                     </div>
                     <div className="address-sub">
                       <div>
-                        <input type="text" placeholder="Hi there" />
+                        <input type="text" placeholder="Please select a city" />
                       </div>
-                      <div> 
-                        <input type="text" placeholder="Hi there" />
+                      <div>
+                        <input type="text" placeholder="Enter address" />
                       </div>
                     </div>
                   </div>
                 </div>
-                <div></div>
+                <div>
+                  <h2>Card number</h2>
+                  <aside className="pr-[40px] border-[2px] rounded-full inline-flex items-center pl-[13px] max-w-[610px]">
+                    <div className="gap-[10px] inline-flex items-center">
+                      <span class="em-bg shrink-0">
+                        <Image
+                          className="w-6 h-6"
+                          width={24}
+                          height={24}
+                          src={card}
+                          alt="Credit Card"
+                        />
+                      </span>
+                      <input type="text" placeholder="Full name" />
+                    </div>
+                    <div className="gap-[30px] inline-flex items-center">
+                      <div className="w-auto inline flex-col py-[21px] px-[30px] border-l-[2px] border-r-[2px] border-[#F2F2F2]">
+                        <input
+                          class="w-auto inline max-w-[70px]"
+                          type="text"
+                          placeholder="MM/YY"
+                        />
+                      </div>
+                      <div className="pl-[30px] w-auto inline max-w-[48px]">
+                        <input
+                          className="w-auto inline max-w-[48px]"
+                          type="text"
+                          placeholder="CVV"
+                        />
+                      </div>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+
+              <div id="pm-total" className="flex flex-col gap-10 pt-10 pb-[60px]">
+                <div className="flex flex-col gap-5 zuti-t">
+                  <div>
+                    <p>Subtotal</p>
+                    <p>$----</p>
+                  </div>
+                  <div>
+                    <p>VAT(10%)</p>
+                    <p>$----</p>
+                  </div>
+                  <div class="zuti-final-t">
+                    <p>Total</p>
+                    <p>$----</p>
+                  </div>
+                </div>
+                <button class="total-cta">Buy now</button>
               </div>
             </div>
           </div>
