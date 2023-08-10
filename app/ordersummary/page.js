@@ -108,7 +108,7 @@ export default function Home() {
                     </span>
                   </div>
                   <p className="max-w-[358px] text-[#121212] text-[10px] font-medium tracking-[-0.2px] leading-[14px]">
-                    As climate change grips the planet, here is Earth. Org's
+                    As climate change grips the planet, here is Earth. Org&apos;s
                     selection of must-read books on climate change and
                     sustainability to enlighten you.
                   </p>
