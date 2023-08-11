@@ -1,5 +1,12 @@
 ### Page Overview
 
+#### No navbars
+
+Login screen - https://cdunia.vercel.app/onboarding/login
+Register screen - https://cdunia.vercel.app/onboarding/signup
+Login screen with Email - https://cdunia.vercel.app/onboarding/login/email
+Register screen with Email - https://cdunia.vercel.app/onboarding/signup/email
+
 #### Edited Navbars
 Cart Screen - http://localhost:3000/cart
 Following Screen - http://localhost:3000/following
