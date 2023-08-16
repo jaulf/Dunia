@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 // Image Imports
 import sidebarImage from "../../../../public/images/onboarding.png";
@@ -32,9 +33,11 @@ export default function Home() {
   // };
 
   const config = {
+    withCredentials: true,
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json",
+      Accept: "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
   };
 
@@ -58,7 +61,7 @@ export default function Home() {
 
     const sanctumReq = await axios.get(xurl);
     console.log(sanctumReq);
-    const authReq = await axios.post(url, JSON.stringify(body), config);
+    const authReq = await axios.post(url, body, config);
     console.log(authReq);
   };
 
