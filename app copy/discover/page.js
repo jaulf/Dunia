@@ -1,10 +1,14 @@
 "use client";
+
 //Discover Select button
+
 import Link from "next/link";
 import Image from "next/image";
+
 // Images
 import d7 from "@/public/images/D7.png";
 import ratings from "@/public/images/ratings.png";
+
 import tp1 from "@/public/images/tp1.png";
 import tp2 from "@/public/images/tp2.png";
 import tp3 from "@/public/images/tp3.png";
@@ -15,6 +19,7 @@ import share from "@/public/images/share.png";
 import shopcart from "@/public/images/shopping-cart.png";
 import filter from "@/public/images/filter.png";
 import filterclose from "@/public/images/filter-close.png";
+
 // Component Imports
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";

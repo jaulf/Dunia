@@ -1,10 +1,11 @@
 "use client";
-//Discover Select button
 import Link from "next/link";
 import Image from "next/image";
+
 // Images
 import d7 from "@/public/images/D7.png";
 import ratings from "@/public/images/ratings.png";
+
 import tp1 from "@/public/images/tp1.png";
 import tp2 from "@/public/images/tp2.png";
 import tp3 from "@/public/images/tp3.png";
@@ -13,8 +14,7 @@ import hearte from "@/public/images/heart-empty.png";
 import heartf from "@/public/images/heart-green.png";
 import share from "@/public/images/share.png";
 import shopcart from "@/public/images/shopping-cart.png";
-import filter from "@/public/images/filter.png";
-import filterclose from "@/public/images/filter-close.png";
+
 // Component Imports
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -30,71 +30,20 @@ export default function Home() {
 
       <main>
         <section id="Discover" className="bodyCon">
-          <div className="px-10 pt-24 pb-[100px] flex flex-col">
-            <div className="flex justify-between items-center ">
+          <div className="px-10 pt-24 pb-[134px] flex gap-12 flex-col">
+            <div className="flex justify-between items-center">
               <h3 className="millik text-[32px] text-black leading-[30.94px]">
                 Discover what you need ⚡
               </h3>
+              <Link
+                className="rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
+                href="/"
+              >
+                See all
+              </Link>
             </div>
 
-            <div class="flex pt-[51px] pb-[40px] justify-between items-center">
-              <div class="flex catb font-medium text-xl text-black items-center gap-[10px]">
-                <span class="catb-active py-[10px] px-[23px]">All</span>
-                <span class="px-[21px]">Climate change</span>
-                <span class="px-[16px]">sustainability</span>
-                <span class="px-[19.5px]">biodiversity</span>
-              </div>
-              <div class="flex self-stretch rounded-full text-[#FCFCFD] bg-[#009f00] gap-[10px] items-center py-[11px] px-[20px]">
-                <span>Filter</span>
-                <Image src={filter} alt="Filter" width={16} height={16} />
-              </div>
-            </div>
-
-            <div className="inline-blockgap-10 items-end">
-              <div class="gap-4 flex items-end">
-                <div class="filter">
-                  <h6>Release date</h6>
-                  <select>
-                    <option>Newest</option>
-                    <option>Newest</option>
-                    <option>Newest</option>
-                    <option>Newest</option>
-                  </select>
-                </div>
-                <div class="filter">
-                  <h6>Price</h6>
-                  <select>
-                    <option>Lowest to Highest</option>
-                    <option>Lowest to Highest</option>
-                    <option>Lowest to Highest</option>
-                    <option>Lowest to Highest</option>
-                  </select>
-                </div>
-                <div class="filter">
-                  <h6>Creators</h6>
-                  <select>
-                    <option>Verified Only</option>
-                    <option>Verified Only</option>
-                    <option>Verified Only</option>
-                    <option>Verified Only</option>
-                  </select>
-                </div>
-                <div className="bg-[#009f00] shrink-0 self-end whitespace-nowrap ml-6 flex gap-[10px] text-white rounded-[12px] p-4">
-                  <div class="flex shrink-0 flex-col self-center">
-                    <Image
-                      src={filterclose}
-                      alt="Reset Filter"
-                      class="w-4 h-4"
-                    />
-                  </div>
-                  <span className="text-sm leading-4 block font-medium">
-                    Reset filter
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid pt-[60px] gap-5 grid-cols-4">
+            <div className="grid gap-5 grid-cols-4">
               <div className="flex flex-col gap-4">
                 <div
                   id="img-ccard"
@@ -348,12 +297,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="pt-[60px] flex justify-center items-center">
-              <button className="text-[#009F00] font-bold py-[14px] px-6 rounded-full border border-[#009F00]">
-                Load more
-              </button>
             </div>
           </div>
         </section>
