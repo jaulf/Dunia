@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import axios from "axios";
 
 // Image Imports
 import sidebarImage from "../../../../public/images/onboarding.png";
@@ -21,10 +22,20 @@ export default function Home() {
   // Base URL
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/api/v1/login";
 
+  // checks
+  const xurl = process.env.NEXT_PUBLIC_BASE_URL + "/sanctum/csrf-cookie";
+
   // Header Definition
-  const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
+  // const headers = {
+  //   "Content-Type": "application/json",
+  //   "Accept": "application/json",
+  // };
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
   };
 
   // Body Definition
@@ -37,11 +48,18 @@ export default function Home() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    fetch(url, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    }).then((response) => console.log(response));
+    // await fetch(xurl, {method: "get"}).then(res => console.log(res));
+
+    // fetch(url, {
+    //   method: "POST",
+    //   headers,
+    //   body: JSON.stringify(body),
+    // }).then((response) => console.log(response));
+
+    const sanctumReq = await axios.get(xurl);
+    console.log(sanctumReq);
+    const authReq = await axios.post(url, JSON.stringify(body), config);
+    console.log(authReq);
   };
 
   return (
