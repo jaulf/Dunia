@@ -991,6 +991,11 @@ input {
   letter-spacing: -0.48px;
 }
 
+.header-grdi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 @media only screen and (min-width: 768px) {
 }
 

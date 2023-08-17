@@ -10,8 +10,11 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <header className="flex justify-between w-full">
-        <div id="Image-sidebar" className="sticky top-0 max-w-[770px] h-[100vh] w-[100vw]">
+      <header className="header-grdi">
+        <div
+          id="Image-sidebar"
+          className="sticky top-0 max-w-[770px] h-[100vh]"
+        >
           <Image
             src={sidebarImage}
             alt="Hero Section Image"
@@ -21,15 +24,18 @@ export default function Home() {
             sizes="100vw"
             style={{
               objectFit: "cover",
-              objectPosition: "right bottom"
+              objectPosition: "right bottom",
             }}
           />
         </div>
+
         <div
           id="text-sidebar"
           className="px-[140px] pt-24 flex flex-col w-full items-center"
         >
-          <h2 className="millik text-[96px] tracking-[-1%]">Dunia</h2>
+          <h2 className="millik text-[64px] leading-[62px] tracking-[-0.64px]">
+            dunia
+          </h2>
 
           <div className=" flex flex-col justify-center items-center gap-10 pt-[100px]">
             <h2 className="text-[28px] font-medium leading-8 text-center">
@@ -53,7 +59,10 @@ export default function Home() {
                   Continue with Facebook
                 </span>
               </div>
-              <Link href="/onboarding/login/email" className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]">
+              <Link
+                href="/onboarding/login/email"
+                className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]"
+              >
                 <Image className="w-4 h-4" src={mail} alt="Mail Icon" />
                 <span className="font-medium leading-[18px]">
                   Continue with email
@@ -64,21 +73,16 @@ export default function Home() {
             <div className="font-medium text-[#666] flex flex-col justify-center items-center gap-10">
               <div className=" leading-5 text-center">
                 Don’t you have an account?{" "}
-                <Link className="text-[#FF3333] font-semibold" href="/onboarding/signup">
+                <Link
+                  className="text-[#FF3333] font-semibold"
+                  href="/onboarding/signup"
+                >
                   Sign up
                 </Link>
               </div>
             </div>
           </div>
 
-          <div className="pt-36 pb-14">
-            <span className=" font-semibold leading-5">by the</span>
-            <span className=" text-xl tracking-[-1%] leading-6 millik text-[#B3B3B3]">
-              {" "}
-              Dunia{" "}
-            </span>
-            <span className=" font-semibold leading-5">company</span>
-          </div>
         </div>
       </header>
     </>
