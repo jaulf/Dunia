@@ -637,6 +637,10 @@ input:-ms-input-placeholder {
   gap: 4px;
 }
 
+button:disabled {
+  opacity: .75;
+}
+
 .ui-content h5 {
   color: #676767;
   font-family: "Circular";

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
@@ -15,22 +16,24 @@ import arrowleft from "../../../../public/images/arrow-left.png";
 import passcode from "../../../../public/images/passcode.png";
 import back from "@/public/images/back.png";
 import user from "@/public/images/user.png";
+import errorCircle from "@/public/images/error-circle.png";
+import successCircle from "@/public/images/success-circle.png";
+import close from "@/public/images/x.png";
 
 export default function Home() {
+  const router = useRouter();
+
   // useState
-  const [fname, setFname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorM, setErrorM] = useState("");
+  const [successM, setSuccessM] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // URL
-  const url = process.env.NEXT_PUBLIC_BASE_URL + "/api/v1/register";
+  const url = process.env.NEXT_PUBLIC_BASE_URL + "/api/v1/login";
 
   // Header Definition
-  const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  };
-
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +43,6 @@ export default function Home() {
 
   // Body Definition
   const body = {
-    name: fname,
     email,
     password,
   };
@@ -49,20 +51,91 @@ export default function Home() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // const result = await fetch(url, {
-    //   method: "POST",
-    //   headers,
-    //   body: JSON.stringify(body),
-    // });
+    setIsSubmitting(true);
 
     axios
       .post(url, body, config)
-      .then((response) => console.log(response.data))
-      .catch((e) => console.log(e.response.data.errors));
+      .then((response) => {
+        localStorage.setItem("user-data", JSON.stringify(response.data));
+        setErrorM("");
+        setSuccessM("Login successful. You will be redirected shortly.");
+
+        // setTimeout(() => {
+        //   router.push("/profile");
+        // }, 3000);
+      })
+      .catch((e) => {
+        setSuccessM("");
+        setIsSubmitting(false);
+        setErrorM(e.response.data.message);
+      });
+  };
+  const closeErrorModal = () => {
+    setErrorM("");
+  };
+
+  const closeSuccessModal = () => {
+    setSuccessM("");
   };
 
   return (
     <>
+      <div
+        id="State-Manager"
+        className="fixed z-[99999] top-16 right-14 flex flex-col gap-4"
+      >
+        {errorM && (
+          <div
+            id="error"
+            className="border-l-4 bg-[#FDEFED] border-[#EA5945] p-4 shadow-md flex flex-row gap-14 items-center rounded-[4px] overflow-hidden"
+          >
+            <div className="flex flex-row gap-4 items-center">
+              <div className="w-8 h-8 grid grid-cols-1">
+                <Image
+                  className="w-full h-auto"
+                  src={errorCircle}
+                  alt="Error"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-semibold text-[#121212]">Error</h3>
+                <p className=" text-sm leading-[119%] text-[#4d4d4d]">
+                  {errorM}
+                </p>
+              </div>
+            </div>
+            <div onClick={closeErrorModal} className="grid grid-cols-1 shrink-0">
+              <Image className="w-5 h-5" src={close} alt="close" />
+            </div>
+          </div>
+        )}
+        {successM && (
+          <div
+            id="success"
+            className="border-l-4 bg-[#EDFDF9] border-[#13B288] p-4 shadow-md flex flex-row gap-14 items-center rounded-[4px] overflow-hidden"
+          >
+            <div className="flex flex-row gap-4 items-center">
+              <div className="w-8 h-8 grid grid-cols-1">
+                <Image
+                  className="w-full h-auto"
+                  src={successCircle}
+                  alt="Success"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-semibold text-[#121212]">Success</h3>
+                <p className=" text-sm leading-[119%] text-[#4d4d4d]">
+                  {successM}
+                </p>
+              </div>
+            </div>
+            <div onClick={closeSuccessModal} className="grid grid-cols-1 shrink-0">
+              <Image className="w-5 h-5" src={close} alt="close" />
+            </div>
+          </div>
+        )}
+      </div>
+
       <header className="header-grdi">
         <div
           id="Image-sidebar"
@@ -143,11 +216,15 @@ export default function Home() {
                   />
                 </div>
                 <div className="w-full pt-5">
-                  <button className="bg-[#F2665B] rounded-full text-white text-xl font-semibold py-5 w-full">
-                    Sign Up
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-[#F2665B] rounded-full text-white text-xl font-semibold py-5 w-full"
+                  >
+                    {isSubmitting ? "loading..." : "Login"}
                   </button>
                 </div>
-              </form> 
+              </form>
 
               <div className="font-medium text-[#666] flex flex-col justify-center items-center gap-10">
                 <div className=" leading-5 text-center">

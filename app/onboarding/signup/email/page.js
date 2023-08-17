@@ -29,6 +29,7 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const [errorM, setErrorM] = useState("");
   const [successM, setSuccessM] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // URL
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/api/v1/register";
@@ -52,38 +53,39 @@ export default function Home() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    axios
-      .post(url, body, config)
-      .then((response) => {
-        localStorage.setItem("User", response.data)
-        setErrorM("");
-        setSuccessM("Account created. You will be redirected shortly.");
-        setTimeout(() => {
-          router.push("/profile");
-        }, 3000);
-      })
-      .catch((e) => {
-        setSuccessM("");
-        setErrorM(e.response.data.message);
-      });
+    if (password.length < 8) {
+      setErrorM("Password must be more than 8 characters.");
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      axios
+        .post(url, body, config)
+        .then((response) => {
+          localStorage.setItem("User", JSON.stringify(response.data));
+          setErrorM("");
+          setSuccessM("Account created. You will be redirected shortly.");
+          // setTimeout(() => {
+          //   router.push("/profile");
+          // }, 3000);
+        })
+        .catch((e) => {
+          setSuccessM("");
+          setIsSubmitting(false);
+          setErrorM(e.response.data.message);
+        });
+    } catch (error) {
+      setErrorM("Something went wrong!");
+    }
   };
 
   const closeErrorModal = () => {
-    const popup = document.getElementById("error");
-    if (popup.style.display == "none") {
-      popup.style.display = "flex";
-    } else {
-      popup.style.display = "none";
-    }
+    setErrorM("");
   };
 
   const closeSuccessModal = () => {
-    const popup = document.getElementById("success");
-    if (popup.style.display == "none") {
-      popup.style.display = "flex";
-    } else {
-      popup.style.display = "none";
-    }
+    setSuccessM("");
   };
 
   return (
@@ -112,7 +114,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div onClick={closeErrorModal} className="grid grid-cols-1">
+            <div onClick={closeErrorModal} className="grid grid-cols-1 shrink-0">
               <Image className="w-5 h-5" src={close} alt="close" />
             </div>
           </div>
@@ -137,7 +139,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div onClick={closeSuccessModal} className="grid grid-cols-1">
+            <div onClick={closeSuccessModal} className="grid grid-cols-1 shrink-0">
               <Image className="w-5 h-5" src={close} alt="close" />
             </div>
           </div>
@@ -240,8 +242,12 @@ export default function Home() {
                   />
                 </div>
                 <div className="w-full pt-5">
-                  <button className="bg-[#F2665B] rounded-full text-white text-xl font-semibold py-5 w-full">
-                    Sign Up
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-[#F2665B] rounded-full text-white text-xl font-semibold py-5 w-full"
+                  >
+                    {isSubmitting ? "loading..." : "Sign Up"}
                   </button>
                 </div>
               </form>
