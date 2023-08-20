@@ -32,13 +32,17 @@ import share from "@/public/images/share.png";
 import shopcart from "@/public/images/profile/cart-active.png";
 
 import rect from "@/public/images/downloads/rect.png";
-import NavbarLoggedIn from "@/components/navbar(LoggedIn)";
+import Navbar from "@/components/navbar";
 
 export default function NavbarUser() {
   return (
     <>
       <header className="bg-white sticky top-0 z-[100]">
-        <NavbarLoggedIn />
+        <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
+          <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+            <Navbar />
+          </div>
+        </div>
         <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
           <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
             <div className="content">Profile</div>
@@ -99,7 +103,9 @@ export default function NavbarUser() {
                         alt="download"
                       />
                     </div>
-                    <span className="millik font-normal text-[#121212]">All We Can Save</span>
+                    <span className="millik font-normal text-[#121212]">
+                      All We Can Save
+                    </span>
                   </div>
                 </td>
                 <td>@nikkyblue</td>
@@ -107,7 +113,9 @@ export default function NavbarUser() {
                 <td>Crime</td>
                 <td className="text-[#009F00]">Download license</td>
                 <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">Download</button>
+                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
+                    Download
+                  </button>
                 </td>
               </tr>
               <tr className="font-semibold leading-5">
@@ -122,7 +130,9 @@ export default function NavbarUser() {
                         alt="download"
                       />
                     </div>
-                    <span className="millik font-normal text-[#121212]">All We Can Save</span>
+                    <span className="millik font-normal text-[#121212]">
+                      All We Can Save
+                    </span>
                   </div>
                 </td>
                 <td>@nikkyblue</td>
@@ -130,7 +140,9 @@ export default function NavbarUser() {
                 <td>Crime</td>
                 <td className="text-[#009F00]">Download license</td>
                 <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">Download</button>
+                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
+                    Download
+                  </button>
                 </td>
               </tr>
               <tr className="font-semibold leading-5">
@@ -145,7 +157,9 @@ export default function NavbarUser() {
                         alt="download"
                       />
                     </div>
-                    <span className="millik font-normal text-[#121212]">All We Can Save</span>
+                    <span className="millik font-normal text-[#121212]">
+                      All We Can Save
+                    </span>
                   </div>
                 </td>
                 <td>@nikkyblue</td>
@@ -153,7 +167,9 @@ export default function NavbarUser() {
                 <td>Crime</td>
                 <td className="text-[#009F00]">Download license</td>
                 <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">Download</button>
+                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
+                    Download
+                  </button>
                 </td>
               </tr>
               <tr className="font-semibold leading-5">
@@ -168,7 +184,9 @@ export default function NavbarUser() {
                         alt="download"
                       />
                     </div>
-                    <span className="millik font-normal text-[#121212]">All We Can Save</span>
+                    <span className="millik font-normal text-[#121212]">
+                      All We Can Save
+                    </span>
                   </div>
                 </td>
                 <td>@nikkyblue</td>
@@ -176,7 +194,9 @@ export default function NavbarUser() {
                 <td>Crime</td>
                 <td className="text-[#009F00]">Download license</td>
                 <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">Download</button>
+                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
+                    Download
+                  </button>
                 </td>
               </tr>
               <tr className="font-semibold leading-5">
@@ -191,7 +211,9 @@ export default function NavbarUser() {
                         alt="download"
                       />
                     </div>
-                    <span className="millik font-normal text-[#121212]">All We Can Save</span>
+                    <span className="millik font-normal text-[#121212]">
+                      All We Can Save
+                    </span>
                   </div>
                 </td>
                 <td>@nikkyblue</td>
@@ -199,7 +221,9 @@ export default function NavbarUser() {
                 <td>Crime</td>
                 <td className="text-[#009F00]">Download license</td>
                 <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">Download</button>
+                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
+                    Download
+                  </button>
                 </td>
               </tr>
             </table>

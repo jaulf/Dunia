@@ -22,6 +22,9 @@ import dp6 from "@/public/images/profile/star.png";
 import dp7 from "@/public/images/profile/logout.png";
 
 export default function NavbarLoggedIn() {
+
+  
+
   return (
     <div class="setbody">
       <div class="shrink-0 w-full navspace px-10">

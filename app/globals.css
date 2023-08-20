@@ -7,7 +7,6 @@
   font-family: "Millik";
   src: url("../public/fonts/Millik/MillikRegular.otf") format("opentype");
 }
-
 @font-face {
   font-family: "Circular";
   src: url("../public/fonts/Circular/CircularStd-Book.otf") format("opentype");
@@ -32,15 +31,11 @@
 
 /* add serif as a fallback font */
 
-dropdown
-
 html,
 body {
   scroll-behavior: smooth;
   color: #231f20;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji";
+  font-family: "Inter", 'Times New Roman', Times, serif;
   line-height: normal;
 }
 
@@ -442,14 +437,14 @@ input:-ms-input-placeholder {
   gap: 10px;
 }
 
-.sub2 > div {
+.sub2 > div, .sub2 > a {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
 }
 
-.sub2 > div > span {
+.sub2 > div > span, .sub2 > a > span {
   font-weight: 500;
 }
 

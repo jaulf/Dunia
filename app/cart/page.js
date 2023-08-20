@@ -31,13 +31,17 @@ import heartf from "@/public/images/heart-green.png";
 import share from "@/public/images/share.png";
 import shopcart from "@/public/images/profile/cart-active.png";
 import Navbaralt from "@/components/navbar-alt";
-import NavbarLoggedIn from "@/components/navbar(LoggedIn)";
+import Navbar from "@/components/navbar";
 
 export default function NavbarUser() {
   return (
     <>
       <header className="bg-white sticky top-0 z-[100]">
-        <NavbarLoggedIn/>
+        <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
+          <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+            <Navbar />
+          </div>
+        </div>
         <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
           <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
             <div className="content">Profile</div>

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 axios.defaults.withCredentials = true;
@@ -20,8 +20,14 @@ import errorCircle from "@/public/images/error-circle.png";
 import successCircle from "@/public/images/success-circle.png";
 import close from "@/public/images/x.png";
 
-export default function Home() {
+export default function EmailLogin() {
   const router = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem('user-auth')) {
+      router.push('/profile')
+    }
+  })
 
   // useState
   const [email, setEmail] = useState("");
@@ -31,7 +37,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // URL
-  const url = process.env.NEXT_PUBLIC_BASE_URL + "/api/v1/login";
+  const url = process.env.NEXT_PUBLIC_BASE_URL + "/login";
 
   // Header Definition
   const config = {
@@ -50,19 +56,16 @@ export default function Home() {
   // Submit Handler
   const submitHandler = async (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
-
     axios
       .post(url, body, config)
       .then((response) => {
-        localStorage.setItem("user-data", JSON.stringify(response.data));
+        localStorage.setItem("user-auth", JSON.stringify(response.data));
         setErrorM("");
         setSuccessM("Login successful. You will be redirected shortly.");
-
-        // setTimeout(() => {
-        //   router.push("/profile");
-        // }, 3000);
+        setTimeout(() => {
+          router.push("/profile");
+        }, 3000);
       })
       .catch((e) => {
         setSuccessM("");

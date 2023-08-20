@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 axios.defaults.withCredentials = true;
@@ -20,8 +20,14 @@ import errorCircle from "@/public/images/error-circle.png";
 import successCircle from "@/public/images/success-circle.png";
 import close from "@/public/images/x.png";
 
-export default function Home() {
+export default function EmailSignup() {
   const router = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem('user-auth')) {
+      router.push('/profile')
+    }
+  })
 
   // useState
   const [fname, setFname] = useState("");
@@ -32,7 +38,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // URL
-  const url = process.env.NEXT_PUBLIC_BASE_URL + "/api/v1/register";
+  const url = process.env.NEXT_PUBLIC_BASE_URL + "/register";
 
   // Header Definition
   const config = {
@@ -63,12 +69,12 @@ export default function Home() {
       axios
         .post(url, body, config)
         .then((response) => {
-          localStorage.setItem("User", JSON.stringify(response.data));
+          localStorage.setItem("user-auth", JSON.stringify(response.data));
           setErrorM("");
           setSuccessM("Account created. You will be redirected shortly.");
-          // setTimeout(() => {
-          //   router.push("/profile");
-          // }, 3000);
+          setTimeout(() => {
+            router.push("/profile");
+          }, 3000);
         })
         .catch((e) => {
           setSuccessM("");

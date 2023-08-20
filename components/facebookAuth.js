@@ -1,14 +1,12 @@
+"use client"
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-
-// IMport NextAuth.js
 import { useSession, signIn, signOut } from "next-auth/react";
+import fb from "@/public/images/fb.png";
 
 export default function FacebookAuth() {
   const router = useRouter();
-
   // URL
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/auth/oauth";
 
@@ -41,24 +39,17 @@ export default function FacebookAuth() {
     axios.post(url, body, config).then((response) => {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
+      router.push('/profile')
     });
   }
 
   return (
-    <div className="bg-white fixed top-0 bottom-0 left-0 right-0 z-[9999999999]">
-      <div>
-        {session ? (
-          <div>
-            <div>Signed In as {session.name}</div>
-            <button onClick={() => signOut()}>Sign Out</button>
-          </div>
-        ) : (
-          <div>
-            <div>Not Signed In </div>
-            <button onClick={() => signIn("google")}>Sign In</button>
-          </div>
-        )}
-      </div>
+    <div
+      onClick={() => signIn("facebook")}
+      className="flex cursor-pointer justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]"
+    >
+      <Image className="w-4 h-4" src={fb} alt="Facebook Icon" />
+      <span className="font-medium leading-[18px]">Continue with Facebook</span>
     </div>
   );
 }

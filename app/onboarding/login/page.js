@@ -1,12 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-
-// IMport NextAuth.js
-import { useSession, signIn, signOut } from "next-auth/react";
 
 // Image Imports
 import sidebarImage from "../../../public/images/onboarding.png";
@@ -21,13 +18,16 @@ import FacebookAuth from "@/components/facebookAuth";
 
 export default function Home() {
   const router = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem('user-auth')) {
+      router.push('/profile')
+    }
+  })
+
   // useState
   const [errorM, setErrorM] = useState("");
   const [successM, setSuccessM] = useState("");
-  const [accessToken, setAccessToken] = useState("");
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [oauth, setOauth] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const closeErrorModal = () => {
@@ -37,18 +37,11 @@ export default function Home() {
     setSuccessM("");
   };
 
-  // Submit Handler
-  const submitHandler = async (e) => {
-    e.preventDefault();
-  };
-
   return (
     <>
-      {/* <GoogleAuth /> */}
-      <FacebookAuth />
       <div
         id="State-Manager"
-        className="fixed z-[99999] top-16 right-14 flex flex-col gap-4"
+        className="fixed max-w-2xl z-[99999] top-16 right-14 flex flex-col gap-4"
       >
         {errorM && (
           <div
@@ -141,28 +134,8 @@ export default function Home() {
             </h2>
 
             <div className="w-[389px] flex justify-center items-center flex-col gap-5">
-              <div
-                onClick={submitHandler}
-                className="flex cursor-pointer  justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]"
-              >
-                <Image
-                  className="w-[18px] h-[18px]"
-                  src={google}
-                  alt="Google Icon"
-                />
-                <span
-                  onClick={submitHandler}
-                  className="font-medium leading-[18px] selectedtext"
-                >
-                  Continue with Google
-                </span>
-              </div>
-              <div className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]">
-                <Image className="w-4 h-4" src={fb} alt="Facebook Icon" />
-                <span className="font-medium leading-[18px]">
-                  Continue with Facebook
-                </span>
-              </div>
+              <FacebookAuth />
+              <GoogleAuth />
               <Link
                 href="/onboarding/login/email"
                 className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]"

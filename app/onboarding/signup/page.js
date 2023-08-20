@@ -1,17 +1,28 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 // Image Imports
 import sidebarImage from "../../../public/images/onboarding.png";
 import fb from "../../../public/images/fb.png";
 import google from "../../../public/images/google.png";
 import mail from "../../../public/images/mail.png";
-import Link from "next/link";
+import GoogleAuth from "@/components/googleAuth";
+import FacebookAuth from "@/components/facebookAuth";
 
 export default function Home() {
-  return (
-    <>
+  const router = useRouter();
 
-    
+  useEffect(() => {
+    if (localStorage.getItem('user-auth')) {
+      router.push('/profile')
+    }
+  })
+
+  return ( 
+    <>
       <header className="header-grdi">
         <div
           id="Image-sidebar"
@@ -45,22 +56,8 @@ export default function Home() {
               </h2>
 
               <div className="w-[389px] flex justify-center items-center flex-col gap-5">
-                <div className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]">
-                  <Image
-                    className="w-[18px] h-[18px]"
-                    src={google}
-                    alt="Google Icon"
-                  />
-                  <span className="font-medium leading-[19px] selectedtext">
-                    Continue with Google
-                  </span>
-                </div>
-                <div className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]">
-                  <Image className="w-4 h-4" src={fb} alt="Facebook Icon" />
-                  <span className="font-medium leading-[19px]">
-                    Continue with Facebook
-                  </span>
-                </div>
+                <FacebookAuth />
+                <GoogleAuth />
                 <Link
                   href="/onboarding/signup/email"
                   className="flex justify-center whitespace-nowrap rounded-full gap-[5px] items-center w-full max-w-[389px] px-[61px] py-5 border-[1.5px] border-[#d9d9d9]"
