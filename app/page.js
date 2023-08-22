@@ -14,26 +14,20 @@ import d7 from "../public/images/D7.png";
 import ratings from "../public/images/ratings.png";
 import obfImg from "../public/images/obfImg.png";
 import memobf from "../public/images/mem-obf.png";
-
 import tp1 from "../public/images/tp1.png";
 import tp2 from "../public/images/tp2.png";
 import tp3 from "../public/images/tp3.png";
 import tp4 from "../public/images/tp4.png";
-
 import c1 from "../public/images/c1.png";
 import c2 from "../public/images/c2.png";
 import c3 from "../public/images/c3.png";
 import c4 from "../public/images/c4.png";
-
 import hearte from "../public/images/heart-empty.png";
 import heartf from "../public/images/heart-full.png";
 import glasseffect from "../public/images/glasseffect.png";
 import author1 from "../public/images/author-jj.png";
-
 import arrowright from "../public/images/arrow-right.png";
 import warrowleft from "../public/images/w-arrow-left.png";
-
-//Authors
 import author2 from "../public/images/authors/DM.png";
 import author3 from "../public/images/authors/TJ.png";
 import author4 from "../public/images/authors/EF.png";
@@ -41,8 +35,22 @@ import author5 from "../public/images/authors/EM.png";
 import author6 from "../public/images/authors/FB.png";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import axios from "axios";
 
 export default function Home() {
+  const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
+
+  axios.get(url, config)
+  .then((response) => console.log(response.data.data))
+  .catch(e => console.log(error));
+
   return (
     <div className="text-[#4D4D4D] m-0">
       <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">

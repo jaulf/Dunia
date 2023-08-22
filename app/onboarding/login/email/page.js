@@ -82,7 +82,7 @@ export default function EmailLogin() {
   };
 
   return (
-    <>
+    <> 
       <div
         id="State-Manager"
         className="fixed z-[99999] top-16 right-14 flex flex-col gap-4"
