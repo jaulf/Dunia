@@ -35,21 +35,24 @@ import author5 from "../public/images/authors/EM.png";
 import author6 from "../public/images/authors/FB.png";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import axios from "axios";
+import { fetchProducts, getAllProducts } from "@/components/redux/products/productSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 export default function Home() {
-  const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
+  const dispatch = useDispatch();
+  const productStatus = useSelector((state) => state.Products.status);
+  const allProducts = useSelector(getAllProducts)
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  };
+  useEffect(() => {
+    if (productStatus == "idle") {
+      dispatch(fetchProducts());
+    }
+  }, [productStatus, dispatch]);
 
-  axios.get(url, config)
-  .then((response) => console.log(response.data.data))
-  .catch(e => console.log(error));
+  if (productStatus == "succeeded") {
+    console.log(allProducts);
+  }
 
   return (
     <div className="text-[#4D4D4D] m-0">
@@ -659,7 +662,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="flex gap-[25px] pb-[37px] pl-[120px] mt-[-26px] z-[99999] relative">
+            <div className="flex gap-[25px] pb-[37px] pl-[120px] mt-[-26px] z-[99] relative">
               <div className="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author2} alt="" />

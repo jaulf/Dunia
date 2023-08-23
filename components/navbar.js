@@ -1,6 +1,9 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import dunia from "@/public/images/dunia.png";
 import chevdown from "@/public/images/Arrow.png";
@@ -17,9 +20,9 @@ import dp5 from "@/public/images/profile/archive.png";
 import dp6 from "@/public/images/profile/star.png";
 import dp7 from "@/public/images/profile/logout.png";
 import bell from "@/public/images/bell.png";
-import { useSession, signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import ratings from "@/public/images/ratings.png";
+import s1 from "@/public/images/search/s1.png";
+import s2 from "@/public/images/search/s2.png";
 
 function Navbar() {
   const { data: session, status } = useSession();
@@ -35,7 +38,7 @@ function Navbar() {
   return (
     <>
       {status == "authenticated" || body ? (
-        <nav className="flex justify-between">
+        <nav className="flex justify-between z-[999999999]">
           <div className="flex gap-11 items-center">
             <Link class="relative block w-[91px] h-[28px]" href="/">
               <Image
@@ -63,17 +66,83 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="flex self-center px-5 py-4 gap-[10px] items-center rounded-full w-full max-w-[500px] bg-[#0000000d]">
-            <Image
-              className="w-[18px] h-[18px]"
-              src={search}
-              alt="Search Icon"
-            />
-            <input
-              className="search bg-transparent outline-none"
-              type="text"
-              placeholder="Search Books or authors"
-            />
+          <div className="dropdown-search relative w-full max-w-[500px]">
+            <div className="flex self-center w-full px-5 py-4 gap-[10px] items-center rounded-full bg-[#0000000d]">
+              <Image
+                className="w-[18px] h-[18px]"
+                src={search}
+                alt="Search Icon"
+              />
+              <input
+                className="search bg-transparent outline-none w-full"
+                type="text"
+                placeholder="Search Books or authors"
+              />
+            </div>
+            <div className="absolute pt-8 bg-transparent">
+              <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[592px]">
+                <div class="search-card flex items-center justify-center gap-6">
+                  <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                    <Image
+                      className="object-cover object-center"
+                      fill
+                      src={s1}
+                      alt="Naomi Klien"
+                    />
+                  </div>
+                  <div className="search-card-content flex flex-col gap-3">
+                    <h6>Naomi Klein</h6>
+                    <h4>This Changes Everything: Capital’s Finest</h4>
+                    <div className="search-card-content-sub">
+                      <h5>$150</h5>
+                      <span></span>
+                      <h6>Climate Change</h6>
+                      <span></span>
+                      <div className="flex gap-[3px] items-center ">
+                        <Image
+                          className="h-3 w-auto"
+                          src={ratings}
+                          alt="rating Icon"
+                        />
+                        <span className="font-medium text-[10px]">
+                          4.5 (55 ratings)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="search-card flex items-center justify-center gap-6">
+                  <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                    <Image
+                      className="object-cover object-center"
+                      fill
+                      src={s2}
+                      alt="Naomi Klien"
+                    />
+                  </div>
+                  <div className="search-card-content flex flex-col gap-3">
+                    <h6>Naomi Klein</h6>
+                    <h4>This Changes Everything: Capital’s Finest</h4>
+                    <div className="search-card-content-sub">
+                      <h5>$150</h5>
+                      <span></span>
+                      <h6>Climate Change</h6>
+                      <span></span>
+                      <div className="flex gap-[3px] items-center ">
+                        <Image
+                          className="h-3 w-auto"
+                          src={ratings}
+                          alt="rating Icon"
+                        />
+                        <span className="font-medium text-[10px]">
+                          4.5 (55 ratings)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="flex items-center gap-6">
@@ -102,10 +171,12 @@ function Navbar() {
                       />
                       <div className="flex flex-col gap-[6px]">
                         <h2 className="font-medium text-xl leading-6">
-                          {session && session.name || body && body.data.name}
+                          {(session && session.name) ||
+                            (body && body.data.name)}
                         </h2>
                         <p className="font-medium text-[10px]">
-                          {session && session.email || body && body.data.email}
+                          {(session && session.email) ||
+                            (body && body.data.email)}
                         </p>
                       </div>
                     </div>
@@ -213,7 +284,7 @@ function Navbar() {
           </div>
         </nav>
       ) : (
-        <nav className="flex justify-between items-center w-full">
+        <nav className="flex justify-between items-center w-full z-[999999999]">
           <div className="flex gap-11 items-center">
             <Link class="relative block w-[91px] h-[28px]" href="/">
               <Image

@@ -35,7 +35,7 @@ html,
 body {
   scroll-behavior: smooth;
   color: #231f20;
-  font-family: "Inter", 'Times New Roman', Times, serif;
+  font-family: "Inter", "Times New Roman", Times, serif;
   line-height: normal;
 }
 
@@ -437,14 +437,16 @@ input:-ms-input-placeholder {
   gap: 10px;
 }
 
-.sub2 > div, .sub2 > a {
+.sub2 > div,
+.sub2 > a {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
 }
 
-.sub2 > div > span, .sub2 > a > span {
+.sub2 > div > span,
+.sub2 > a > span {
   font-weight: 500;
 }
 
@@ -633,7 +635,7 @@ input:-ms-input-placeholder {
 }
 
 button:disabled {
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .ui-content h5 {
@@ -993,6 +995,49 @@ input {
 .header-grdi {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.search-card-content {
+  align-self: center!important;
+}
+
+.search-card-content h6 {
+  color: #686868;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.search-card-content h4 {
+  color: #121212;
+  font-family: "Millik";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.search-card-content-sub {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.search-card-content-sub h5 {
+  color: #318736;
+  text-align: right;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.search-card-content-sub > span {
+  width: 4px;
+  height: 4px;
+  background-color: #686868;
+  border-radius: 99px;
 }
 
 @media only screen and (min-width: 768px) {
