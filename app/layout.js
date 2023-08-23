@@ -1,13 +1,14 @@
+import { Inter } from "next/font/google";
 import ProviderTwo from "@/components/provider";
 import "./globals.css";
-import { Inter } from "next/font/google";
-import ReduxProvider from "@/components/redux/ReduxProvider";
 
 const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
   style: ["normal"],
   subsets: ["latin"],
 });
+
+import ReduxProvider from "@/components/redux/ReduxProvider";
 
 export const metadata = {
   title: "Dunia ",

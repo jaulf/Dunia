@@ -35,24 +35,24 @@ import author5 from "../public/images/authors/EM.png";
 import author6 from "../public/images/authors/FB.png";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { fetchProducts, getAllProducts } from "@/components/redux/products/productSlice";
+import {
+  fetchProducts,
+  getAllProducts,
+} from "@/components/redux/products/productSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import HomeProductList from "@/components/displayProducts/homeProductList";
 
 export default function Home() {
   const dispatch = useDispatch();
   const productStatus = useSelector((state) => state.Products.status);
-  const allProducts = useSelector(getAllProducts)
+  const allProducts = useSelector(getAllProducts);
 
   useEffect(() => {
     if (productStatus == "idle") {
       dispatch(fetchProducts());
     }
   }, [productStatus, dispatch]);
-
-  if (productStatus == "succeeded") {
-    console.log(allProducts);
-  }
 
   return (
     <div className="text-[#4D4D4D] m-0">
@@ -228,214 +228,7 @@ export default function Home() {
                 See all
               </Link>
             </div>
-
-            <div className="grid gap-5 grid-cols-4">
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-auto"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp1}
-                    quality={100}
-                    alt="Top Pick One"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={hearte} alt="Heart Icon" />
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          The Uninhabitable Earth
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          David Wallace-Wells
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $50
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-auto"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp2}
-                    quality={100}
-                    alt="Top Pick Two"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          All We Can Save
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          Naomi Klein
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $40
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-auto"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp3}
-                    quality={100}
-                    alt="Top Pick Three"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          Drawdown
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          Paul Hawken
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $65
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-full object-cover"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp4}
-                    quality={100}
-                    alt="Top Pick Four"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={hearte} alt="Heart Icon" />
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          This Changes Everything: Capit...
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          Naomi Klein
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $150
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <HomeProductList />
           </div>
 
           <div className="pt-10 relative pb-[131px] px-10">

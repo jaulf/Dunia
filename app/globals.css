@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:200,300,400,500,600,700,800,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css?family=Inter:200,300,400,500,600,700,800,900&display=swap");
 
 @font-face {
   font-family: "Millik";
@@ -34,6 +34,9 @@
 html,
 body {
   scroll-behavior: smooth;
+}
+
+body {
   color: #231f20;
   font-family: "Inter", "Times New Roman", Times, serif;
   line-height: normal;
@@ -998,7 +1001,7 @@ input {
 }
 
 .search-card-content {
-  align-self: center!important;
+  align-self: center !important;
 }
 
 .search-card-content h6 {

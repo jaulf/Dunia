@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import dunia from "@/public/images/dunia.png";
 import chevdown from "@/public/images/Arrow.png";
@@ -23,17 +23,46 @@ import bell from "@/public/images/bell.png";
 import ratings from "@/public/images/ratings.png";
 import s1 from "@/public/images/search/s1.png";
 import s2 from "@/public/images/search/s2.png";
+import { getAllProducts, fetchProducts } from "./redux/products/productSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function Navbar() {
+  const allProducts = useSelector(getAllProducts);
+  const productStatus = useSelector((state) => state.Products.status);
   const { data: session, status } = useSession();
   const router = useRouter();
   const [body, setBody] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredList, setFilteredList] = useState("");
+  const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("user-auth")) {
       setBody(JSON.parse(localStorage.getItem("user-auth")));
     }
   }, []);
+
+  const searchHandler = useCallback(() => {
+    allProducts.map((red) => {
+      let filteredData = red.data.filter((find) => {
+        return find.name.toLowerCase().includes(searchInput.toLowerCase());
+      });
+      setFilteredList(filteredData);
+      setShouldRender(true); // Enable rendering
+    });
+  }, [allProducts, searchInput]);
+
+  useEffect(() => {
+    // Debounce search handler
+    const timer = setTimeout(() => {
+      searchHandler();
+    }, 1000);
+    // Cleanup
+    return () => {
+      clearTimeout(timer);
+      setShouldRender(false);
+    };
+  }, [searchHandler]);
 
   return (
     <>
@@ -74,75 +103,63 @@ function Navbar() {
                 alt="Search Icon"
               />
               <input
+                onChange={(e) => setSearchInput(e.target.value)}
+                value={searchInput}
                 className="search bg-transparent outline-none w-full"
                 type="text"
                 placeholder="Search Books or authors"
               />
             </div>
-            <div className="absolute pt-8 bg-transparent">
-              <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[592px]">
-                <div class="search-card flex items-center justify-center gap-6">
-                  <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
-                    <Image
-                      className="object-cover object-center"
-                      fill
-                      src={s1}
-                      alt="Naomi Klien"
-                    />
-                  </div>
-                  <div className="search-card-content flex flex-col gap-3">
-                    <h6>Naomi Klein</h6>
-                    <h4>This Changes Everything: Capital’s Finest</h4>
-                    <div className="search-card-content-sub">
-                      <h5>$150</h5>
-                      <span></span>
-                      <h6>Climate Change</h6>
-                      <span></span>
-                      <div className="flex gap-[3px] items-center ">
-                        <Image
-                          className="h-3 w-auto"
-                          src={ratings}
-                          alt="rating Icon"
-                        />
-                        <span className="font-medium text-[10px]">
-                          4.5 (55 ratings)
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="search-card flex items-center justify-center gap-6">
-                  <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
-                    <Image
-                      className="object-cover object-center"
-                      fill
-                      src={s2}
-                      alt="Naomi Klien"
-                    />
-                  </div>
-                  <div className="search-card-content flex flex-col gap-3">
-                    <h6>Naomi Klein</h6>
-                    <h4>This Changes Everything: Capital’s Finest</h4>
-                    <div className="search-card-content-sub">
-                      <h5>$150</h5>
-                      <span></span>
-                      <h6>Climate Change</h6>
-                      <span></span>
-                      <div className="flex gap-[3px] items-center ">
-                        <Image
-                          className="h-3 w-auto"
-                          src={ratings}
-                          alt="rating Icon"
-                        />
-                        <span className="font-medium text-[10px]">
-                          4.5 (55 ratings)
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+            {searchInput.length > 0 ? (
+              <div className="absolute pt-8 bg-transparent">
+                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[624px]">
+                  {shouldRender ? (
+                    filteredList.length > 0 ? (
+                      filteredList.map((found) => {
+                        return (
+                          <div class="search-card flex items-center justify-center gap-6">
+                            <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                              <Image
+                                className="object-cover object-center"
+                                fill
+                                src={s1}
+                                alt="Naomi Klien"
+                              />
+                            </div>
+                            <div className="search-card-content flex flex-col gap-3">
+                              <h6>{found.author.name}</h6>
+                              <h4>{found.name}</h4>
+                              <div className="search-card-content-sub">
+                                <h5>${found.price}</h5>
+                                <span></span>
+                                <h6>{found.categories[0].name}</h6>
+                                <span></span>
+                                <div className="flex gap-[3px] items-center ">
+                                  <Image
+                                    className="h-3 w-auto"
+                                    src={ratings}
+                                    alt="rating Icon"
+                                  />
+                                  <span className="font-medium text-[10px]">
+                                    4.5 (55 ratings)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div>No result found.</div>
+                    )
+                  ) : (
+                    <div>searching ...</div>
+                  )}
                 </div>
               </div>
-            </div>
+            ) : (
+              <span></span>
+            )}
           </div>
 
           <div className="flex items-center gap-6">
@@ -311,17 +328,71 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="flex self-center px-5 py-4 gap-[10px] items-center rounded-full w-full max-w-[500px] bg-[#0000000d]">
-            <Image
-              className="w-[18px] h-[18px]"
-              src={search}
-              alt="Search Icon"
-            />
-            <input
-              className="search bg-transparent outline-none"
-              type="text"
-              placeholder="Search Books or authors"
-            />
+          <div className="dropdown-search relative w-full max-w-[500px]">
+            <div className="flex self-center w-full px-5 py-4 gap-[10px] items-center rounded-full bg-[#0000000d]">
+              <Image
+                className="w-[18px] h-[18px]"
+                src={search}
+                alt="Search Icon"
+              />
+              <input
+                onChange={(e) => setSearchInput(e.target.value)}
+                value={searchInput}
+                className="search bg-transparent outline-none w-full"
+                type="text"
+                placeholder="Search Books or authors"
+              />
+            </div>
+            {searchInput.length > 0 ? (
+              <div className="absolute pt-8 bg-transparent">
+                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[624px]">
+                  {shouldRender ? (
+                    filteredList.length > 0 ? (
+                      filteredList.map((found) => {
+                        return (
+                          <div class="search-card flex items-center justify-center gap-6">
+                            <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                              <Image
+                                className="object-cover object-center"
+                                fill
+                                src={s1}
+                                alt="Naomi Klien"
+                              />
+                            </div>
+                            <div className="search-card-content flex flex-col gap-3">
+                              <h6>{found.author.name}</h6>
+                              <h4>{found.name}</h4>
+                              <div className="search-card-content-sub">
+                                <h5>${found.price}</h5>
+                                <span></span>
+                                <h6>{found.categories[0].name}</h6>
+                                <span></span>
+                                <div className="flex gap-[3px] items-center ">
+                                  <Image
+                                    className="h-3 w-auto"
+                                    src={ratings}
+                                    alt="rating Icon"
+                                  />
+                                  <span className="font-medium text-[10px]">
+                                    4.5 (55 ratings)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div>No result found.</div>
+                    )
+                  ) : (
+                    <div>searching ...</div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <span></span>
+            )}
           </div>
 
           <div className="flex items-center gap-6">

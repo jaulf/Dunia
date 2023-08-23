@@ -44,5 +44,6 @@ const productSlice = createSlice({
 });
 
 export const getAllProducts = state => state.Products.products
+export const getHomeAllProducts = state => state.Products.products[0]
 
 export default productSlice.reducer;
