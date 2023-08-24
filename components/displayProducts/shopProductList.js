@@ -10,27 +10,68 @@ import {
 import Image from "next/image";
 import tp1 from "@/public/images/tp1.png";
 import hearte from "@/public/images/heart-empty.png";
-import heartf from "@/public/images/heart-full.png";
+import heartf from "@/public/images/heart-green.png";
+import share from "@/public/images/share.png";
+import shopcart from "@/public/images/shopping-cart.png";
+import shopcartActive from "@/public/images/profile/cart-active.png";
 import ratings from "@/public/images/ratings.png";
 
-function HomeProductList() {
+function ShopProductList() {
   const dispatch = useDispatch();
   const allProducts = useSelector(getHomeAllProducts);
   const productStatus = useSelector((state) => state.Products.status);
-  const [foundData, setFoundData] = useState(null);
-  const [isLiked, setIsLiked] = useState(false);
   const [allProductsLiked, setAllProductsLiked] = useState(null);
+  const [allProductsInCart, setAllProductsInCart] = useState(null);
 
+  //   Fetch All products
+  useEffect(() => {
+    if (productStatus == "idle") {
+      dispatch(fetchProducts());
+    }
+  }, [productStatus, dispatch]);
+
+  //   Get all Products In CArt and Liked products
   useEffect(() => {
     const likedProducts =
       JSON.parse(localStorage.getItem("likedProducts")) || [];
+    const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
     setAllProductsLiked(likedProducts);
-
+    setAllProductsInCart(cartProducts);
   }, []);
 
+  // Check if a specific product is liked
   const checkIfLiked = (anID) => {
     return allProductsLiked.includes(anID);
   };
+
+  //   check if a specific product is in cart
+  const checkIfInCart = (anID2) => {
+    return allProductsInCart.some((prod) => prod.id === anID2);
+  };
+
+  const saveItemToCart = (anID2) => {
+    const productsInCart = allProductsInCart || [];
+
+    if (checkIfInCart(anID2)) {
+      const updatedProductsInCart = productsInCart.filter(
+        (item) => item.id !== anID2
+      );
+      setAllProductsInCart(updatedProductsInCart);
+      localStorage.setItem(
+        "cartProducts",
+        JSON.stringify(updatedProductsInCart)
+      );
+    } else {
+      const updatedProductsInCart = [...productsInCart, { id: anID2, qty: 1 }];
+      setAllProductsInCart(updatedProductsInCart);
+      localStorage.setItem(
+        "cartProducts",
+        JSON.stringify(updatedProductsInCart)
+      );
+    }
+  };
+
+  //   To like and unlike a product
 
   const saveItemHandler = async (anID) => {
     const likedProducts = allProductsLiked || [];
@@ -38,20 +79,24 @@ function HomeProductList() {
     if (checkIfLiked(anID)) {
       const updatedLikedProducts = likedProducts.filter((id) => id !== anID);
       setAllProductsLiked(updatedLikedProducts);
-      localStorage.setItem("likedProducts", JSON.stringify(updatedLikedProducts));
+      localStorage.setItem(
+        "likedProducts",
+        JSON.stringify(updatedLikedProducts)
+      );
     } else {
       const updatedLikedProducts = [...likedProducts, anID];
       setAllProductsLiked(updatedLikedProducts);
-      localStorage.setItem("likedProducts", JSON.stringify(updatedLikedProducts));
+      localStorage.setItem(
+        "likedProducts",
+        JSON.stringify(updatedLikedProducts)
+      );
     }
   };
 
   if (productStatus == "succeeded") {
-    const firstFour = allProducts.data.slice(0, 4);
-
     return (
       <div className="grid gap-5 grid-cols-4">
-        {firstFour.map((product) => (
+        {allProducts.data.map((product) => (
           <div className="flex flex-col gap-4">
             <div
               id="img-ccard"
@@ -74,6 +119,29 @@ function HomeProductList() {
                 ) : (
                   <Image className="w-6 h-6" src={hearte} alt="Heart Icon" />
                 )}
+              </div>
+              <div className="absolute bottom-6 right-6 flex gap-3">
+                <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                  <Image className="w-6 h-6" src={share} alt="Share Icon" />
+                </div>
+                <div
+                  onClick={() => saveItemToCart(product.id)}
+                  className="rounded-full cursor-pointer w-10 h-10 flex bg-white justify-center items-center"
+                >
+                  {checkIfInCart(product.id) ? (
+                    <Image
+                      className="w-6 h-6"
+                      src={shopcartActive}
+                      alt="Shopping Cart Icon"
+                    />
+                  ) : (
+                    <Image
+                      className="w-6 h-6"
+                      src={shopcart}
+                      alt="Shopping Cart Icon"
+                    />
+                  )}
+                </div>
               </div>
             </div>
             <div id="img-text">
@@ -124,4 +192,4 @@ function HomeProductList() {
   }
 }
 
-export default HomeProductList;
+export default ShopProductList;
