@@ -77,7 +77,7 @@ function ShopProductList() {
     return (
       <div className="grid gap-5 grid-cols-4">
         {allProducts.data.map((product) => (
-          <div className="flex flex-col gap-4">
+          <div key={product.id} className="flex flex-col gap-4">
             <div
               id="img-ccard"
               className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"

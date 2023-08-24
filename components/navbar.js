@@ -131,7 +131,7 @@ function Navbar() {
                     filteredList.length > 0 ? (
                       filteredList.map((found) => {
                         return (
-                          <div class="search-card flex items-center justify-center gap-6">
+                          <div key={found.id} class="search-card flex items-center justify-center gap-6">
                             <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
                               <Image
                                 className="object-cover object-center"
@@ -360,7 +360,7 @@ function Navbar() {
                     filteredList.length > 0 ? (
                       filteredList.map((found) => {
                         return (
-                          <div class="search-card flex items-center justify-center gap-6">
+                          <div key={found.id} class="search-card flex items-center justify-center gap-6">
                             <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
                               <Image
                                 className="object-cover object-center"
