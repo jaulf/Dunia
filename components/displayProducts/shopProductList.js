@@ -15,81 +15,61 @@ import share from "@/public/images/share.png";
 import shopcart from "@/public/images/shopping-cart.png";
 import shopcartActive from "@/public/images/profile/cart-active.png";
 import ratings from "@/public/images/ratings.png";
+import { like, unlike } from "@/components/redux/products/LikedProductsSlice";
+import { addToCart, removeFromCart } from "../redux/products/cartProductsSlice";
 
 function ShopProductList() {
   const dispatch = useDispatch();
   const allProducts = useSelector(getHomeAllProducts);
   const productStatus = useSelector((state) => state.Products.status);
-  const [allProductsLiked, setAllProductsLiked] = useState(null);
-  const [allProductsInCart, setAllProductsInCart] = useState(null);
+  const productsAllLiked = useSelector(
+    (state) => state.likedProducts.likedProducts
+  );
+  const productsInCart = useSelector(
+    (state) => state.cartProducts.cartProducts
+  );
 
-  //   Fetch All products
-  useEffect(() => {
-    if (productStatus == "idle") {
-      dispatch(fetchProducts());
-    }
-  }, [productStatus, dispatch]);
-
-  //   Get all Products In CArt and Liked products
-  useEffect(() => {
-    const likedProducts =
-      JSON.parse(localStorage.getItem("likedProducts")) || [];
-    const cartProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
-    setAllProductsLiked(likedProducts);
-    setAllProductsInCart(cartProducts);
-  }, []);
-
-  // Check if a specific product is liked
   const checkIfLiked = (anID) => {
-    return allProductsLiked.includes(anID);
+    return productsAllLiked.includes(anID);
   };
 
-  //   check if a specific product is in cart
   const checkIfInCart = (anID2) => {
-    return allProductsInCart.some((prod) => prod.id === anID2);
+    return productsInCart.some((prod) => prod.id === anID2);
   };
-
-  const saveItemToCart = (anID2) => {
-    const productsInCart = allProductsInCart || [];
-
-    if (checkIfInCart(anID2)) {
-      const updatedProductsInCart = productsInCart.filter(
-        (item) => item.id !== anID2
-      );
-      setAllProductsInCart(updatedProductsInCart);
-      localStorage.setItem(
-        "cartProducts",
-        JSON.stringify(updatedProductsInCart)
-      );
-    } else {
-      const updatedProductsInCart = [...productsInCart, { id: anID2, qty: 1 }];
-      setAllProductsInCart(updatedProductsInCart);
-      localStorage.setItem(
-        "cartProducts",
-        JSON.stringify(updatedProductsInCart)
-      );
-    }
-  };
-
-  //   To like and unlike a product
 
   const saveItemHandler = async (anID) => {
-    const likedProducts = allProductsLiked || [];
+    const likedProducts = productsAllLiked || [];
 
     if (checkIfLiked(anID)) {
       const updatedLikedProducts = likedProducts.filter((id) => id !== anID);
-      setAllProductsLiked(updatedLikedProducts);
-      localStorage.setItem(
-        "likedProducts",
-        JSON.stringify(updatedLikedProducts)
-      );
+      dispatch(unlike(updatedLikedProducts));
     } else {
       const updatedLikedProducts = [...likedProducts, anID];
-      setAllProductsLiked(updatedLikedProducts);
-      localStorage.setItem(
-        "likedProducts",
-        JSON.stringify(updatedLikedProducts)
+      dispatch(like(updatedLikedProducts));
+    }
+  };
+
+  const getQty = (anID) => {
+    if (productStatus == "succeeded") {
+      const newProductsInCart = productsInCart || [];
+      const updatedProductsInCart = newProductsInCart.filter(
+        (item) => item.id === anID
       );
+      return updatedProductsInCart[0].qty;
+    }
+  };
+
+  const saveItemToCart = (anID2) => {
+    const newProductsInCart = productsInCart || [];
+
+    if (checkIfInCart(anID2)) {
+      const updatedProductsInCart = newProductsInCart.filter(
+        (item) => item.id !== anID2
+      );
+      dispatch(removeFromCart(updatedProductsInCart))
+    } else {
+      const updatedProductsInCart = [...newProductsInCart, { id: anID2, qty: 1 }];
+      dispatch(removeFromCart(updatedProductsInCart))
     }
   };
 
@@ -121,6 +101,14 @@ function ShopProductList() {
                 )}
               </div>
               <div className="absolute bottom-6 right-6 flex gap-3">
+                {checkIfInCart(product.id) && (
+                  <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
+                    <span class="text-[#009f00] leading-5 font-bold">
+                      +{getQty(product.id)}
+                    </span>
+                  </div>
+                )}
+
                 <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
                   <Image className="w-6 h-6" src={share} alt="Share Icon" />
                 </div>

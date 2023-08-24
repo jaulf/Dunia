@@ -11,19 +11,12 @@ import curlyarrow from "../public/images/curlyarrow.png";
 import clover from "../public/images/clover.png";
 import d6 from "../public/images/D6.png";
 import d7 from "../public/images/D7.png";
-import ratings from "../public/images/ratings.png";
 import obfImg from "../public/images/obfImg.png";
 import memobf from "../public/images/mem-obf.png";
-import tp1 from "../public/images/tp1.png";
-import tp2 from "../public/images/tp2.png";
-import tp3 from "../public/images/tp3.png";
-import tp4 from "../public/images/tp4.png";
 import c1 from "../public/images/c1.png";
 import c2 from "../public/images/c2.png";
 import c3 from "../public/images/c3.png";
 import c4 from "../public/images/c4.png";
-import hearte from "../public/images/heart-empty.png";
-import heartf from "../public/images/heart-full.png";
 import glasseffect from "../public/images/glasseffect.png";
 import author1 from "../public/images/author-jj.png";
 import arrowright from "../public/images/arrow-right.png";
@@ -35,24 +28,9 @@ import author5 from "../public/images/authors/EM.png";
 import author6 from "../public/images/authors/FB.png";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import {
-  fetchProducts,
-  getAllProducts,
-} from "@/components/redux/products/productSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import HomeProductList from "@/components/displayProducts/homeProductList";
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const productStatus = useSelector((state) => state.Products.status);
-  const allProducts = useSelector(getAllProducts);
-
-  useEffect(() => {
-    if (productStatus == "idle") {
-      dispatch(fetchProducts());
-    }
-  }, [productStatus, dispatch]);
 
   return (
     <div className="text-[#4D4D4D] m-0">
@@ -85,7 +63,7 @@ export default function Home() {
                 <div className="pt-2 flex">
                   <Link
                     className="py-[14px] px-12 bg-[#009F00] text-white text-xl font-bold rounded-full"
-                    href=""
+                    href="/shop"
                   >
                     Shop now
                   </Link>

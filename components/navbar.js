@@ -24,23 +24,37 @@ import ratings from "@/public/images/ratings.png";
 import s1 from "@/public/images/search/s1.png";
 import s2 from "@/public/images/search/s2.png";
 import { getAllProducts, fetchProducts } from "./redux/products/productSlice";
+import { getLikedProducts } from "./redux/products/LikedProductsSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { getCartProducts } from "./redux/products/cartProductsSlice";
 
 function Navbar() {
   const allProducts = useSelector(getAllProducts);
   const productStatus = useSelector((state) => state.Products.status);
+  const numberOfCartItems = useSelector(
+    (state) => state.cartProducts.cartProducts
+  );
   const { data: session, status } = useSession();
   const router = useRouter();
   const [body, setBody] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [filteredList, setFilteredList] = useState("");
   const [shouldRender, setShouldRender] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (localStorage.getItem("user-auth")) {
       setBody(JSON.parse(localStorage.getItem("user-auth")));
     }
   }, []);
+
+  useEffect(() => {
+    if (productStatus == "idle") {
+      dispatch(fetchProducts());
+      dispatch(getLikedProducts());
+      dispatch(getCartProducts())
+    }
+  }, [productStatus, dispatch]);
 
   const searchHandler = useCallback(() => {
     allProducts.map((red) => {
@@ -81,8 +95,8 @@ function Navbar() {
             </Link>
 
             <div className="flex gap-6 items-center">
-              <Link className="nli" href="/">
-                Featured
+              <Link className="nli" href="/discover">
+                Discover
               </Link>
               <div className="flex gap-[10px] items-center">
                 <span className="nli">Categories</span>
@@ -272,21 +286,17 @@ function Navbar() {
             </div>
             <div className="flex gap-[31px] items-center">
               <div className="flex gap-6 items-center">
-                <div className="relative">
-                  <Image className="w-6 h-6" src={bell} alt="Bell Icon" />
-                  <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-4px] font-semibold text-[8px] bg-black text-white rounded-full ">
-                    3
-                  </div>
-                </div>
                 <Link href="/cart" className="relative">
                   <Image
                     className="w-6 h-6"
                     src={shoppingbag}
                     alt="Shopping Bag Icon"
                   />
-                  <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white rounded-full ">
-                    3
-                  </div>
+                  {numberOfCartItems.length > 0 && (
+                    <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white rounded-full ">
+                      {numberOfCartItems.length}
+                    </div>
+                  )}
                 </Link>
               </div>
               <div className="flex gap-1 py-1 px-3 border-2 border-[#f5f5f5] rounded-full">
@@ -314,8 +324,8 @@ function Navbar() {
               />
             </Link>
             <div className="flex gap-6 items-center">
-              <Link className="nli" href="/">
-                Featured
+              <Link className="nli" href="/discover">
+                Discover
               </Link>
               <div className="flex gap-[10px] items-center">
                 <span className="nli">Categories</span>
@@ -409,9 +419,11 @@ function Navbar() {
                   src={shoppingbag}
                   alt="Shopping Bag Icon"
                 />
-                <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white rounded-full ">
-                  3
-                </div>
+                {numberOfCartItems.length > 0 && (
+                  <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white rounded-full ">
+                    {numberOfCartItems.length}
+                  </div>
+                )}
               </Link>
               <div className="flex gap-1 py-1 px-3 border-2 border-[#f5f5f5] rounded-full">
                 <span className="font-medium text-sm ">ENG</span>

@@ -12,37 +12,27 @@ import tp1 from "@/public/images/tp1.png";
 import hearte from "@/public/images/heart-empty.png";
 import heartf from "@/public/images/heart-full.png";
 import ratings from "@/public/images/ratings.png";
+import { like, unlike } from "@/components/redux/products/LikedProductsSlice";
 
 function HomeProductList() {
   const dispatch = useDispatch();
   const allProducts = useSelector(getHomeAllProducts);
   const productStatus = useSelector((state) => state.Products.status);
-  const [foundData, setFoundData] = useState(null);
-  const [isLiked, setIsLiked] = useState(false);
-  const [allProductsLiked, setAllProductsLiked] = useState(null);
-
-  useEffect(() => {
-    const likedProducts =
-      JSON.parse(localStorage.getItem("likedProducts")) || [];
-    setAllProductsLiked(likedProducts);
-
-  }, []);
+  const productsAllLiked = useSelector(state => state.likedProducts.likedProducts);
 
   const checkIfLiked = (anID) => {
-    return allProductsLiked.includes(anID);
+    return productsAllLiked.includes(anID);
   };
 
   const saveItemHandler = async (anID) => {
-    const likedProducts = allProductsLiked || [];
+    const likedProducts = productsAllLiked || [];
 
     if (checkIfLiked(anID)) {
       const updatedLikedProducts = likedProducts.filter((id) => id !== anID);
-      setAllProductsLiked(updatedLikedProducts);
-      localStorage.setItem("likedProducts", JSON.stringify(updatedLikedProducts));
+      dispatch(unlike(updatedLikedProducts))
     } else {
       const updatedLikedProducts = [...likedProducts, anID];
-      setAllProductsLiked(updatedLikedProducts);
-      localStorage.setItem("likedProducts", JSON.stringify(updatedLikedProducts));
+      dispatch(like(updatedLikedProducts))
     }
   };
 

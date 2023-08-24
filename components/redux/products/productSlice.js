@@ -21,7 +21,7 @@ export const fetchProducts = createAsyncThunk(
     const response = await axios.get(url, config);
     return response.data 
   }
-);
+); 
 
 const productSlice = createSlice({
   name: "products",

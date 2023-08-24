@@ -9,7 +9,7 @@ import tp1 from "@/public/images/tp1.png";
 import tp2 from "@/public/images/tp2.png";
 import tp3 from "@/public/images/tp3.png";
 import tp4 from "@/public/images/tp4.png";
-import hearte from "@/public/images/heart-empty.png";
+import hearte from "@/public/images/heart-empty.png"; 
 import heartf from "@/public/images/heart-green.png";
 import share from "@/public/images/share.png";
 import shopcart from "@/public/images/shopping-cart.png";
