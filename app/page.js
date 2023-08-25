@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
 
 // Images
 import hleftimg from "../public/images/hleft-img.png";

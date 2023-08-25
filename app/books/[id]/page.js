@@ -1,6 +1,6 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
 
 // Component Imports
 import Navbar from "@/components/navbar";
@@ -26,8 +26,44 @@ import chevright from "@/public/images/pr-right.png";
 import ratingsLarge from "@/public/images/ratingsLarge.png";
 import pvavatar from "@/public/images/pv-avatar.png";
 import zeroratings from "@/public/images/0ratings.png";
+import Favorite from "@/components/features/favorite";
+import CartUpdate from "@/components/features/addToCart";
 
-export default function Home() {
+export async function generateStaticParams() {
+  const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
+
+  const books1  = await axios.get(url, config);
+  const books2 = await books1.data.data;
+    return books2.map((book) => ({
+      id: book.id,
+    })); 
+}
+ 
+export const getBooks = async (params) => {
+  const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
+  const res = await axios.get(url, config).then((response) => response.data.data);
+  const res1 = res.filter((res2) => params === res2.id);
+  return res1;
+};
+
+export default async function Page({ params }) {
+  const { id } = await params;
+  const books = await getBooks(id);
+  const book = books[0];
+  
+
   return (
     <div className="text-[#4D4D4D] m-0">
       <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
@@ -73,20 +109,12 @@ export default function Home() {
                     src={pr1}
                     alt=""
                   />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
-                  </div>
+                  <Favorite productID={book.id} />
                   <div className="absolute bottom-6 right-6 flex gap-3">
                     <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
                       <Image className="w-6 h-6" src={share} alt="Share Icon" />
                     </div>
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image
-                        className="w-6 h-6"
-                        src={shopcart}
-                        alt="Shopping Cart Icon"
-                      />
-                    </div>
+                    <CartUpdate productID={book.id} />
                   </div>
                 </div>
                 <div class="flex gap-[10px]">
@@ -116,18 +144,16 @@ export default function Home() {
                 <div className="flex flex-col gap-8">
                   <div class="flex flex-col gap-6">
                     <h1 className="text-[#121212] millik text-[64px] leading-[62px]">
-                      The Uninhabitable Earth
+                      {book.name}
                     </h1>
                     <div class="flex flex-col gap-4">
                       <p className="max-w-[543px] text-[#282828] leading-6 ">
-                        As climate change grips the planet, here is Earth.
-                        Org&apos;s selection of must-read books on climate
-                        change and sustainability to enlighten you.
+                        {book.description}
                       </p>
                       <div className="flex flex-col gap-5">
                         <div className="flex gap-[10px] items-center">
                           <span className="text-[#212121] font-semibold">
-                            David Wallace-Wells
+                            {book.author.name}
                           </span>
                           <div className="flex gap-[3px] shrink-0 items-center">
                             <Image
@@ -141,7 +167,7 @@ export default function Home() {
                           </div>
                         </div>
                         <div class="text-[#318736] w-auto self-start bg-[#EAF3EB] font-semibold py-[10px] px-6 rounded-full text-xl">
-                          $50
+                          ${book.price}
                         </div>
                       </div>
                     </div>
