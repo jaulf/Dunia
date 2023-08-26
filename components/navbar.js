@@ -52,7 +52,7 @@ function Navbar() {
     if (productStatus == "idle") {
       dispatch(fetchProducts());
       dispatch(getLikedProducts());
-      dispatch(getCartProducts())
+      dispatch(getCartProducts());
     }
   }, [productStatus, dispatch]);
 
@@ -126,49 +126,54 @@ function Navbar() {
             </div>
             {searchInput.length > 0 ? (
               <div className="absolute pt-8 bg-transparent">
-                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[678px]">
-                  {shouldRender ? (
-                    filteredList.length > 0 ? (
-                      filteredList.map((found) => {
-                        return (
-                          <div key={found.id} class="search-card flex items-center justify-center gap-6">
-                            <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
-                              <Image
-                                className="object-cover object-center"
-                                fill
-                                src={s1}
-                                alt="Naomi Klien"
-                              />
-                            </div>
-                            <div className="search-card-content flex flex-col gap-3">
-                              <h6>{found.author.name}</h6>
-                              <h4>{found.name}</h4>
-                              <div className="search-card-content-sub">
-                                <h5>${found.price}</h5>
-                                <span></span>
-                                <h6>{found.categories[0].name}</h6>
-                                <span></span>
-                                <div className="flex gap-[3px] items-center ">
-                                  <Image
-                                    className="h-3 w-auto"
-                                    src={ratings}
-                                    alt="rating Icon"
-                                  />
-                                  <span className="font-medium text-[10px]">
-                                    4.5 (55 ratings)
-                                  </span>
+                <div className="rounded-[20px] flex-col justify-start left-0 bg-white popup py-6 px-0 w-[678px]">
+                  <div className="flex searchmodal-res flex-col justify-start bg-white w-full">
+                    {shouldRender ? (
+                      filteredList.length > 0 ? (
+                        filteredList.map((found) => {
+                          return (
+                            <Link href={'/books/' + found.id}
+                              key={found.id}
+                              class="search-card flex items-center py-3 px-6 gap-6 w-full justify-start"
+                            >
+                              <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                                <Image
+                                  className="object-cover object-center"
+                                  fill
+                                  src={s1}
+                                  alt="Naomi Klien"
+                                />
+                              </div>
+                              <div className="search-card-content flex flex-col gap-3">
+                                <h6>{found.author.name}</h6>
+                                <h4>{found.name}</h4>
+                                <div className="search-card-content-sub">
+                                  <h5>${found.price}</h5>
+                                  <span></span>
+                                  <h6>{found.categories[0].name}</h6>
+                                  <span></span>
+                                  <div className="flex gap-[3px] items-center ">
+                                    <Image
+                                      className="h-3 w-auto"
+                                      src={ratings}
+                                      alt="rating Icon"
+                                    />
+                                    <span className="font-medium text-[10px]">
+                                      4.5 (55 ratings)
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        );
-                      })
+                            </Link>
+                          );
+                        })
+                      ) : (
+                        <div className="py-3 px-6">No result found.</div>
+                      )
                     ) : (
-                      <div>No result found.</div>
-                    )
-                  ) : (
-                    <div>searching ...</div>
-                  )}
+                      <div className="py-3 px-6">searching ...</div>
+                    )}
+                  </div>
                 </div>
               </div>
             ) : (
@@ -355,12 +360,15 @@ function Navbar() {
             </div>
             {searchInput.length > 0 ? (
               <div className="absolute pt-8 bg-transparent">
-                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[678px]">
+                <div className="flex searchmodal-res rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[678px]">
                   {shouldRender ? (
                     filteredList.length > 0 ? (
                       filteredList.map((found) => {
                         return (
-                          <div key={found.id} class="search-card flex items-center justify-center gap-6">
+                          <div
+                            key={found.id}
+                            class="search-card flex items-center justify-center gap-6"
+                          >
                             <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
                               <Image
                                 className="object-cover object-center"
