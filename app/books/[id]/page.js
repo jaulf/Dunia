@@ -1,33 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-
 // Component Imports
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-
 // Images
 import pv1 from "@/public/images/pv1.png";
 import pv2 from "@/public/images/pv2.png";
 import pv3 from "@/public/images/pv3.png";
-
 import pr1 from "@/public/images/products/temp1.jpg";
-
 import pr2 from "@/public/images/products/pv2.png";
 import pr3 from "@/public/images/products/pv3.png";
 import pr4 from "@/public/images/products/pv4.png";
 import pr5 from "@/public/images/products/pv5.png";
 import ratings from "@/public/images/ratings.png";
-import heartf from "@/public/images/heart-empty.png";
 import share from "@/public/images/share.png";
-import shopcart from "@/public/images/shopping-cart.png";
-import chevleft from "@/public/images/pr-left.png";
-import chevright from "@/public/images/pr-right.png";
 import ratingsLarge from "@/public/images/ratingsLarge.png";
 import pvavatar from "@/public/images/pv-avatar.png";
 import zeroratings from "@/public/images/0ratings.png";
 import Favorite from "@/components/features/favorite";
 import CartUpdate from "@/components/features/addToCart";
+import tickGreen from "@/public/images/tick.png";
+import CartUpdateButton from "@/components/features/addtoCartButtonProduct";
+import QuantityUpdate from "@/components/features/quantityUpdate";
 
 export async function generateStaticParams() {
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
@@ -38,13 +33,13 @@ export async function generateStaticParams() {
     },
   };
 
-  const books1  = await axios.get(url, config);
+  const books1 = await axios.get(url, config);
   const books2 = await books1.data.data;
-    return books2.map((book) => ({
-      id: book.id,
-    })); 
+  return books2.map((book) => ({
+    id: book.id,
+  }));
 }
- 
+
 export const getBooks = async (params) => {
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
   const config = {
@@ -53,7 +48,9 @@ export const getBooks = async (params) => {
       Accept: "application/json",
     },
   };
-  const res = await axios.get(url, config).then((response) => response.data.data);
+  const res = await axios
+    .get(url, config)
+    .then((response) => response.data.data);
   const res1 = res.filter((res2) => params === res2.id);
   return res1;
 };
@@ -62,7 +59,6 @@ export default async function Page({ params }) {
   const { id } = await params;
   const books = await getBooks(id);
   const book = books[0];
-  
 
   return (
     <div className="text-[#4D4D4D] m-0">
@@ -98,7 +94,7 @@ export default async function Page({ params }) {
 
             <section
               id="hero-cont"
-              className="flex pt-16 px-[120px] justify-between"
+              className="flex pt-16 px-[120px] gap-[82px]"
             >
               <div id="left" className="flex flex-col gap-6">
                 <div className="w-[401px] rounded-[30px] relative overflow-hidden h-[454px]">
@@ -140,7 +136,7 @@ export default async function Page({ params }) {
                   />
                 </div>
               </div>
-              <div id="right" className="max-w-[637px]">
+              <div id="right" className="max-w-[637px] self-start">
                 <div className="flex flex-col gap-8">
                   <div class="flex flex-col gap-6">
                     <h1 className="text-[#121212] millik text-[64px] leading-[62px]">
@@ -173,28 +169,12 @@ export default async function Page({ params }) {
                     </div>
                   </div>
                   <div className="flex flex-col gap-5">
-                    <div className="flex gap-[30px] py-[12px] self-start rounded-full bg-[#F2F2F2] px-[10px] items-center">
-                      <Image
-                        className="w-6 h-6"
-                        src={chevright}
-                        alt="Chevron Right"
-                      />
-                      <span className="text-xl font-bold text-black leading-6">
-                        1
-                      </span>
-                      <Image
-                        className="w-6 h-6"
-                        src={chevleft}
-                        alt="Chevron Left"
-                      />
-                    </div>
+                    <QuantityUpdate productID={book.id} />
                     <div className="self-start flex gap-4">
                       <div className="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]">
                         Buy now
                       </div>
-                      <div className="px-10 py-[14px] text-black leading-6 self-end text-xl font-medium bg-[#f2f2f2] rounded-full ">
-                        Add to cart
-                      </div>
+                      <CartUpdateButton productID={book.id} />
                       <div className="px-10 py-[14px] text-black leading-6 self-end text-xl font-medium border-[2px] border-[#f2f2f2] rounded-full ">
                         Preview book
                       </div>

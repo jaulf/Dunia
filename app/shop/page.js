@@ -32,18 +32,7 @@ export default function Home() {
       <main>
         <section id="Discover" className="bodyCon">
           <div className="px-10 pt-24 pb-[134px] flex gap-12 flex-col">
-            <div className="flex justify-between items-center">
-              <h3 className="millik text-[32px] text-black leading-[30.94px]">
-                Discover what you need ⚡
-              </h3>
-              <Link
-                className="rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
-                href="/"
-              >
-                See all
-              </Link>
-            </div>
-
+            
             <ShopProductList />
           </div>
         </section>

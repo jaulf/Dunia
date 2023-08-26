@@ -42,6 +42,14 @@ body {
   line-height: normal;
 }
 
+.ctrr {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .bodyCon {
   padding: 0;
   margin: 0 auto;

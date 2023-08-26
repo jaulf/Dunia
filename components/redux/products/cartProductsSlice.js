@@ -28,6 +28,10 @@ const cartProductsSlice = createSlice({
       state.cartProducts = action.payload;
       localStorage.setItem("cartProducts", JSON.stringify(action.payload));
     },
+    quantityUp: (state, action) => {
+      state.cartProducts = action.payload;
+      localStorage.setItem("cartProducts", JSON.stringify(action.payload));
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getCartProducts.fulfilled, (state, action) => {
@@ -36,6 +40,6 @@ const cartProductsSlice = createSlice({
   },
 });
 
-export const {addToCart, removeFromCart} = cartProductsSlice.actions;
+export const { addToCart, removeFromCart, quantityUp } = cartProductsSlice.actions;
 
 export default cartProductsSlice.reducer;

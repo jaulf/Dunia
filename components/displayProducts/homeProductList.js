@@ -13,6 +13,7 @@ import hearte from "@/public/images/heart-empty.png";
 import heartf from "@/public/images/heart-full.png";
 import ratings from "@/public/images/ratings.png";
 import { like, unlike } from "@/components/redux/products/LikedProductsSlice";
+import Link from "next/link";
 
 function HomeProductList() {
   const dispatch = useDispatch();
@@ -70,22 +71,20 @@ function HomeProductList() {
               <div className="flex gap-3 flex-col">
                 <div className="flex justify-between">
                   <div className="flex flex-col gap-2">
-                    <span className="text-[#121212] millik leading-[15.47px]">
-                      The Uninhabitable Earth
-                    </span>
+                    <Link href={'/books/' + product.id} className="text-[#121212] hover:underline millik leading-[15.47px]">
+                      {product.name}
+                    </Link>
                     <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                      David Wallace-Wells
+                     {product.author.name}
                     </span>
                   </div>
 
                   <span className="text-[#318736] font-semibold leading-[19.36px]">
-                    $50
+                    ${product.price}
                   </span>
                 </div>
-                <p className="text-xs leading-5 text-[#121212]">
-                  As climate change grips the planet, here is Earth. Org&apos;s
-                  selection of must-read books on climate change and
-                  sustainability to enlighten you.
+                <p className="text-xs ctrr leading-5 text-[#121212]">
+                  {product.description}
                 </p>
                 <div className="flex gap-[3px] items-center">
                   <Image

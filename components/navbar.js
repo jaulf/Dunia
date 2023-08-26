@@ -126,7 +126,7 @@ function Navbar() {
             </div>
             {searchInput.length > 0 ? (
               <div className="absolute pt-8 bg-transparent">
-                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[624px]">
+                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[678px]">
                   {shouldRender ? (
                     filteredList.length > 0 ? (
                       filteredList.map((found) => {
@@ -355,7 +355,7 @@ function Navbar() {
             </div>
             {searchInput.length > 0 ? (
               <div className="absolute pt-8 bg-transparent">
-                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[624px]">
+                <div className="flex rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[678px]">
                   {shouldRender ? (
                     filteredList.length > 0 ? (
                       filteredList.map((found) => {
