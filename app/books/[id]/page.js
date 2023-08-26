@@ -24,15 +24,15 @@ import tickGreen from "@/public/images/tick.png";
 import CartUpdateButton from "@/components/features/addtoCartButtonProduct";
 import QuantityUpdate from "@/components/features/quantityUpdate";
 
-export async function generateStaticParams() {
-  const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  };
+const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
+const config = {
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+};
 
+export async function generateStaticParams() {
   const books1 = await axios.get(url, config);
   const books2 = await books1.data.data;
   return books2.map((book) => ({
@@ -41,13 +41,6 @@ export async function generateStaticParams() {
 }
 
 export const getBooks = async (params) => {
-  const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  };
   const res = await axios
     .get(url, config)
     .then((response) => response.data.data);
@@ -55,6 +48,23 @@ export const getBooks = async (params) => {
   return res1;
 };
 
+export async function generateMetadata({ params, searchParams }, parent) {
+
+  // read route params
+  const id = params.id
+
+  const res = await axios
+    .get(url, config)
+    .then((response) => response.data.data);
+
+  const res1 = res.filter((res2) => id === res2.id);
+  const res3= res1[0]
+
+  return {
+    title: res3.name,
+  };
+}
+ 
 export default async function Page({ params }) {
   const { id } = await params;
   const books = await getBooks(id);

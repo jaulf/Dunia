@@ -6,11 +6,6 @@ const inter = Inter({
   subsets: ['latin'] 
 })
 
-export const metadata = {
-  title: 'Product View | Dunia ',
-  description: 'Created by Howard Otuya',
-} 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
