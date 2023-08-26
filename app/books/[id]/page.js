@@ -15,14 +15,13 @@ import pr4 from "@/public/images/products/pv4.png";
 import pr5 from "@/public/images/products/pv5.png";
 import ratings from "@/public/images/ratings.png";
 import share from "@/public/images/share.png";
-import ratingsLarge from "@/public/images/ratingsLarge.png";
-import pvavatar from "@/public/images/pv-avatar.png";
-import zeroratings from "@/public/images/0ratings.png";
 import Favorite from "@/components/features/favorite";
 import CartUpdate from "@/components/features/addToCart";
 import tickGreen from "@/public/images/tick.png";
 import CartUpdateButton from "@/components/features/addtoCartButtonProduct";
 import QuantityUpdate from "@/components/features/quantityUpdate";
+import ListofReviews from "@/components/reviews/listOfReviews";
+import SubmitAReview from "@/components/reviews/submitAReview";
 
 const url = process.env.NEXT_PUBLIC_BASE_URL + "/products";
 const config = {
@@ -49,22 +48,21 @@ export const getBooks = async (params) => {
 };
 
 export async function generateMetadata({ params, searchParams }, parent) {
-
   // read route params
-  const id = params.id
+  const id = params.id;
 
   const res = await axios
     .get(url, config)
     .then((response) => response.data.data);
 
   const res1 = res.filter((res2) => id === res2.id);
-  const res3= res1[0]
+  const res3 = res1[0];
 
   return {
     title: res3.name,
   };
 }
- 
+
 export default async function Page({ params }) {
   const { id } = await params;
   const books = await getBooks(id);
@@ -210,165 +208,10 @@ export default async function Page({ params }) {
                 </h3>
               </div>
 
-              <div
-                id="cont-per-comment"
-                class=" flex flex-col pb-[88px] gap-[30px]"
-              >
-                <div
-                  id="per-comment"
-                  className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
-                >
-                  <div className="flex flex-col gap-4">
-                    <div className="flex gap-[10px] shrink-0 items-center">
-                      <Image
-                        className="h-[35px] w-auto"
-                        src={ratingsLarge}
-                        alt="rating Icon"
-                      />
-                      <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
-                        Great Read
-                      </span>
-                    </div>
-                    <p className="w-full max-w-[1001px] text-black text-xl leading-8">
-                      The sound is good and the battery life is also okay, but
-                      it will be more cool if the size of the case can be
-                      reduce. I wish the next edition case can be smaller than
-                      this, everything else about it is cool
-                    </p>
-                  </div>
-                  <div className="flex gap-[10px] items-center">
-                    <Image
-                      className="w-11 h-11"
-                      src={pvavatar}
-                      alt="Customer Avatar"
-                    />
-                    <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
-                      Lemonade Me
-                    </span>
-                  </div>
-                </div>
-                <div
-                  id="per-comment"
-                  className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
-                >
-                  <div className="flex flex-col gap-4">
-                    <div className="flex gap-[10px] shrink-0 items-center">
-                      <Image
-                        className="h-[35px] w-auto"
-                        src={ratingsLarge}
-                        alt="rating Icon"
-                      />
-                      <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
-                        Great Read
-                      </span>
-                    </div>
-                    <p className="w-full max-w-[1001px] text-black text-xl leading-8">
-                      The sound is good and the battery life is also okay, but
-                      it will be more cool if the size of the case can be
-                      reduce. I wish the next edition case can be smaller than
-                      this, everything else about it is cool
-                    </p>
-                  </div>
-                  <div className="flex gap-[10px] items-center">
-                    <Image
-                      className="w-11 h-11"
-                      src={pvavatar}
-                      alt="Customer Avatar"
-                    />
-                    <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
-                      Lemonade Me
-                    </span>
-                  </div>
-                </div>
-                <div
-                  id="per-comment"
-                  className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
-                >
-                  <div className="flex flex-col gap-4">
-                    <div className="flex gap-[10px] shrink-0 items-center">
-                      <Image
-                        className="h-[35px] w-auto"
-                        src={ratingsLarge}
-                        alt="rating Icon"
-                      />
-                      <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
-                        Great Read
-                      </span>
-                    </div>
-                    <p className="w-full max-w-[1001px] text-black text-xl leading-8">
-                      The sound is good and the battery life is also okay, but
-                      it will be more cool if the size of the case can be
-                      reduce. I wish the next edition case can be smaller than
-                      this, everything else about it is cool
-                    </p>
-                  </div>
-                  <div className="flex gap-[10px] items-center">
-                    <Image
-                      className="w-11 h-11"
-                      src={pvavatar}
-                      alt="Customer Avatar"
-                    />
-                    <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
-                      Lemonade Me
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <ListofReviews productID={book.id} />
             </section>
 
-            <section
-              id="comment-reviews"
-              className="flex flex-col pt-10 pb-[122px] px-[120px] gap-24"
-            >
-              <div>
-                <Link
-                  href="#"
-                  className="font-medium text-[#009F00] underline text-2xl leading-[29px] tracking-[-0.48px]"
-                >
-                  Leave a review
-                </Link>
-              </div>
-
-              <div>
-                <div className="flex gap-4 shrink-0 items-center">
-                  <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
-                    Rate the Book
-                  </span>
-                  <Image
-                    className="h-[35px] w-auto"
-                    src={zeroratings}
-                    alt="rating Icon"
-                  />
-                </div>
-
-                <div class="flex flex-col gap-5 pt-[34px] pb-[50px]">
-                  <div class="w-full flex gap-5">
-                    <input
-                      class="comment-input"
-                      type="text"
-                      placeholder="Name or nickname"
-                    />
-                    <input
-                      class="comment-input"
-                      type="text"
-                      placeholder="Summary"
-                    />
-                  </div>
-                  <div>
-                    <textarea
-                      className="comment-textarea"
-                      placeholder="Review"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <button class="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]">
-                    Submit review
-                  </button>
-                </div>
-              </div>
-            </section>
+            <SubmitAReview productID={book.id} />
           </div>
         </div>
       </main>
