@@ -15,6 +15,8 @@ import close from "@/public/images/x.png";
 export default function SubmitAReview({ productID }) {
   const router = useRouter();
 
+  // Lol i cant find the comment on how to proceed
+
   const [name, setName] = useState(null);
   const [summary, setSummary] = useState(null);
   const [review, setReview] = useState(null);
