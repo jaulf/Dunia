@@ -78,11 +78,11 @@ export default function SubmitAReview({ productID }) {
         setErrorM("");
       });
 
-      // axios.post(url, config, body).then((response) => {
+      axios.post(url, config, body).then((response) => {
       // aDD success message
       // set timeout to reroute
-      //   response.data;
-      // });
+        console.log(response.data);
+      });
     } catch (error) {}
   };
 
