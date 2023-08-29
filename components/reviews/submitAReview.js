@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation'
 import axios from "axios";
 
 import zeroratings from "@/public/images/0ratings.png";
@@ -14,9 +14,6 @@ import close from "@/public/images/x.png";
 
 export default function SubmitAReview({ productID }) {
   const router = useRouter();
-
-  // Lol i cant find the comment on how to proceed
-
   const [name, setName] = useState(null);
   const [summary, setSummary] = useState(null);
   const [review, setReview] = useState(null);
@@ -45,7 +42,7 @@ export default function SubmitAReview({ productID }) {
     e.preventDefault();
 
     const url =
-      process.env.NEXT_PUBLIC_BASE_URL + "/products/" + productID + "reviews";
+      process.env.NEXT_PUBLIC_BASE_URL + "/products/" + productID + "/reviews";
 
     const config = {
       headers: {
@@ -58,31 +55,32 @@ export default function SubmitAReview({ productID }) {
     let body = {
       rating,
       summary,
-      review,
+      comment: review,
       name,
     };
 
+    if (rating == 0) {
+      const doIt = () => {
+        setErrorM("You forgot to fill the rating from the 5 rating icons.");
+        setSuccessM("");
+      };
+      return doIt();
+    }
+
     try {
       setIsSubmitting(true);
-
-      if (rating == 0) {
-        const doIt = () => {
-          setErrorM("You forgot to fill the rating from the 5 rating icons.");
-          setSuccessM("");
-        };
-        return doIt();
-      }
-
-      setTimeout(() => {
-        setSuccessM("Your review has been submitted sucessfully.");
-        setErrorM("");
-      });
-
-      axios.post(url, config, body).then((response) => {
-      // aDD success message
-      // set timeout to reroute
-        console.log(response.data);
-      });
+      axios
+        .post(url, body, config)
+        .then((response) => {
+          setSuccessM("Your review has been submitted sucessfully.");
+          setErrorM("");
+          setTimeout(() => {
+            router.refresh();
+          }, 3000); 
+        })
+        .catch((e) => {
+          setIsSubmitting(false);
+        });
     } catch (error) {}
   };
 
@@ -290,8 +288,12 @@ export default function SubmitAReview({ productID }) {
           </div>
 
           <div>
-            <button class="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]">
-              Submit review
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              class="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]"
+            >
+              {isSubmitting ? "loading..." : "Submit review"}
             </button>
           </div>
         </form>
