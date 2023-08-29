@@ -75,11 +75,14 @@ export default function SubmitAReview({ productID }) {
           setSuccessM("Your review has been submitted sucessfully.");
           setErrorM("");
           setTimeout(() => {
+            setSuccessM("");
+            setErrorM("");
             router.refresh();
           }, 3000); 
         })
         .catch((e) => {
           setIsSubmitting(false);
+          setErrorM("Something went wrong");
         });
     } catch (error) {}
   };
