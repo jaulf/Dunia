@@ -108,7 +108,7 @@ function HomeProductList() {
     return <div>Please reload the page</div>;
   }
 
-  if (productStatus == "idle") {
+  if (productStatus == "pending") {
     return <div>loading ...</div>;
   }
 }

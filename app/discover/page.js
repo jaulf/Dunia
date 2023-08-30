@@ -9,17 +9,68 @@ import tp1 from "@/public/images/tp1.png";
 import tp2 from "@/public/images/tp2.png";
 import tp3 from "@/public/images/tp3.png";
 import tp4 from "@/public/images/tp4.png";
-import hearte from "@/public/images/heart-empty.png"; 
+import hearte from "@/public/images/heart-empty.png";
 import heartf from "@/public/images/heart-green.png";
 import share from "@/public/images/share.png";
 import shopcart from "@/public/images/shopping-cart.png";
-import filter from "@/public/images/filter.png";
+import filter from "@/public/images/filter-l.png";
 import filterclose from "@/public/images/filter-close.png";
 // Component Imports
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
+import { useState } from "react";
+import Discover from "./incase";
+import DiscoverProductList from "@/components/displayProducts/discoverProductList";
+
 export default function Home() {
+  const [releaseDate, setReleaseDate] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [age, setAge] = useState(null);
+  const [filterStatus, setFilterStatus] = useState(false);
+  const [filterProducts, setFilterProducts] = useState(null);
+
+  const handleFilter = async () => {
+    const url = new URL("http://164.92.125.188/api/v1/products/filter");
+
+    if (!releaseDate && !price && !age) {
+      return;
+    }
+
+    const params = {
+      release_date: releaseDate,
+      age: age,
+      price: price,
+    };
+    Object.keys(params).forEach((key) =>
+      url.searchParams.append(key, params[key])
+    );
+
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+
+    let body = {
+      release_date: releaseDate,
+      price: price,
+      age: age,
+    };
+
+    const filteredData = await fetch(url, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(body),
+    }).then((response) => {
+      return response.json();
+    });
+
+    if (filteredData.data) {
+      setFilterProducts(filterProducts);
+      console.log(filteredData);
+    }
+  };
+
   return (
     <div className="text-[#4D4D4D] m-0">
       <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
@@ -44,9 +95,18 @@ export default function Home() {
                 <span class="px-[16px]">sustainability</span>
                 <span class="px-[19.5px]">biodiversity</span>
               </div>
-              <div class="flex self-stretch rounded-full text-[#FCFCFD] bg-[#009f00] gap-[10px] items-center py-[11px] px-[20px]">
+              <div
+                onClick={handleFilter}
+                class="flex self-stretch cursor-pointer rounded-full text-[#FCFCFD] bg-[#009f00] gap-[10px] items-center py-[11px] px-[20px]"
+              >
                 <span>Filter</span>
-                <Image src={filter} alt="Filter" width={16} height={16} />
+                <div className="inline-flex w-[18px]">
+                  <Image
+                    src={filter}
+                    alt="Filter"
+                    className=" shrink-0 w-full h-auto"
+                  />
+                </div>
               </div>
             </div>
 
@@ -54,29 +114,47 @@ export default function Home() {
               <div class="gap-4 flex items-end">
                 <div class="filter">
                   <h6>Release date</h6>
-                  <select>
-                    <option>Newest</option>
-                    <option>Newest</option>
-                    <option>Newest</option>
-                    <option>Newest</option>
+                  <select
+                    onChange={(e) => setReleaseDate(e.target.value)}
+                    name="release_date"
+                    id="release_date"
+                  >
+                    <option value="ASC">Newest</option>
+                    <option value="ASC">Last 30 days</option>
+                    <option value="ASC">Last 90 days</option>
+                    <option value="DESC">Oldest</option>
                   </select>
                 </div>
                 <div class="filter">
                   <h6>Price</h6>
-                  <select>
-                    <option>Lowest to Highest</option>
-                    <option>Lowest to Highest</option>
-                    <option>Lowest to Highest</option>
-                    <option>Lowest to Highest</option>
+                  <select
+                    onChange={(e) => setPrice(e.target.value)}
+                    name="price"
+                    id="price"
+                  >
+                    <option value="ASC">Bestsellers</option>
+                    <option value="ASC">Lowest to highest</option>
+                    <option value="DESC">Highest to lowest</option>
                   </select>
                 </div>
                 <div class="filter">
                   <h6>Creators</h6>
                   <select>
+                    {/* There is another dropdown for "All creators", we''ll exclude it for now */}
                     <option>Verified Only</option>
-                    <option>Verified Only</option>
-                    <option>Verified Only</option>
-                    <option>Verified Only</option>
+                    {/* <option>All Creators</option> */}
+                  </select>
+                </div>
+                <div class="filter">
+                  <h6>Age</h6>
+                  <select
+                    onChange={(e) => setAge(e.target.value)}
+                    name="age"
+                    id="age"
+                  >
+                    <option value="3 - 8">3 - 8 years old</option>
+                    <option value="8 - 12">8 - 12 years old</option>
+                    <option value="12 - 18">12 - 18 years old</option>
                   </select>
                 </div>
                 <div className="bg-[#009f00] shrink-0 self-end whitespace-nowrap ml-6 flex gap-[10px] text-white rounded-[12px] p-4">
@@ -94,267 +172,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid pt-[60px] gap-5 grid-cols-4">
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-auto"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp1}
-                    quality={100}
-                    alt="Top Pick One"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={hearte} alt="Heart Icon" />
-                  </div>
-                  <div className="absolute bottom-6 right-6 flex gap-3">
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image className="w-6 h-6" src={share} alt="Share Icon" />
-                    </div>
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image
-                        className="w-6 h-6"
-                        src={shopcart}
-                        alt="Shopping Cart Icon"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          The Uninhabitable Earth
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          David Wallace-Wells
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $50
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-auto"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp2}
-                    quality={100}
-                    alt="Top Pick Two"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
-                  </div>
-                  <div className="absolute bottom-6 right-6 flex gap-3">
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image className="w-6 h-6" src={share} alt="Share Icon" />
-                    </div>
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image
-                        className="w-6 h-6"
-                        src={shopcart}
-                        alt="Shopping Cart Icon"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          All We Can Save
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          Naomi Klein
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $40
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-auto"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp3}
-                    quality={100}
-                    alt="Top Pick Three"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
-                  </div>
-                  <div className="absolute bottom-6 right-6 flex gap-3">
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image className="w-6 h-6" src={share} alt="Share Icon" />
-                    </div>
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image
-                        className="w-6 h-6"
-                        src={shopcart}
-                        alt="Shopping Cart Icon"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          Drawdown
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          Paul Hawken
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $65
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div
-                  id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
-                >
-                  <Image
-                    className="rounded-[30px] w-full h-full object-cover"
-                    sizes="100vw"
-                    placeholder="blur"
-                    src={tp4}
-                    quality={100}
-                    alt="Top Pick Four"
-                  />
-                  <div className="absolute top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                    <Image className="w-6 h-6" src={hearte} alt="Heart Icon" />
-                  </div>
-                  <div className="absolute bottom-6 right-6 flex gap-3">
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image className="w-6 h-6" src={share} alt="Share Icon" />
-                    </div>
-                    <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
-                      <Image
-                        className="w-6 h-6"
-                        src={shopcart}
-                        alt="Shopping Cart Icon"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div id="img-text">
-                  <div className="flex gap-3 flex-col">
-                    <div className="flex justify-between">
-                      <div className="flex flex-col gap-2">
-                        <span className="text-[#121212] millik leading-[15.47px]">
-                          This Changes Everything: Capit...
-                        </span>
-                        <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
-                          Naomi Klein
-                        </span>
-                      </div>
-
-                      <span className="text-[#318736] font-semibold leading-[19.36px]">
-                        $150
-                      </span>
-                    </div>
-                    <p className="text-xs leading-5 text-[#121212]">
-                      As climate change grips the planet, here is Earth.
-                      Org&apos;s selection of must-read books on climate change
-                      and sustainability to enlighten you.
-                    </p>
-                    <div className="flex gap-[3px] items-center">
-                      <Image
-                        className="h-3 w-auto"
-                        src={ratings}
-                        alt="rating Icon"
-                      />
-                      <span className="font-medium text-[10px]">
-                        4.5 (55 ratings)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-[60px] flex justify-center items-center">
-              <button className="text-[#009F00] font-bold py-[14px] px-6 rounded-full border border-[#009F00]">
-                Load more
-              </button>
-            </div>
+            <DiscoverProductList />
           </div>
         </section>
 
