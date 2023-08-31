@@ -1086,6 +1086,10 @@ input {
   background-color: transparent;
 }
 
+.profileHover:hover {
+ box-shadow:  0px 0px 0px 2px #009f00 inset!important;
+}
+
 @media only screen and (min-width: 768px) {
 }
 

@@ -32,7 +32,7 @@ export default function EmailSignup() {
   // useState
   const [fname, setFname] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); 
   const [errorM, setErrorM] = useState("");
   const [successM, setSuccessM] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);

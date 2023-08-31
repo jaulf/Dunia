@@ -132,7 +132,8 @@ function Navbar() {
                       filteredList.length > 0 ? (
                         filteredList.map((found) => {
                           return (
-                            <Link href={'/books/' + found.id}
+                            <Link
+                              href={"/books/" + found.id}
                               key={found.id}
                               class="search-card flex items-center py-3 px-6 gap-6 w-full justify-start"
                             >
@@ -277,6 +278,7 @@ function Navbar() {
                           onClick={() => {
                             signOut();
                             localStorage.removeItem("user-auth");
+                            localStorage.removeItem("auth-method");
                             router.refresh();
                           }}
                           className="text-[#FF3333]"

@@ -33,6 +33,8 @@ import shopcart from "@/public/images/profile/cart-active.png";
 
 import rect from "@/public/images/downloads/rect.png";
 import Navbar from "@/components/navbar";
+import SubNavbar from "@/components/subnavbar";
+import ListOfOrderHistory from "@/components/displayProducts/orderhistoryList";
 
 export default function NavbarUser() {
   return (
@@ -43,35 +45,7 @@ export default function NavbarUser() {
             <Navbar />
           </div>
         </div>
-        <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
-          <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
-            <div className="content">Profile</div>
-            <div className="content">
-              Favourites{" "}
-              <div className="pl-2">
-                <span class="f-active">2</span>
-              </div>
-            </div>
-            <div className="content">
-              {1 == 1 ? (
-                <span>Downloads</span>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <div className="justify-start items-center gap-3 inline-flex">
-                    <div className="w-2.5 h-2.5 relative">
-                      <div className="w-2 h-2 left-[1px] top-[1px] absolute bg-green-700 rounded-full" />
-                    </div>
-                    <div className="">Downloads</div>
-                  </div>
-                  <div className="content-sub-active">10/20</div>
-                </div>
-              )}
-            </div>
-            <div className="content active-c-g">Order History</div>
-            <div className="content">Cart</div>
-            <div className="content">Following</div>
-          </div>
-        </nav>
+        <SubNavbar />
       </header>
 
       <main>
@@ -80,153 +54,8 @@ export default function NavbarUser() {
             <div>
               <h2 className="h2-one">Order History</h2>
             </div>
-
-            <table>
-              <tr>
-                <th>Details</th>
-                <th>Author</th>
-                <th>Order number</th>
-                <th>Category</th>
-                <th>License</th>
-                <th></th>
-              </tr>
-
-              <tr className="font-semibold leading-5">
-                <td>
-                  <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
-                      <Image
-                        className="object-cover"
-                        fill
-                        sizes="100vw"
-                        src={rect}
-                        alt="download"
-                      />
-                    </div>
-                    <span className="millik font-normal text-[#121212]">
-                      All We Can Save
-                    </span>
-                  </div>
-                </td>
-                <td>@nikkyblue</td>
-                <td>#099019</td>
-                <td>Crime</td>
-                <td className="text-[#009F00]">Download license</td>
-                <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
-                </td>
-              </tr>
-              <tr className="font-semibold leading-5">
-                <td>
-                  <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
-                      <Image
-                        className="object-cover"
-                        fill
-                        sizes="100vw"
-                        src={rect}
-                        alt="download"
-                      />
-                    </div>
-                    <span className="millik font-normal text-[#121212]">
-                      All We Can Save
-                    </span>
-                  </div>
-                </td>
-                <td>@nikkyblue</td>
-                <td>#099019</td>
-                <td>Crime</td>
-                <td className="text-[#009F00]">Download license</td>
-                <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
-                </td>
-              </tr>
-              <tr className="font-semibold leading-5">
-                <td>
-                  <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
-                      <Image
-                        className="object-cover"
-                        fill
-                        sizes="100vw"
-                        src={rect}
-                        alt="download"
-                      />
-                    </div>
-                    <span className="millik font-normal text-[#121212]">
-                      All We Can Save
-                    </span>
-                  </div>
-                </td>
-                <td>@nikkyblue</td>
-                <td>#099019</td>
-                <td>Crime</td>
-                <td className="text-[#009F00]">Download license</td>
-                <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
-                </td>
-              </tr>
-              <tr className="font-semibold leading-5">
-                <td>
-                  <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
-                      <Image
-                        className="object-cover"
-                        fill
-                        sizes="100vw"
-                        src={rect}
-                        alt="download"
-                      />
-                    </div>
-                    <span className="millik font-normal text-[#121212]">
-                      All We Can Save
-                    </span>
-                  </div>
-                </td>
-                <td>@nikkyblue</td>
-                <td>#099019</td>
-                <td>Crime</td>
-                <td className="text-[#009F00]">Download license</td>
-                <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
-                </td>
-              </tr>
-              <tr className="font-semibold leading-5">
-                <td>
-                  <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
-                      <Image
-                        className="object-cover"
-                        fill
-                        sizes="100vw"
-                        src={rect}
-                        alt="download"
-                      />
-                    </div>
-                    <span className="millik font-normal text-[#121212]">
-                      All We Can Save
-                    </span>
-                  </div>
-                </td>
-                <td>@nikkyblue</td>
-                <td>#099019</td>
-                <td>Crime</td>
-                <td className="text-[#009F00]">Download license</td>
-                <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
-                </td>
-              </tr>
-            </table>
+ 
+            <ListOfOrderHistory />
           </div>
         </section>
       </main>

@@ -56,7 +56,7 @@ export default function EmailLogin() {
   // Submit Handler
   const submitHandler = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setIsSubmitting(true); 
     axios
       .post(url, body, config)
       .then((response) => {

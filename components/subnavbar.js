@@ -31,6 +31,13 @@ export default function SubNavbar() {
         element.classList.add("active-c");
       });
     }
+    // Order History Link
+    if (pathname == "/profile/orderhistory") {
+      const elements = document.querySelectorAll(".order-history");
+      elements.forEach((element) => {
+        element.classList.add("active-c-g");
+      });
+    }
   }, [pathname]);
 
   return (
@@ -66,7 +73,9 @@ export default function SubNavbar() {
             </div>
           )}
         </div>
-        <div className="content">Order History</div>
+        <Link href="/profile/orderhistory" className="content order-history">
+          Order History
+        </Link>
         <Link href="/profile/cart" className="content cart">
           Cart
         </Link>
