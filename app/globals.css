@@ -400,6 +400,11 @@ input:-ms-input-placeholder {
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url('/images/drop-arrow.png') no-repeat right center;
+  background-size: 32px;
 }
 
 .filter > select:after {
