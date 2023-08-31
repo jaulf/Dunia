@@ -52,7 +52,7 @@ export default function ListOfOrderHistory() {
           </tr>
 
           {orders.map((order) => (
-            <tr className="font-semibold leading-5">
+            <tr key={order.id} className="font-semibold leading-5">
               <td>
                 <div className="flex items-center gap-[10px]">
                   <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
