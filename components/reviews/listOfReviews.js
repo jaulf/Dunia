@@ -25,6 +25,7 @@ export default function ListofReviews({ productID }) {
           >
             {reviews.map((review) => (
               <div
+              key={review.id}
                 id="per-comment"
                 className="flex bg-[#fafafa] rounded-[29px] flex-col gap-10 p-[26px] pr-[54px]"
               >
