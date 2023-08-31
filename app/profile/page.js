@@ -29,6 +29,7 @@ import plus from "@/public/images/profile/plus.png";
 import paypass from "@/public/images/profile/PayPass.png";
 import lines from "@/public/images/profile/Lines.png";
 import bgvisa from "@/public/images/profile/visa-bg.png";
+import SubNavbar from "@/components/subnavbar";
 
 export default function NavbarUser() {
   return (
@@ -168,30 +169,7 @@ export default function NavbarUser() {
             </nav>
           </div>
         </div>
-        <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
-          <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
-            <div className="content active-c">Profile</div>
-            <div className="content">Favourites</div>
-            <div className="content">
-              {2 == 1 ? (
-                <span>Downloads</span>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <div className="justify-start items-center gap-3 inline-flex">
-                    <div className="w-2.5 h-2.5 relative">
-                      <div className="w-2 h-2 left-[1px] top-[1px] absolute bg-green-700 rounded-full" />
-                    </div>
-                    <div className="">Downloads</div>
-                  </div>
-                  <div className="content-sub-active">10/20</div>
-                </div>
-              )}
-            </div>
-            <div className="content">Order History</div>
-            <div className="content">Cart</div>
-            <div className="content">Following</div>
-          </div>
-        </nav>
+        <SubNavbar />
       </header>
 
       <main class="bodyCon">

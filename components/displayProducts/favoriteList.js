@@ -21,13 +21,15 @@ import Link from "next/link";
 import CartUpdate from "../features/addToCart";
 import Favorite from "../features/favorite";
 
-function CartList() {
+function FavoriteList() {
   const dispatch = useDispatch();
   const allProducts = useSelector(getHomeAllProducts);
   const productStatus = useSelector((state) => state.Products.status);
-
   const productsInCart = useSelector(
     (state) => state.cartProducts.cartProducts
+  );
+  const likedProducts = useSelector(
+    (state) => state.likedProducts.likedProducts
   );
 
   const getQty = (anID) => {
@@ -45,15 +47,15 @@ function CartList() {
   };
 
   if (productStatus == "succeeded") {
-    const newProductsInCart = allProducts.data.filter((book) =>
-      productsInCart.some((allowedID) => allowedID.id == book.id)
+    const newProductsInFavorites = allProducts.data.filter((book) =>
+      likedProducts.some((allowedID) => allowedID == book.id)
     );
 
     return (
       <>
-        {newProductsInCart.length > 0 ? (
+        {newProductsInFavorites.length > 0 ? (
           <div className="grid gap-5 grid-cols-4">
-            {newProductsInCart.map((product) => (
+            {newProductsInFavorites.map((product) => (
               <div key={product.id} className="flex flex-col gap-4">
                 <div
                   id="img-ccard"
@@ -127,7 +129,7 @@ function CartList() {
           </div>
         ) : (
           <div>
-            No books in your cart yet.{" "}
+            No favourited books yet.{" "}
             <Link href="/discover" className="text-[#318736] underline">
               Explore some books.
             </Link>
@@ -146,4 +148,4 @@ function CartList() {
   }
 }
 
-export default CartList;
+export default FavoriteList;

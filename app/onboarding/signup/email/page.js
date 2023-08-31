@@ -70,6 +70,7 @@ export default function EmailSignup() {
         .post(url, body, config)
         .then((response) => {
           localStorage.setItem("user-auth", JSON.stringify(response.data));
+          localStorage.setItem("auth-method", "Email");
           setErrorM("");
           setSuccessM("Account created. You will be redirected shortly.");
           setTimeout(() => {

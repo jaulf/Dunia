@@ -42,6 +42,7 @@ export default function GoogleAuth() {
     axios.post(url, body, config).then((response) => {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
+      localStorage.setItem("auth-method", "Google")
       router.push('/profile')
     });
   }

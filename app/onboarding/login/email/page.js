@@ -61,6 +61,7 @@ export default function EmailLogin() {
       .post(url, body, config)
       .then((response) => {
         localStorage.setItem("user-auth", JSON.stringify(response.data));
+        localStorage.setItem("auth-method", "Email");
         setErrorM("");
         setSuccessM("Login successful. You will be redirected shortly.");
         setTimeout(() => {

@@ -33,6 +33,7 @@ import shopcart from "@/public/images/profile/cart-active.png";
 import Navbaralt from "@/components/navbar-alt";
 import Navbar from "@/components/navbar";
 import CartList from "@/components/displayProducts/cartList";
+import SubNavbar from "@/components/subnavbar";
 
 export default function NavbarUser() {
   return (
@@ -43,7 +44,7 @@ export default function NavbarUser() {
             <Navbar />
           </div>
         </div>
-        <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
+        {/* <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
           <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
             <div className="content">Profile</div>
             <div className="content">
@@ -71,7 +72,8 @@ export default function NavbarUser() {
             <div className="content  active-c-g">Cart</div>
             <div className="content">Following</div>
           </div>
-        </nav>
+        </nav> */}
+        <SubNavbar />
       </header>
 
       <main>

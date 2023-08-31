@@ -291,7 +291,7 @@ function Navbar() {
             </div>
             <div className="flex gap-[31px] items-center">
               <div className="flex gap-6 items-center">
-                <Link href="/cart" className="relative">
+                <Link href="/profile/cart" className="relative">
                   <Image
                     className="w-6 h-6"
                     src={shoppingbag}
@@ -421,7 +421,7 @@ function Navbar() {
               Log In
             </Link>
             <div className="flex items-center gap-[32px]">
-              <Link href="/cart" className="relative">
+              <Link href="/profile/cart" className="relative">
                 <Image
                   className="w-6 h-6"
                   src={shoppingbag}
