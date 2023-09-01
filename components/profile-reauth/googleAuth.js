@@ -6,11 +6,14 @@ import axios from "axios";
 import google from "@/public/images/google.png";
 import sign1 from "@/public/images/profile/facebook.png";
 import sign2 from "@/public/images/profile/google.png";
+import { useDispatch } from "react-redux";
+import { updateAuth } from "../redux/products/authSlice";
 
 // IMport NextAuth.js
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function ProfileGoogleAuth() {
+  const dispatch = useDispatch();
   const router = useRouter();
   // URL
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/auth/oauth";
@@ -45,6 +48,7 @@ export default function ProfileGoogleAuth() {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
       localStorage.setItem("auth-method", "Google");
+      dispatch(updateAuth("Google"));
     });
   }
 

@@ -4,11 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import google from "@/public/images/google.png";
+import { useDispatch } from "react-redux";
+import { updateAuth } from "./redux/products/authSlice";
 
 // IMport NextAuth.js
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function GoogleAuth() {
+  const dispatch = useDispatch();
   const router = useRouter();
   // URL
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/auth/oauth";
@@ -42,8 +45,9 @@ export default function GoogleAuth() {
     axios.post(url, body, config).then((response) => {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
-      localStorage.setItem("auth-method", "Google")
-      router.push('/profile')
+      localStorage.setItem("auth-method", "Google");
+      dispatch(updateAuth("Google"));
+      router.push("/profile");
     });
   }
 

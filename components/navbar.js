@@ -27,6 +27,7 @@ import { getAllProducts, fetchProducts } from "./redux/products/productSlice";
 import { getLikedProducts } from "./redux/products/LikedProductsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartProducts } from "./redux/products/cartProductsSlice";
+import menuMobile from "@/public/images/mobile-menu.png";
 
 function Navbar() {
   const allProducts = useSelector(getAllProducts);
@@ -94,7 +95,7 @@ function Navbar() {
               />
             </Link>
 
-            <div className="flex gap-6 items-center">
+            <div className="hidden xl:flex gap-6 items-center">
               <Link className="nli" href="/discover">
                 Discover
               </Link>
@@ -109,7 +110,7 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="dropdown-search relative w-full max-w-[500px]">
+          <div className="hidden xl:flex dropdown-search relative w-full max-w-[500px]">
             <div className="flex self-center w-full px-5 py-4 gap-[10px] items-center rounded-full bg-[#0000000d]">
               <Image
                 className="w-[18px] h-[18px]"
@@ -182,7 +183,7 @@ function Navbar() {
             )}
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="hidden xl:flex items-center gap-6">
             <div className="dropdown">
               <div className="dropdown-button relative w-[47px] h-[47px]">
                 <Image
@@ -316,6 +317,10 @@ function Navbar() {
               </div>
             </div>
           </div>
+
+          <div className="block xl:hidden w-10 h-10">
+            <Image className="w-full h-auto" src={menuMobile} alt="" />
+          </div>
         </nav>
       ) : (
         <nav className="flex justify-between items-center w-full z-[999999999]">
@@ -330,7 +335,7 @@ function Navbar() {
                 sizes="100vw"
               />
             </Link>
-            <div className="flex gap-6 items-center">
+            <div className="hidden xl:flex gap-6 items-center">
               <Link className="nli" href="/discover">
                 Discover
               </Link>
@@ -345,7 +350,7 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="dropdown-search relative w-full max-w-[500px]">
+          <div className="hidden xl:flex dropdown-search relative w-full max-w-[500px]">
             <div className="flex self-center w-full px-5 py-4 gap-[10px] items-center rounded-full bg-[#0000000d]">
               <Image
                 className="w-[18px] h-[18px]"
@@ -362,52 +367,55 @@ function Navbar() {
             </div>
             {searchInput.length > 0 ? (
               <div className="absolute pt-8 bg-transparent">
-                <div className="flex searchmodal-res rounded-[20px] gap-6 flex-col justify-start left-0 bg-white popup p-8 w-[678px]">
-                  {shouldRender ? (
-                    filteredList.length > 0 ? (
-                      filteredList.map((found) => {
-                        return (
-                          <div
-                            key={found.id}
-                            class="search-card flex items-center justify-center gap-6"
-                          >
-                            <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
-                              <Image
-                                className="object-cover object-center"
-                                fill
-                                src={s1}
-                                alt="Naomi Klien"
-                              />
-                            </div>
-                            <div className="search-card-content flex flex-col gap-3">
-                              <h6>{found.author.name}</h6>
-                              <h4>{found.name}</h4>
-                              <div className="search-card-content-sub">
-                                <h5>${found.price}</h5>
-                                <span></span>
-                                <h6>{found.categories[0].name}</h6>
-                                <span></span>
-                                <div className="flex gap-[3px] items-center ">
-                                  <Image
-                                    className="h-3 w-auto"
-                                    src={ratings}
-                                    alt="rating Icon"
-                                  />
-                                  <span className="font-medium text-[10px]">
-                                    4.5 (55 ratings)
-                                  </span>
+                <div className="rounded-[20px] flex-col justify-start left-0 bg-white popup py-6 px-0 w-[678px]">
+                  <div className="flex searchmodal-res flex-col justify-start bg-white w-full">
+                    {shouldRender ? (
+                      filteredList.length > 0 ? (
+                        filteredList.map((found) => {
+                          return (
+                            <Link
+                              href={"/books/" + found.id}
+                              key={found.id}
+                              class="search-card flex items-center py-3 px-6 gap-6 w-full justify-start"
+                            >
+                              <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                                <Image
+                                  className="object-cover object-center"
+                                  fill
+                                  src={s1}
+                                  alt="Naomi Klien"
+                                />
+                              </div>
+                              <div className="search-card-content flex flex-col gap-3">
+                                <h6>{found.author.name}</h6>
+                                <h4>{found.name}</h4>
+                                <div className="search-card-content-sub">
+                                  <h5>${found.price}</h5>
+                                  <span></span>
+                                  <h6>{found.categories[0].name}</h6>
+                                  <span></span>
+                                  <div className="flex gap-[3px] items-center ">
+                                    <Image
+                                      className="h-3 w-auto"
+                                      src={ratings}
+                                      alt="rating Icon"
+                                    />
+                                    <span className="font-medium text-[10px]">
+                                      4.5 (55 ratings)
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        );
-                      })
+                            </Link>
+                          );
+                        })
+                      ) : (
+                        <div className="py-3 px-6">No result found.</div>
+                      )
                     ) : (
-                      <div>No result found.</div>
-                    )
-                  ) : (
-                    <div>searching ...</div>
-                  )}
+                      <div className="py-3 px-6">searching ...</div>
+                    )}
+                  </div>
                 </div>
               </div>
             ) : (
@@ -415,7 +423,7 @@ function Navbar() {
             )}
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="hidden xl:flex items-center gap-6">
             <Link
               className="text-[#212121] px-7 py-[14px] self-center rounded-full flex bg-[#f5f5f5] font-bold text-center"
               href="/onboarding/login"
@@ -444,6 +452,10 @@ function Navbar() {
                 />
               </div>
             </div>
+          </div>
+
+          <div className="block xl:hidden w-10 h-10">
+            <Image className="w-full h-auto" src={menuMobile} alt="" />
           </div>
         </nav>
       )}

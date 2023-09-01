@@ -54,7 +54,6 @@ export default function NavbarUser() {
             <div>
               <h2 className="h2-one">Order History</h2>
             </div>
- 
             <ListOfOrderHistory />
           </div>
         </section>

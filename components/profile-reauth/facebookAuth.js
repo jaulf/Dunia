@@ -6,9 +6,12 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import fb from "@/public/images/fb.png";
 import sign1 from "@/public/images/profile/facebook.png";
 import sign2 from "@/public/images/profile/google.png";
+import { useDispatch } from "react-redux";
+import { updateAuth } from "../redux/products/authSlice";
 
 export default function ProfileFacebookAuth() {
   const router = useRouter();
+  const dispatch = useDispatch();
   // URL
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/auth/oauth";
 
@@ -40,6 +43,7 @@ export default function ProfileFacebookAuth() {
         console.log(response.data);
         localStorage.setItem("user-auth", JSON.stringify(response.data));
         localStorage.setItem("auth-method", "Facebook");
+        dispatch(updateAuth("Facebook"));
       });
     }
   

@@ -160,7 +160,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-[30px]">
+              {/* <div className="flex flex-col gap-[30px]">
                 <h2 className="text-[#808080] text-2xl leading-7 font-semibold tracking-[-0.48px]">
                   Available international shipping
                 </h2>
@@ -185,7 +185,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div id="payment-methods" className="">

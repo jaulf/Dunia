@@ -4,9 +4,12 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useSession, signIn, signOut } from "next-auth/react";
 import fb from "@/public/images/fb.png";
+import { useDispatch } from "react-redux";
+import { updateAuth } from "./redux/products/authSlice";
 
 export default function FacebookAuth() {
   const router = useRouter();
+  const dispatch = useDispatch();
   // URL
   const url = process.env.NEXT_PUBLIC_BASE_URL + "/auth/oauth";
 
@@ -29,14 +32,14 @@ export default function FacebookAuth() {
     console.log(session);
     const body = {
       oauth: "facebook",
-      oauth_id: session.sub,
+      oauth_id: session.sub, 
       name: session.name,
       email: session.email,
     };
     axios.post(url, body, config).then((response) => {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
-      localStorage.setItem("auth-method", "Facebook");
+      dispatch(updateAuth("Facebook"));
       router.push("/profile");
     });
   }

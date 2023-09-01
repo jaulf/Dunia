@@ -215,11 +215,11 @@ input:-ms-input-placeholder {
 .l-h2 {
   color: #2d2c2c;
   font-family: "millik";
-  font-size: 56px;
+  font-size: 36px;
   font-style: normal;
   font-weight: 400;
-  line-height: 68px; /* 121.429% */
-  letter-spacing: -1.68px;
+  line-height: 44px; /* 121.429% */
+  letter-spacing: -1.08px;
 }
 
 .dunia-grd2 {
@@ -266,22 +266,23 @@ input:-ms-input-placeholder {
 }
 
 .dun10 > div:nth-child(1) {
-  width: calc(60% - 8px);
-  padding-left: 64px;
-  padding-bottom: 171px;
-  padding-top: 239px;
-  border-radius: 30px;
+  width: 100%;
+  padding-left: 20px;
+  padding-bottom: 32px;
+  padding-top: 80px;
+  border-radius: 12px;
+  padding-right: 6px;
 }
 
 .dun10 > div:nth-child(2) {
   background: #009f00;
   z-index: 75;
-  width: 16px;
+  width: 4px;
 }
 
 .dun10 > div:nth-child(3) {
-  width: calc(40% - 8px);
-  border-radius: 30px;
+  width: 221px;
+  border-radius: 12px;
 }
 
 .dun10 > div:nth-child(1) > p {
@@ -403,7 +404,7 @@ input:-ms-input-placeholder {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: url('/images/drop-arrow.png') no-repeat right center;
+  background: url("/images/drop-arrow.png") no-repeat right center;
   background-size: 32px;
 }
 
@@ -806,7 +807,8 @@ tr:nth-child(1):hover {
   background-color: #fff;
 }
 
-tr:hover, .search-card:hover {
+tr:hover,
+.search-card:hover {
   background-color: #f1fef1;
 }
 
@@ -1087,15 +1089,50 @@ input {
 }
 
 .profileHover:hover {
- box-shadow:  0px 0px 0px 2px #009f00 inset!important;
+  box-shadow: 0px 0px 0px 2px #009f00 inset !important;
 }
 
-@media only screen and (min-width: 768px) {
-}
-
-@media only screen and (min-width: 1024x) {
+@media only screen and (min-width: 1024px) {
   .bodyCon {
     max-width: 1440px;
+  }
+
+  .l-h2 {
+    color: #2d2c2c;
+    font-family: "millik";
+    font-size: 56px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 68px!important; /* 121.429% */
+    letter-spacing: -1.68px;
+  }
+
+  .dun10 {
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .dun10 > div:nth-child(1) {
+    width: calc(60% - 8px);
+    padding-left: 64px;
+    padding-bottom: 171px;
+    padding-top: 239px;
+    border-radius: 30px;
+  }
+  
+  .dun10 > div:nth-child(2) {
+    background: #009f00;
+    z-index: 75;
+    width: 16px;
+  }
+  
+  .dun10 > div:nth-child(3) {
+    width: calc(40% - 8px);
+    border-radius: 30px;
+  }
+  
+  .dun10 > div:nth-child(1) > p {
+    max-width: 647px;
   }
 }
 

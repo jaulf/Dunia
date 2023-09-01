@@ -32,19 +32,19 @@ import Footer from "@/components/footer";
 import HomeProductList from "@/components/displayProducts/homeProductList";
 
 export default function Home() {
-
   return (
     <div className="text-[#4D4D4D] m-0">
       <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
-        <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+        <div class="max-w-[1440px] shrink-0 w-full navspace py-6 xl:py-4 px-6 xl:px-10">
           <Navbar />
         </div>
       </div>
+
       <header className="bodyCon">
         <div className="relative">
-          <div className="p-10 pb-[72px] relative flex justify-between gap-[75px] items-center">
+          <div className="xl:p-10 px-6 pt-8 pb-10 xl:pb-[72px] relative flex xl:flex-row flex-col xl:justify-between gap-10 xl:gap-[75px] items-center">
             <div className="left flex flex-col gap-8">
-              <div className="flex flex-col gap-4  max-w-[583px]">
+              <div className="flex flex-col gap-4 max-w-[583px]">
                 <div className="bg-[#f2f2f2] px-6 rounded-3xl py-2 text-[#6d6d6d] self-start w-auto text-xs font-medium">
                   Democratizing climate knowledge 🍀
                 </div>
@@ -55,7 +55,7 @@ export default function Home() {
                       creative storytelling
                     </span>
                   </h2>
-                  <p className="text-xl leading-7">
+                  <p className="text-[16px] xl:text-[20px] xl:leading-7">
                     Gain access to affordable climate learning resources that’s
                     engaging, up to date and in your mother tongue.
                   </p>
@@ -75,25 +75,25 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="h-ri" className="right relative rounded-[50px]">
+            <div id="h-ri" className="right relative rounded-[28px] xl:rounded-[50px]">
               <div
                 id="card"
-                className="px-6 py-7 pb-[59px] relative z-50 flex flex-col gap-[30px]"
+                className="xl:px-6 px-3 xl:py-7 py-4 pb-8 xl:pb-[59px] relative z-50 flex flex-col gap-[30px]"
               >
                 <div className="inline-flex gap-[10px]">
                   <div className="inline-flex justify-center items-center ">
                     <Image
-                      className="rounded-[30px]"
+                      className="xl:rounded-[30px] rounded-[16px]"
                       quality={100}
                       src={r1}
                       width={249}
                       height={552}
                       placeholder="blur"
                     />
-                  </div>
+                  </div> 
                   <div className="inline-flex justify-center items-center">
                     <Image
-                      className="rounded-[30px]"
+                      className="xl:rounded-[30px] rounded-[16px]"
                       quality={100}
                       src={r2}
                       width={395}
@@ -104,23 +104,23 @@ export default function Home() {
                 </div>
 
                 <div className="text-white">
-                  <h5 className="font-semibold">Featured today⚡</h5>
-                  <h3 className="millik text-[36px] max-w-[483px] pt-5">
+                  <h5 className=" text-xs xl:text-base font-medium xl:font-semibold">Featured today⚡</h5>
+                  <h3 className="millik text-[20px] xl:text-[36px] max-w-[483px] py-2 xl:pt-5">
                     The True Story of Nature’s Dwellers
                   </h3>
-                  <div className="flex justify-between items-center py-[6px]">
+                  <div className="flex justify-between items-center xl:py-[6px]">
                     <div className="flex gap-3 items-center">
-                      <Image src={avatar} className="w-8 h-8" alt="Memoji" />
-                      <span className="font-semibold">Josh Debs</span>
+                      <Image src={avatar} className="xl:w-8 xl:h-8 w-[18px] h-[18px]" alt="Memoji" />
+                      <span className="text-xs xl:text-base font-medium xl:font-semibold">Josh Debs</span>
                     </div>
-                    <div className="rounded-full px-[27px] py-[14px] font-bold text-white bg-black">
+                    <div className="rounded-full py-2 px-4 xl:px-[27px] xl:py-[14px] text-xs xl:text-base font-medium xl:font-bold text-white bg-black">
                       Check it out
                     </div>
                   </div>
                 </div>
               </div>
               <Image
-                className="object-cover rounded-[50px]"
+                className="object-cover  rounded-[28px] xl:rounded-[50px]"
                 fill
                 src={glasseffect}
                 alt="glasseffects"
@@ -132,7 +132,7 @@ export default function Home() {
           </div>
           <Image
             src={curlyarrow}
-            className="w-[121.339px] h-auto flex absolute bottom-[164px] left-[370px]"
+            className="w-[75px] xl:w-[121.339px] rotate-[-25deg] xl:rotate-0 h-auto flex absolute top-[352px] xl:top-auto right-[60px] xl:bottom-[164px] xl:left-[370px]"
             alt="Curly Arrow Icon"
             quality={100}
           />
@@ -140,17 +140,18 @@ export default function Home() {
             src={clover}
             alt="Clover Icon"
             quality={100}
-            className="w-10 h-10 flex self-start absolute top-[149px] left-[485px]"
+            className="w-6 h-6 xl:w-10 xl:h-10 flex self-start absolute top-[23px] right-[38px] xl:top-[149px] xl:left-[485px]"
           />
         </div>
       </header>
 
+      
       <main>
         <section className="bg-[#009F00]">
           <div className="bodyCon">
-            <div className=" px-10 pt-[123px] pb-[114px]">
+            <div className="px-3 lg:px-10 lg:py-[38px] py-[38px] lg:pt-[123px] lg:pb-[114px]">
               <div className="dun10 relative text-[#083A08]">
-                <div className="flex df bg-[#1FD61F] flex-col gap-6 leading-10 text-xl">
+                <div className="flex df bg-[#1FD61F] flex-col gap-2 lg:gap-6 text-[12px] leading-[160%] lg:leading-10 lg:text-xl">
                   <p>
                     Dunia is a tech-enabled publisher of multilingual
                     environmental children’s stories, interactive audiobooks,
@@ -163,7 +164,7 @@ export default function Home() {
                     short animated videos and other climate education learning
                     materials
                   </p>
-                  <p>
+                  <p className="hidden lg:block">
                     Dunia is a tech-enabled publisher of multilingual
                     environmental children’s stories, interactive audiobooks,
                     short animated videos and other climate education learning
@@ -172,19 +173,19 @@ export default function Home() {
                 </div>
                 <div className="midblock"></div>
                 <div className="bg-[#1FD61F]"></div>
-                <span className="millik absolute top-16 left-16 text-[118px] leading-[114.11px] whitespace-nowrap ">
+                <span className="millik absolute top-5 left-5 lg:top-16 lg:left-16 text-[36px] lg:text-[118px] lg:leading-[114.11px] whitespace-nowrap ">
                   Dunia in a few words
                 </span>
                 <div>
                   <Image
-                    className="w-10 h-10 absolute top-[217px] right-[44px]"
+                    className="lg:w-10 lg:h-10 w-3 h-3 absolute bottom-[20px] left-[90px] lg:bottom-auto lg:left-auto lg:top-[217px] lg:right-[44px]"
                     src={d6}
                     alt="clover icon"
                   />
                 </div>
                 <div>
                   <Image
-                    className="w-10 h-10 absolute bottom-[54px] left-[258px]"
+                    className="lg:w-10 lg:h-10 w-3 h-3 absolute top-[101px] right-[26px] lg:top-auto lg:right-auto lg:bottom-[54px] lg:left-[258px]"
                     src={d6}
                     alt="clover icon"
                   />
@@ -194,6 +195,7 @@ export default function Home() {
           </div>
         </section>
 
+{/* 
         <section className="bodyCon">
           <div className="px-10 pt-[88px] pb-[134px] flex gap-12 flex-col">
             <div className="flex justify-between items-center">
@@ -508,10 +510,10 @@ export default function Home() {
               <Image className="w-10 h-10" src={d7} alt="clover" />
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
