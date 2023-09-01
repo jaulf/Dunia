@@ -290,14 +290,17 @@ input:-ms-input-placeholder {
 }
 
 .catb > button {
-  padding: 10px 21px;
-  font-size: 20px;
+  padding: 14px 12px;
+  font-size: 14px;
   font-weight: 500;
   color: #000;
+  background: #F2F2F2;
+  border-radius: 30px;
 }
 
 .catb-active {
-  background: #009f00;
+  padding: 13.5px 26.5px !important;
+  background: #009f00 !important;
   border-radius: 30px;
   font-weight: 600 !important;
   color: white !important;
@@ -1097,13 +1100,27 @@ input {
     max-width: 1440px;
   }
 
+  .catb > button {
+    padding: 10px 21px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+  }
+
+  .catb-active {
+    background: #009f00;
+    border-radius: 30px;
+    font-weight: 600 !important;
+    color: white !important;
+  }
+
   .l-h2 {
     color: #2d2c2c;
     font-family: "millik";
     font-size: 56px !important;
     font-style: normal;
     font-weight: 400;
-    line-height: 68px!important; /* 121.429% */
+    line-height: 68px !important; /* 121.429% */
     letter-spacing: -1.68px;
   }
 
@@ -1111,7 +1128,7 @@ input {
     display: flex;
     overflow: hidden;
   }
-  
+
   .dun10 > div:nth-child(1) {
     width: calc(60% - 8px);
     padding-left: 64px;
@@ -1119,18 +1136,18 @@ input {
     padding-top: 239px;
     border-radius: 30px;
   }
-  
+
   .dun10 > div:nth-child(2) {
     background: #009f00;
     z-index: 75;
     width: 16px;
   }
-  
+
   .dun10 > div:nth-child(3) {
     width: calc(40% - 8px);
     border-radius: 30px;
   }
-  
+
   .dun10 > div:nth-child(1) > p {
     max-width: 647px;
   }

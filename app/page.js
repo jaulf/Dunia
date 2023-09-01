@@ -75,7 +75,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="h-ri" className="right relative rounded-[28px] xl:rounded-[50px]">
+            <div
+              id="h-ri"
+              className="right relative rounded-[28px] xl:rounded-[50px]"
+            >
               <div
                 id="card"
                 className="xl:px-6 px-3 xl:py-7 py-4 pb-8 xl:pb-[59px] relative z-50 flex flex-col gap-[30px]"
@@ -90,7 +93,7 @@ export default function Home() {
                       height={552}
                       placeholder="blur"
                     />
-                  </div> 
+                  </div>
                   <div className="inline-flex justify-center items-center">
                     <Image
                       className="xl:rounded-[30px] rounded-[16px]"
@@ -104,14 +107,22 @@ export default function Home() {
                 </div>
 
                 <div className="text-white">
-                  <h5 className=" text-xs xl:text-base font-medium xl:font-semibold">Featured today⚡</h5>
+                  <h5 className=" text-xs xl:text-base font-medium xl:font-semibold">
+                    Featured today⚡
+                  </h5>
                   <h3 className="millik text-[20px] xl:text-[36px] max-w-[483px] py-2 xl:pt-5">
                     The True Story of Nature’s Dwellers
                   </h3>
                   <div className="flex justify-between items-center xl:py-[6px]">
                     <div className="flex gap-3 items-center">
-                      <Image src={avatar} className="xl:w-8 xl:h-8 w-[18px] h-[18px]" alt="Memoji" />
-                      <span className="text-xs xl:text-base font-medium xl:font-semibold">Josh Debs</span>
+                      <Image
+                        src={avatar}
+                        className="xl:w-8 xl:h-8 w-[18px] h-[18px]"
+                        alt="Memoji"
+                      />
+                      <span className="text-xs xl:text-base font-medium xl:font-semibold">
+                        Josh Debs
+                      </span>
                     </div>
                     <div className="rounded-full py-2 px-4 xl:px-[27px] xl:py-[14px] text-xs xl:text-base font-medium xl:font-bold text-white bg-black">
                       Check it out
@@ -145,7 +156,6 @@ export default function Home() {
         </div>
       </header>
 
-      
       <main>
         <section className="bg-[#009F00]">
           <div className="bodyCon">
@@ -195,27 +205,36 @@ export default function Home() {
           </div>
         </section>
 
-{/* 
         <section className="bodyCon">
-          <div className="px-10 pt-[88px] pb-[134px] flex gap-12 flex-col">
+          <div className="lg:px-10 px-6 pt-[72px] lg:pt-[88px] pb-[56px] lg:pb-[134px] flex gap-6 lg:gap-12 flex-col">
             <div className="flex justify-between items-center">
-              <h3 className="millik text-[32px] text-black leading-[30.94px]">
+              <h3 className="millik text-[24px] leading-6 lg:text-[32px] text-black lg:leading-[30.94px]">
                 Top picks this week🌟
               </h3>
               <Link
-                className="rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
-                href="/"
+                className="hidden lg:block rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
+                href="/discover"
               >
                 See all
               </Link>
             </div>
             <HomeProductList />
+            <div className="inline-flex justify-center pt-4">
+              <Link
+                className="lg:hidden block rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
+                href="/discover"
+              >
+                See all
+              </Link>
+            </div>
           </div>
 
-          <div className="pt-10 relative pb-[131px] px-10">
-            <div className="flex items-end justify-between">
-              <div className="flex flex-col gap-8">
-                <h2 className="text-black text-[32px] millik">Categories</h2>
+          <div className="pt-10 relative lg:pb-[131px] px-6 lg:px-10">
+            <h2 className="text-black text-[24px] lg:text-[32px] millik">
+              Categories
+            </h2>
+            <div className="flex items-end justify-between whitespace-nowrap">
+              <div className="flex flex-col pt-6 lg:pt-8 gap-6 lg:gap-8 overflow-auto">
                 <div className="catb flex gap-4">
                   <button className="catb-active">All</button>
                   <button>Climate change</button>
@@ -225,34 +244,34 @@ export default function Home() {
               </div>
 
               <Link
-                className="rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
-                href="/"
+                className="hidden lg:block rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
+                href="/discover"
               >
                 See all
               </Link>
             </div>
             <div className="flex flex-col gap-[30px] pt-8">
-              <div className="flex justify-between gap-8">
-                <div className="w-full h-full max-w-[534px] max-h-[629.32px] rounded-[48px] flex-col justify-end items-center inline-flex">
+              <div className="flex flex-col xl:flex-row justify-between gap-8">
+                <div className="w-full h-full overflow-hidden xl:max-w-[534px] max-h-[400px] xl:max-h-[629.32px] rounded-[30px] xl:rounded-[48px] flex-col justify-center xl:justify-end items-center inline-flex">
                   <Image
-                    className="w-full rounded-[48px]"
+                    className="w-full"
                     src={c1}
                     alt="Category 1"
                     placeholder="blur"
                     quality={100}
                   />
                 </div>
-                <div className="flex flex-col justify-between">
-                  <div className="w-full h-full max-w-[794px] max-h-[297px] rounded-[48px] flex-col justify-end items-center inline-flex">
+                <div className="hidden xl:flex flex-col justify-between">
+                  <div className="w-full rounded-[30px] xl:rounded-[48px] h-full overflow-hidden xl:max-w-[794px] max-h-[297px] flex-col justify-end items-center inline-flex">
                     <Image
-                      className="w-full rounded-[48px]"
+                      className="w-full"
                       src={c2}
                       alt="Category 2"
                       placeholder="blur"
                       quality={100}
                     />
                   </div>
-                  <div className="w-full h-full max-w-[794px] max-h-[297px] rounded-[48px] flex-col justify-end items-center inline-flex">
+                  <div className="w-full h-full overflow-hidden xl:max-w-[794px] max-h-[297px] rounded-[48px] flex-col justify-end items-center inline-flex">
                     <Image
                       className="w-full rounded-[48px]"
                       src={c3}
@@ -263,47 +282,57 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="w-full relative h-full min-h-[400px] xl:h-auto rounded-[30px] xl:rounded-[48px] overflow-hidden inline-flex justify-center items-center">
                 <Image
-                  className="w-full rounded-[48px]"
+                  className="object-cover object-left-top"
                   src={c4}
                   alt="Category 4"
                   placeholder="blur"
                   quality={100}
+                  sizes="100vw"
+                  fill
                 />
               </div>
             </div>
             <Image
-              className="absolute w-10 h-10 top-[14px] right-[529px]"
+              className="absolute w-10 h-10 top-[14px] right-[104px] lg:right-[529px]"
               src={d7}
               alt="Dark Green Clover"
               placeholder="blur"
               quality={100}
             />
+            
+            <div className="inline-flex self-center w-full justify-center pt-10">
+              <Link
+                className="lg:hidden block rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
+                href="/discover"
+              >
+                See all
+              </Link>
+            </div>
           </div>
-
-          <div className="px-10 relative pt-[77px] pb-[140px] flex items-end gap-8">
-            <div className="flex w-full flex-col gap-11">
+          
+          <div className="px-6 lg:px-10 relative pt-[77px] pb-[140px] flex flex-col lg:flex-row items-end gap-4 lg:gap-8">
+            <div className="flex w-full flex-col gap-6 lg:gap-11">
               <div className="flex self-start flex-col gap-6">
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-[56px] millik text-black leading-[64px]">
+                  <h2 className="lg:text-[56px] text-[36px] millik text-black leading-[44px] lg:leading-[64px]">
                     Online Book Fair -{" "}
                     <span className="block">The reader’s conference</span>
                   </h2>
-                  <p className="text-[#4d4d4d] max-w-[612px]">
+                  <p className="text-[#4d4d4d] max-w-[612px] leading-6">
                     As climate change grips the planet, here is Earth.
                     Org&apos;s selection of must-read books on climate change
-                    and sustainability to enlighten you.
+                    and sustainability to enlighten you. 
                   </p>
                 </div>
                 <button className="text-xl flex self-start font-bold px-10 py-[14px] rounded-[32px] text-white bg-[#009F00] ">
                   Join the community
                 </button>
               </div>
-
-              <div className="bg-[#F2F2F2] w-full pb-8 pt-12 pl-[42px] rounded-[48px] flex flex-col gap-8">
-                <div className="flex flex-col gap-4">
-                  <h6 className=" text-xl font-medium text-black">
+              <div className="bg-[#F2F2F2] w-full py-[26.5px] lg:pb-8 lg:pt-12 pl-6 lg:pl-[42px] rounded-[30px] lg:rounded-[48px] flex flex-col gap-4 lg:gap-8">
+                <div className="flex flex-col gap-3 lg:gap-4">
+                  <h6 className="text-base lg:text-xl font-medium text-black">
                     Our community
                   </h6>
                   <Image
@@ -315,14 +344,15 @@ export default function Home() {
                     alt="members"
                   />
                 </div>
-                <h3 className="text-[48px] text-black millik max-w-[619px]">
+                <h3 className="text-[24px] lg:text-[48px] text-black millik max-w-[308px] lg:max-w-[619px]">
                   Over 1.7K active readers & book lovers joined.
                 </h3>
               </div>
             </div>
-            <div className="w-full h-full max-w-[612px] max-h-[650px] relative rounded-[48px] overflow-hidden inline-flex justify-center items-center flex-col">
+
+            <div className="w-full h-full max-h-[405px] lg:max-w-[612px] lg:max-h-[650px] relative rounded-[30px] lg:rounded-[48px] overflow-hidden inline-flex justify-center items-center flex-col">
               <Image
-                className="w-full object-cover h-auto rounded-[48px]"
+                className="w-full object-cover h-auto"
                 alt="Online Book Fair"
                 src={obfImg}
                 sizes="100vw"
@@ -330,13 +360,13 @@ export default function Home() {
                 quality={100}
               />
             </div>
-            <div className="absolute flex self-start top-[21px] left-[143px]">
+            <div className="absolute flex self-start top-[21px] right-[44px] lg:left-[143px]">
               <Image className="w-10 h-10" src={d7} alt="clover" />
             </div>
           </div>
         </section>
 
-        <section className="bg-[#0B0C0B]">
+        {/* <section className="bg-[#0B0C0B]">
           <div className="bodyCon relative overflow-hidden">
             <div>
               <div className="flex pl-[120px] pr-[70px]">

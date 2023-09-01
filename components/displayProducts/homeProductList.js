@@ -39,17 +39,19 @@ function HomeProductList() {
 
   if (productStatus == "succeeded") {
     const firstFour = allProducts.data.slice(0, 4);
+    const firstTwo = allProducts.data.slice(0, 2);
 
     return (
-      <div className="grid gap-5 grid-cols-4">
+      <>
+        <div className="hidden lg:grid gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
         {firstFour.map((product) => (
           <div key={product.id} className="flex flex-col gap-4">
             <div
               id="img-ccard"
-              className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
+              className="relative inline-flex justify-center rounded-[30px] overflow-hidden max-h-[400px] lg:max-w-[325px] items-center flex-col"
             >
               <Image
-                className="rounded-[30px] w-full h-auto"
+                className=" w-full h-auto"
                 sizes="100vw"
                 placeholder="blur"
                 src={tp1}
@@ -100,7 +102,68 @@ function HomeProductList() {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+        <div className="lg:hidden grid gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {firstTwo.map((product) => (
+          <div key={product.id} className="flex flex-col gap-4">
+            <div
+              id="img-ccard"
+              className="relative inline-flex justify-center rounded-[30px] overflow-hidden max-h-[400px] lg:max-w-[325px] items-center flex-col"
+            >
+              <Image
+                className=" w-full h-auto"
+                sizes="100vw"
+                placeholder="blur"
+                src={tp1}
+                quality={100}
+                alt="Top Pick One"
+              />
+              <div
+                onClick={() => saveItemHandler(product.id)}
+                className="absolute cursor-pointer top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center"
+              >
+                {checkIfLiked(product.id) ? (
+                  <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
+                ) : (
+                  <Image className="w-6 h-6" src={hearte} alt="Heart Icon" />
+                )}
+              </div>
+            </div>
+            <div id="img-text">
+              <div className="flex gap-3 flex-col">
+                <div className="flex justify-between">
+                  <div className="flex flex-col gap-2">
+                    <Link href={'/books/' + product.id} className="text-[#121212] hover:underline millik leading-[15.47px]">
+                      {product.name}
+                    </Link>
+                    <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
+                     {product.author.name}
+                    </span>
+                  </div>
+
+                  <span className="text-[#318736] font-semibold leading-[19.36px]">
+                    ${product.price}
+                  </span>
+                </div>
+                <p className="text-xs ctrr leading-5 text-[#121212]">
+                  {product.description}
+                </p>
+                <div className="flex gap-[3px] items-center">
+                  <Image
+                    className="h-3 w-auto"
+                    src={ratings}
+                    alt="rating Icon"
+                  />
+                  <span className="font-medium text-[10px]">
+                    4.5 (55 ratings)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+        </div>
+      </>
     );
   }
 
