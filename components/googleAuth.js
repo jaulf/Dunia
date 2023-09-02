@@ -36,7 +36,7 @@ export default function GoogleAuth() {
     console.log(session);
 
     const body = {
-      oauth: "google",
+      oauth: session.provider,
       oauth_id: session.sub,
       name: session.name,
       email: session.email,
@@ -45,8 +45,8 @@ export default function GoogleAuth() {
     axios.post(url, body, config).then((response) => {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
-      localStorage.setItem("auth-method", "Google");
-      dispatch(updateAuth("Google"));
+      localStorage.setItem("auth-method", session.provider);
+      dispatch(updateAuth(session.provider));
       router.push("/profile");
     });
   }

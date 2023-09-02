@@ -31,7 +31,7 @@ export default function FacebookAuth() {
   if (status == "authenticated") {
     console.log(session);
     const body = {
-      oauth: "facebook",
+      oauth: session.provider,
       oauth_id: session.sub, 
       name: session.name,
       email: session.email,
@@ -39,7 +39,8 @@ export default function FacebookAuth() {
     axios.post(url, body, config).then((response) => {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
-      dispatch(updateAuth("Facebook"));
+      localStorage.setItem("auth-method", session.provider);
+      dispatch(updateAuth(session.provider));
       router.push("/profile");
     });
   }

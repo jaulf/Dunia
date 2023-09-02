@@ -347,7 +347,7 @@ export default function UserProfile() {
               <div id="connect">
                 <h2>Connect</h2>
                 <div id="FacebookandGoogle">
-                  {connectM == "Facebook" ? (
+                  {connectM == "facebook" ? (
                     <div className="">
                       <Image
                         className="w-[18px] h-[18px]"
@@ -359,7 +359,7 @@ export default function UserProfile() {
                   ) : (
                     <ProfileFacebookAuth />
                   )}
-                  {connectM == "Google" ? (
+                  {connectM == "google" ? (
                     <div className="">
                       <Image
                         className="w-[18px] h-[18px]"

@@ -34,24 +34,6 @@ export default function ProfileGoogleAuth() {
   // calling NextAuth.js for google
   const { data: session, status } = useSession();
 
-  if (status == "authenticated") {
-    console.log(session);
-
-    const body = {
-      oauth: "google",
-      oauth_id: session.sub,
-      name: session.name,
-      email: session.email,
-    };
-
-    axios.post(url, body, config).then((response) => {
-      console.log(response.data);
-      localStorage.setItem("user-auth", JSON.stringify(response.data));
-      localStorage.setItem("auth-method", "Google");
-      dispatch(updateAuth("Google"));
-    });
-  }
-
   return (
     <div
       onClick={() => signIn("google")}

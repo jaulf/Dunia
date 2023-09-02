@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
-
+import axios from "axios";
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -17,12 +17,13 @@ const handler = NextAuth({
     async jwt({ token, account }) {
       if (account) {
         token.accessToken = account.access_token;
+        token.provider = account.provider
       }
       return token;
     },
     async session({ session, token, user }) {
-      return token
-    }, 
+      return token;
+    }
   },
 });
 

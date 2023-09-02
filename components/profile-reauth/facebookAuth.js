@@ -31,22 +31,6 @@ export default function ProfileFacebookAuth() {
   // calling NextAuth.js for Facebook
   const { data: session, status } = useSession();
 
-    if (status == "authenticated") {
-      console.log(session);
-      const body = {
-        oauth: "facebook",
-        oauth_id: session.sub,
-        name: session.name,
-        email: session.email,
-      };
-      axios.post(url, body, config).then((response) => {
-        console.log(response.data);
-        localStorage.setItem("user-auth", JSON.stringify(response.data));
-        localStorage.setItem("auth-method", "Facebook");
-        dispatch(updateAuth("Facebook"));
-      });
-    }
-  
   return (
     <div
       className="cursor-pointer profileHover"
