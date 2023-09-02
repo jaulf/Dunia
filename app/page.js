@@ -366,19 +366,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <section className="bg-[#0B0C0B]">
+        <section className="bg-[#0B0C0B]">
           <div className="bodyCon relative overflow-hidden">
             <div>
-              <div className="flex pl-[120px] pr-[70px]">
+              <div className="flex lg:flex-row flex-col px-6 lg:pl-[120px] lg:pr-[70px]">
                 <div
                   id="left"
-                  className=" flex pt-[85px] flex-col gap-5 w-full"
+                  className=" flex pt-[54px] lg:pt-[85px] flex-col gap-4 lg:gap-5 w-full"
                 >
-                  <div className="flex flex-col gap-[18px]">
-                    <p className="uppercase text-[#f3f3f3] font-medium">
+                  <div className="flex flex-col gap-3 lg:gap-[18px]">
+                    <p className="uppercase text-[#f3f3f3] text-[14px] lg:text-[16px] leading-6 font-medium">
                       Discover
                     </p>
-                    <h1 className="text-[56px] millik text-white w-full max-w-[694px]">
+                    <h1 className="text-[36px] lg:text-[56px] millik text-white w-full max-w-[694px]">
                       Featured authors & creators
                     </h1>
                   </div>
@@ -396,7 +396,7 @@ export default function Home() {
                           fill="#009F00"
                         />
                       </svg>
-                      <span className="text-[#009f00] text-xl millik">
+                      <span className="text-[#009f00] text-base lg:text-xl millik">
                         James Jones
                       </span>
                     </div>
@@ -424,8 +424,8 @@ export default function Home() {
                       <div>127.4k followers</div>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-[10px]">
-                    <h6 className="text-[#009f00] millik">About author</h6>
+                  <div className="flex flex-col gap-[10px] pt-4 lg:pt-0">
+                    <h6 className="text-[#009f00] leading-6 text-[14px] lg:text-vase millik">About author</h6>
                     <p className="text-[#B3B3B3] max-w-[484px]">
                       &quot;Lorem ipsum dolor sit amet, consectetur adipiscing
                       elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -440,7 +440,7 @@ export default function Home() {
                   className="relative bg-[#0B0C0B] w-full h-full max-w-[570px] max-h-[570px] inline-flex flex-col justify-center items-center"
                 >
                   <Image
-                    className="bg-[#0B0C0B] w-full h-full"
+                    className="bg-[#0B0C0B] w-full h-full mb-[4px]"
                     src={author1}
                     alt="James Jones"
                   />
@@ -448,7 +448,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div>
+            {/* controls */}
+            <div className="mobile-controls">
               <div className="inline-flex flex-col justify-center py-[10px] px-6 arrows left-aarow w-auto items-center">
                 <Image
                   src={warrowleft}
@@ -466,44 +467,44 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="flex gap-[25px] pb-[37px] pl-[120px] mt-[-26px] z-[99] relative">
-              <div className="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+            <div className="flex overflow-auto gap-[25px] pb-[141px] lg:pb-[37px] pl-6 lg:pl-[120px] mt-[-26px] z-[99] relative">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author2} alt="" />
                 </div>
-                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[24px] lg:text-[36px]">
                   Debbie Mays
                 </h4>
               </div>
-              <div className="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author3} alt="" />
                 </div>
-                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[24px] lg:text-[36px]">
                   Trevor Jones
                 </h4>
               </div>
-              <div className="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author4} alt="" />
                 </div>
-                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[24px] lg:text-[36px]">
                   Etty Fidele
                 </h4>
               </div>
-              <div className="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author5} alt="" />
                 </div>
-                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[24px] lg:text-[36px]">
                   Ella Mayers
                 </h4>
               </div>
-              <div className="flex flex-col gap-6 items-center px-[30px] py-5 bg-black rounded-[50px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author6} alt="" />
                 </div>
-                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[36px]">
+                <h4 className="text-[#009f00] text-center max-w-[180px] millik text-[24px] lg:text-[36px]">
                   Fray Bekele
                 </h4>
               </div>
@@ -512,13 +513,13 @@ export default function Home() {
         </section>
 
         <section className="bodyCon">
-          <div className="pt-[82px] pb-[132px] relative flex gap-6 justify-center items-center flex-col">
+          <div className="md:pt-[82px] px-4 md:px-0 md:pb-[132px] py-20 relative flex gap-6 justify-center items-center flex-col">
             <div className="flex flex-col justify-center items-center gap-3 ">
-              <h3 className="millik text-[#121212] max-w-[845px] text-center text-[56px] leading-[64px]">
+              <h3 className="millik text-[#121212] max-w-[358px] md:max-w-[845px] text-center text-[32px] leading-10 md:text-[56px] md:leading-[64px]">
                 Be the first to know when new{" "}
                 <span className="dunia-grd2">resources</span> are available
               </h3>
-              <p className="max-w-[612px] text-[#4d4d4d] text-center">
+              <p className="max-w-[612px] text-[#4d4d4d] text-[14px] leading-[22px] md:text-base text-center">
                 As climate change grips the planet, here is Earth. Org&apos;s
                 selection of must-read books on climate change and
                 sustainability to enlighten you.
@@ -536,14 +537,14 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="absolute flex self-start top-[38px] right-[158px]">
+            <div className="absolute hidden lg:flex self-start lg:top-[38px] lg:right-[158px]">
               <Image className="w-10 h-10" src={d7} alt="clover" />
             </div>
           </div>
-        </section> */}
+        </section>
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

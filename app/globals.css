@@ -169,7 +169,8 @@ input:-ms-input-placeholder {
 
 .subscribe {
   background: rgba(0, 0, 0, 0.05);
-  width: 500px;
+  width: 100%;
+  min-width: 347px;
 }
 
 .subscribe::placeholder {
@@ -231,10 +232,8 @@ input:-ms-input-placeholder {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "millik";
-  font-size: 56px;
   font-style: normal;
   font-weight: 400;
-  line-height: 64px;
 }
 
 .dunia-gradient {
@@ -294,7 +293,7 @@ input:-ms-input-placeholder {
   font-size: 14px;
   font-weight: 500;
   color: #000;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border-radius: 30px;
 }
 
@@ -309,13 +308,14 @@ input:-ms-input-placeholder {
 .foot-acc-left {
   color: #cffccf;
   font-family: "millik";
-  font-size: 56px;
+  font-size: 36px;
   font-style: normal;
   font-weight: 400;
-  line-height: 80px;
-  letter-spacing: -1.68px;
-  max-width: 549px;
+  line-height: 48px;
+  letter-spacing: -1.08px;
   width: 100%;
+  min-width: 374px;
+  overflow: hidden;
 }
 
 .foot-left > div {
@@ -329,7 +329,7 @@ input:-ms-input-placeholder {
   font-family: "millik";
   color: #a0f8a0;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
@@ -338,7 +338,7 @@ input:-ms-input-placeholder {
 .foot-left > div > p {
   color: #e7fde7;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
@@ -346,7 +346,7 @@ input:-ms-input-placeholder {
 
 .cent-dun {
   left: 50%;
-  top: 578px;
+  bottom: -50px;
   transform: translateX(-50%);
 }
 
@@ -359,18 +359,14 @@ input:-ms-input-placeholder {
   border: 1.5px solid #009f00;
 }
 
-.left-aarow {
+.mobile-controls {
   position: absolute;
-  top: 50%;
-  left: 30px;
-  transform: translateY(-50%);
-}
-
-.right-aarow {
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  transform: translateY(-50%);
+  bottom: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
 }
 
 .filter {
@@ -1100,6 +1096,39 @@ input {
     max-width: 1440px;
   }
 
+  .subscribe {
+    width: 500px;
+  }
+
+  .mobile-controls {
+    position: unset;
+    bottom: unset;
+    display: unset;
+    justify-content: unset;
+    align-items: unset;
+    width: unset;
+    gap: unset;
+  }
+
+  .arrows {
+    border-radius: 27px;
+    border: 1.5px solid #009f00;
+  }
+
+  .left-aarow {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+  }
+
+  .right-aarow {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+  }
+
   .catb > button {
     padding: 10px 21px;
     font-size: 20px;
@@ -1150,6 +1179,52 @@ input {
 
   .dun10 > div:nth-child(1) > p {
     max-width: 647px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .cent-dun {
+    left: 50%;
+    bottom: auto;
+    top: 578px;
+    transform: translateX(-50%);
+  }
+  .foot-acc-left {
+    color: #cffccf;
+    font-family: "millik";
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 80px;
+    letter-spacing: -1.68px;
+    max-width: 549px;
+    width: 100%;
+  }
+
+  .foot-left > div {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .foot-left > div > h3 {
+    font-family: "millik";
+    color: #a0f8a0;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .foot-left > div > p {
+    color: #e7fde7;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
   }
 }
 
