@@ -76,32 +76,32 @@ export default async function Page({ params }) {
         </div>
       </div>
 
-      <main className="pt-16">
+      <main className="lg:pt-16 pt-6">
         <div className="bodyCon">
-          <div className=" px-10">
-            <div class="flex gap-[50px] w-full py-6 justify-center items-center bg-[#EFEFEF] rounded-full">
-              <div className="flex shrink-0 gap-[10px]">
-                <Image className="w-[28px] h-[28px]" src={pv1} alt="" />
-                <span className="text-xl font-semibold tracking-[-0.4px] text-black">
+          <div className=" lg:px-10">
+            <div class="flex gap-10 lg:gap-[50px] px-5 lg:px-0 w-full whitespace-nowrap overflow-auto py-4 lg:py-6 lg:justify-center items-center bg-[#EFEFEF] lg:rounded-full">
+              <div className="flex gap-[10px] shrink-0 ">
+                <Image className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]" src={pv1} alt="" />
+                <span className="text-[12px] lg:text-xl font-semibold tracking-[-0.24px] lg:tracking-[-0.4px] text-black">
                   Free shipping over #0000 in *location
                 </span>
               </div>
-              <div className="flex shrink-0 gap-[10px]">
-                <Image className="w-[28px] h-[28px]" src={pv2} alt="" />
-                <span className="text-xl font-semibold tracking-[-0.4px] text-black">
+              <div className="flex gap-[10px] shrink-0 ">
+                <Image className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]" src={pv2} alt="" />
+                <span className="text-[12px] lg:text-xl font-semibold tracking-[-0.24px] lg:tracking-[-0.4px] text-black">
                   Cash on delivery option
                 </span>
               </div>
-              <div className="flex shrink-0 gap-[10px]">
-                <Image className="w-[28px] h-[28px]" src={pv3} alt="" />
-                <span className="text-xl font-semibold tracking-[-0.4px] text-black">
+              <div className="flex gap-[10px] shrink-0 ">
+                <Image className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]" src={pv3} alt="" />
+                <span className="text-[12px] lg:text-xl font-semibold tracking-[-0.24px] lg:tracking-[-0.4px] text-black">
                   Hassle free warranty
                 </span>
               </div>
             </div>
-
+{/* 
             <section
-              id="hero-cont"
+              id="hero-cont" 
               className="flex pt-16 px-[120px] gap-[82px]"
             >
               <div id="left" className="flex flex-col gap-6">
@@ -211,7 +211,7 @@ export default async function Page({ params }) {
               <ListofReviews productID={book.id} />
             </section>
 
-            <SubmitAReview productID={book.id} />
+            <SubmitAReview productID={book.id} /> */}
           </div>
         </div>
       </main>

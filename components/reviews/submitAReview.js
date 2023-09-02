@@ -163,7 +163,7 @@ export default function SubmitAReview({ productID }) {
           >
             Leave a review
           </Link>
-        </div>
+        </div> 
 
         {name ? (
           <form onSubmit={submitHandler} id="submit">
