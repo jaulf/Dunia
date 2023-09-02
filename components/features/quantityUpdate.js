@@ -95,7 +95,7 @@ export default function QuantityUpdate({ productID }) {
   };
 
   return (
-    <div className="flex gap-[30px] py-[12px] self-start rounded-full bg-[#F2F2F2] px-[10px] items-center">
+    <div className="flex gap-[30px] py-[12px] justify-center lg:self-start rounded-full bg-[#F2F2F2] px-[10px] items-center">
       <Image
         onClick={() => reduceQty(productID)}
         className="w-6 cursor-pointer h-6"

@@ -422,40 +422,39 @@ input:-ms-input-placeholder {
   border: 1.5px solid #f2f2f2;
   border-radius: 40px;
   padding-left: 30px;
-  padding-top: 21px;
-  padding-bottom: 21px;
+  padding-top: 18px;
+  padding-bottom: 18px;
   width: 100%;
   outline: none;
-  font-size: 24px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28px; /* 116.667% */
-  letter-spacing: -0.48px;
+  line-height: normal;
+  letter-spacing: -0.28px;
 }
 
 .comment-textarea {
-  padding: 30px;
-  height: 228px;
+  padding: 18px 30px;
+  height: 158px;
   border: 1.5px solid #f2f2f2;
   border-radius: 30px;
   width: 100%;
   outline: none;
-  font-size: 24px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28px; /* 116.667% */
-  letter-spacing: -0.48px;
+  line-height: normal;
+  letter-spacing: -0.28px;
 }
 
 .comment-input::placeholder,
 .comment-textarea::placeholder {
   color: #808080;
-  font-size: 24px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  line-height: 28px; /* 116.667% */
-  letter-spacing: -0.48px;
-}
+  line-height: normal;
+  letter-spacing: -0.28px;}
 
 .sub2 {
   display: flex;
@@ -1091,11 +1090,55 @@ input {
   box-shadow: 0px 0px 0px 2px #009f00 inset !important;
 }
 
+.mildborow {
+  column-gap: 15px;
+  row-gap: 20px;
+} 
+
 @media only screen and (min-width: 1024px) {
   .bodyCon {
     max-width: 1440px;
   }
 
+  .comment-input {
+    border: 1.5px solid #f2f2f2;
+    border-radius: 40px;
+    padding-left: 30px;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    width: 100%;
+    outline: none;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 116.667% */
+    letter-spacing: -0.48px;
+  }
+  
+  .comment-textarea {
+    padding: 30px;
+    height: 228px;
+    border: 1.5px solid #f2f2f2;
+    border-radius: 30px;
+    width: 100%;
+    outline: none;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 116.667% */
+    letter-spacing: -0.48px;
+  }
+  
+  .comment-input::placeholder,
+  .comment-textarea::placeholder {
+    color: #808080;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 116.667% */
+    letter-spacing: -0.48px;
+  }
+  
   .subscribe {
     width: 500px;
   }

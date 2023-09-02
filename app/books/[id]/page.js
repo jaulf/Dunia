@@ -81,31 +81,43 @@ export default async function Page({ params }) {
           <div className=" lg:px-10">
             <div class="flex gap-10 lg:gap-[50px] px-5 lg:px-0 w-full whitespace-nowrap overflow-auto py-4 lg:py-6 lg:justify-center items-center bg-[#EFEFEF] lg:rounded-full">
               <div className="flex gap-[10px] shrink-0 ">
-                <Image className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]" src={pv1} alt="" />
+                <Image
+                  className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]"
+                  src={pv1}
+                  alt=""
+                />
                 <span className="text-[12px] lg:text-xl font-semibold tracking-[-0.24px] lg:tracking-[-0.4px] text-black">
                   Free shipping over #0000 in *location
                 </span>
               </div>
               <div className="flex gap-[10px] shrink-0 ">
-                <Image className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]" src={pv2} alt="" />
+                <Image
+                  className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]"
+                  src={pv2}
+                  alt=""
+                />
                 <span className="text-[12px] lg:text-xl font-semibold tracking-[-0.24px] lg:tracking-[-0.4px] text-black">
                   Cash on delivery option
                 </span>
               </div>
               <div className="flex gap-[10px] shrink-0 ">
-                <Image className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]" src={pv3} alt="" />
+                <Image
+                  className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]"
+                  src={pv3}
+                  alt=""
+                />
                 <span className="text-[12px] lg:text-xl font-semibold tracking-[-0.24px] lg:tracking-[-0.4px] text-black">
                   Hassle free warranty
                 </span>
               </div>
             </div>
-{/* 
+
             <section
-              id="hero-cont" 
-              className="flex pt-16 px-[120px] gap-[82px]"
+              id="hero-cont"
+              className="flex flex-col lg:flex-row pt-14 lg:pt-16 px-6 lg:px-[120px] gap-4 lg:gap-[82px]"
             >
               <div id="left" className="flex flex-col gap-6">
-                <div className="w-[401px] rounded-[30px] relative overflow-hidden h-[454px]">
+                <div className="lg:w-[401px] h-[400px] rounded-[30px] relative overflow-hidden lg:h-[454px]">
                   <Image
                     className="object-cover top-[10px] left-[20px]"
                     sizes="100vw"
@@ -121,7 +133,7 @@ export default async function Page({ params }) {
                     <CartUpdate productID={book.id} />
                   </div>
                 </div>
-                <div class="flex gap-[10px]">
+                <div class="hidden lg:flex gap-[10px]">
                   <Image
                     className="w-[90px] h-[90px] rounded-[20px]"
                     src={pr2}
@@ -145,8 +157,8 @@ export default async function Page({ params }) {
                 </div>
               </div>
               <div id="right" className="max-w-[637px] self-start">
-                <div className="flex flex-col gap-8">
-                  <div class="flex flex-col gap-6">
+                <div className="flex flex-col gap-10 lg:gap-8">
+                  <div class="hidden lg:flex flex-col gap-6">
                     <h1 className="text-[#121212] millik text-[64px] leading-[62px]">
                       {book.name}
                     </h1>
@@ -176,7 +188,41 @@ export default async function Page({ params }) {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-5">
+                  <div id="img-text" className="block lg:hidden">
+                    <div className="flex gap-3 flex-col">
+                      <div className="flex justify-between">
+                        <div className="flex flex-col gap-2">
+                          <Link
+                            href={"/books/" + book.id}
+                            className="text-[#121212] hover:underline millik leading-[15.47px]"
+                          >
+                            {book.name}
+                          </Link>
+                          <span className="leading-[16.94px] text-[#686868] text-sm font-medium ">
+                            {book.author.name}
+                          </span>
+                        </div>
+
+                        <span className="text-[#318736] font-semibold leading-[19.36px]">
+                          ${book.price}
+                        </span>
+                      </div>
+                      <p className="text-xs ctrr leading-5 text-[#121212]">
+                        {book.description}
+                      </p>
+                      <div className="flex gap-[3px] items-center">
+                        <Image
+                          className="h-3 w-auto"
+                          src={ratings}
+                          alt="rating Icon"
+                        />
+                        <span className="font-medium text-[10px]">
+                          4.5 (55 ratings)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="hidden lg:flex flex-col gap-5">
                     <QuantityUpdate productID={book.id} />
                     <div className="self-start flex gap-4">
                       <div className="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]">
@@ -188,22 +234,32 @@ export default async function Page({ params }) {
                       </div>
                     </div>
                   </div>
+                  <div className="lg:hidden grid grid-cols-2 mildborow">
+                    <QuantityUpdate productID={book.id} />
+                    <div className="lg:px-10 py-[14px] text-center text-white leading-6 self-end lg:text-xl font-bold rounded-full bg-[#009F00]">
+                      Buy now
+                    </div>
+                    <CartUpdateButton productID={book.id} />
+                    <div className="lg:px-10 py-[12px] text-center text-black leading-6 self-end lg:text-xl font-medium border-[2px] border-[#f2f2f2] rounded-full ">
+                      Preview book
+                    </div>
+                  </div>
                 </div>
 
                 <div></div>
               </div>
             </section>
 
-            <div id="divider" className="py-16 px-[87px]">
+            <div id="divider" className="pt-16 pb-14 lg:py-16 lg:px-[87px]">
               <div className="h-1 w-full bg-[#F2F2F2]"></div>
             </div>
 
             <section
               id="customer-reviews"
-              className="flex flex-col px-[120px] gap-10"
+              className="flex flex-col px-6 lg:px-[120px] gap-4 lg:gap-10"
             >
               <div>
-                <h3 className="text-[32px] text-[#121212] font-bold leading-9 tracking-[-0.64px]">
+                <h3 className="text-[20px] lg:text-[32px] text-[#121212] font-bold lg:leading-9 tracking-[-0.4px] lg:tracking-[-0.64px]">
                   Customer reviews
                 </h3>
               </div>
@@ -211,7 +267,11 @@ export default async function Page({ params }) {
               <ListofReviews productID={book.id} />
             </section>
 
-            <SubmitAReview productID={book.id} /> */}
+            <div id="submit" className="block lg:hidden">
+              <div className="h-1 w-full bg-[#F2F2F2]"></div>
+            </div>
+
+            <SubmitAReview productID={book.id} />
           </div>
         </div>
       </main>

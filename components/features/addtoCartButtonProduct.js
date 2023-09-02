@@ -58,7 +58,7 @@ export default function CartUpdateButton({ productID }) {
   return (
     <span>
       {checkIfInCart(productID) ? (
-        <div className="px-10 py-[14px] flex gap-2 text-black leading-6 self-end text-xl font-medium bg-[#f2f2f2] rounded-full ">
+        <div className="lg:px-10 text-center py-[14px] flex gap-2 text-black leading-6 justify-center lg:text-xl font-medium bg-[#f2f2f2] rounded-full ">
           <Image
             className="w-6 h-6 shrink-0"
             src={tickGreen}
@@ -69,7 +69,7 @@ export default function CartUpdateButton({ productID }) {
       ) : (
         <div
           onClick={() => saveItemToCart(productID)}
-          className=" cursor-pointer px-10 py-[14px] text-black leading-6 self-end text-xl font-medium bg-[#f2f2f2] rounded-full "
+          className=" cursor-pointer lg:px-10 text-center py-[14px] text-black leading-6 justify-center lg:text-xl font-medium bg-[#f2f2f2] rounded-full "
         >
           Add to cart
         </div>

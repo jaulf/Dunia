@@ -152,39 +152,40 @@ export default function SubmitAReview({ productID }) {
           </div>
         )}
       </div>
+
       <section
         id="comment-reviews"
-        className="flex flex-col pt-10 pb-[122px] px-[120px] gap-24"
+        className="flex flex-col pt-[72px] lg:pt-10 pb-[74px] lg:pb-[122px] px-6 lg:px-[120px] gap-6 lg:gap-24"
       >
         <div>
           <Link
             href="#submit"
-            className="font-medium text-[#009F00] underline text-2xl leading-[29px] tracking-[-0.48px]"
+            className="font-medium text-[#009F00] underline text-[24px] leading-[36px] lg:text-2xl lg:leading-[29px] tracking-[-0.48px]"
           >
             Leave a review
           </Link>
         </div> 
 
         {name ? (
-          <form onSubmit={submitHandler} id="submit">
+          <form onSubmit={submitHandler}>
             <div className="flex gap-4 shrink-0 items-center">
-              <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+              <span className="font-semibold text-black tracking-[-0.32px] lg:text-2xl lg:leading-[29px] lg:tracking-[-0.48px]">
                 Rate the Book
               </span>
-              <div className="flex gap-2">
+              <div className="flex gap-1 lg:gap-2">
                 <div
                   onClick={(e) => setRating(1)}
                   className=" inline-flex justify-center items-center cursor-pointer"
                 >
                   {rating > 0 ? (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starActive}
                       alt=""
                     />
                   ) : (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starInactive}
                       alt=""
                     />
@@ -196,13 +197,13 @@ export default function SubmitAReview({ productID }) {
                 >
                   {rating > 1 ? (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starActive}
                       alt=""
                     />
                   ) : (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starInactive}
                       alt=""
                     />
@@ -214,13 +215,13 @@ export default function SubmitAReview({ productID }) {
                 >
                   {rating > 2 ? (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starActive}
                       alt=""
                     />
                   ) : (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starInactive}
                       alt=""
                     />
@@ -232,13 +233,13 @@ export default function SubmitAReview({ productID }) {
                 >
                   {rating > 3 ? (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starActive}
                       alt=""
                     />
                   ) : (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starInactive}
                       alt=""
                     />
@@ -250,13 +251,13 @@ export default function SubmitAReview({ productID }) {
                 >
                   {rating > 4 ? (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starActive}
                       alt=""
                     />
                   ) : (
                     <Image
-                      className="h-[28px] w-[28px] grow-0 shrink-0"
+                      className="lg:h-[28px] lg:w-[28px] w-6 h-6 grow-0 shrink-0"
                       src={starInactive}
                       alt=""
                     />
@@ -265,8 +266,8 @@ export default function SubmitAReview({ productID }) {
               </div>
             </div>
 
-            <div class="flex flex-col gap-5 pt-[34px] pb-[50px]">
-              <div class="w-full flex gap-5">
+            <div class="flex flex-col gap-3 lg:gap-5 pt-6 lg:pt-[34px] pb-8 lg:pb-[50px]">
+              <div class="w-full flex flex-col lg:flex-row gap-3 lg:gap-5">
                 <input
                   value={name || "Name or nickname"}
                   disabled
@@ -305,7 +306,7 @@ export default function SubmitAReview({ productID }) {
           </form>
         ) : (
           <div className="flex gap-6 flex-col">
-            <span className="font-semibold text-black text-2xl leading-[29px] tracking-[-0.48px]">
+            <span className="font-semibold text-black tracking-[-0.32px] lg:text-2xl lg:leading-[29px] lg:tracking-[-0.48px]">
               Rate the Book
             </span>
             You need to be signed in to drop a review.
