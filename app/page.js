@@ -312,7 +312,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="px-6 lg:px-10 relative pt-[77px] pb-[140px] flex flex-col lg:flex-row items-end gap-4 lg:gap-8">
+          <div className="px-6 lg:px-10 relative py-[76px] lg:pb-[140px] flex flex-col lg:flex-row items-end gap-4 lg:gap-8">
             <div className="flex w-full flex-col gap-6 lg:gap-11">
               <div className="flex self-start flex-col gap-6">
                 <div className="flex flex-col gap-2">
@@ -468,7 +468,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex overflow-auto gap-[25px] pb-[141px] lg:pb-[37px] pl-6 lg:pl-[120px] mt-[-26px] z-[99] relative">
-              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-[#121212] rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author2} alt="" />
                 </div>
@@ -476,7 +476,7 @@ export default function Home() {
                   Debbie Mays
                 </h4>
               </div>
-              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-[#121212] rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author3} alt="" />
                 </div>
@@ -484,7 +484,7 @@ export default function Home() {
                   Trevor Jones
                 </h4>
               </div>
-              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-[#121212] rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author4} alt="" />
                 </div>
@@ -492,7 +492,7 @@ export default function Home() {
                   Etty Fidele
                 </h4>
               </div>
-              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-[#121212] rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author5} alt="" />
                 </div>
@@ -500,7 +500,7 @@ export default function Home() {
                   Ella Mayers
                 </h4>
               </div>
-              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-black rounded-[50px] min-w-[240px] min-h-[240px]">
+              <div className="flex flex-col gap-7 lg:gap-6 items-center px-[30px] pt-10 lg:py-5 bg-[#121212] rounded-[50px] min-w-[240px] min-h-[240px]">
                 <div className="inline-flex flex-col justify-center items-center w-full h-full max-w-[107px] max-h-[107px]">
                   <Image classname="w-full h-full" src={author6} alt="" />
                 </div>
