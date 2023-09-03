@@ -100,7 +100,7 @@ function HomeProductList() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
         ))}
         </div>
         <div className="lg:hidden grid gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">

@@ -19,54 +19,26 @@ import shopcart from "@/public/images/shopping-cart.png";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ShopProductList from "@/components/displayProducts/shopProductList";
+import Subscribe from "@/components/subscribe/subscribe";
 
 export default function Home() {
   return (
     <div className="text-[#4D4D4D] m-0">
       <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
-        <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+        <div class="max-w-[1440px] shrink-0 w-full navspace py-6 xl:py-4 px-6 xl:px-10">
           <Navbar />
         </div>
       </div>
 
       <main>
         <section id="Discover" className="bodyCon">
-          <div className="px-10 pt-24 pb-[134px] flex gap-12 flex-col">
-            
+          <div className="px-6 lg:px-10 pt-[42px] lg:pt-24 pb-20 lg:pb-[134px] flex gap-6 lg:gap-12 flex-col">
             <ShopProductList />
+
           </div>
         </section>
 
-        <section className="bodyCon">
-          <div className="pt-[82px] pb-[132px] relative flex gap-6 justify-center items-center flex-col">
-            <div className="flex flex-col justify-center items-center gap-3 ">
-              <h3 className="millik text-[#121212] max-w-[845px] text-center text-[56px] leading-[64px]">
-                Be the first to know when new{" "}
-                <span className="dunia-grd2">resources</span> are available
-              </h3>
-              <p className="max-w-[612px] text-[#4d4d4d] text-center">
-                As climate change grips the planet, here is Earth. Org&apos;s
-                selection of must-read books on climate change and
-                sustainability to enlighten you.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-8">
-              <input
-                className="py-[14px] px-5 outline-none subscribe rounded-full"
-                type="email"
-                placeholder="Enter your email address"
-              />
-              <button className="bg-[#009F00] font-bold text-xl text-white py-[14px] px-12 self-center rounded-full flex justify-center items-center">
-                Subscribe
-              </button>
-            </div>
-
-            <div className="absolute flex self-start top-[38px] right-[158px]">
-              <Image className="w-10 h-10" src={d7} alt="clover" />
-            </div>
-          </div>
-        </section>
+        <Subscribe />
       </main>
 
       <Footer />

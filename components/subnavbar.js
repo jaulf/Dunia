@@ -41,8 +41,8 @@ export default function SubNavbar() {
   }, [pathname]);
 
   return (
-    <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
-      <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
+    <nav className="flex overflow-auto lg:justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
+      <div className="px-6 lg:px-0 content-container items-center flex gap-3 whitespace-nowrap lg:justify-center max-w-[1440px]">
         <Link href="/profile" className="content profile">
           Profile
         </Link>

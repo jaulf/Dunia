@@ -30,6 +30,7 @@ import author6 from "../public/images/authors/FB.png";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import HomeProductList from "@/components/displayProducts/homeProductList";
+import Subscribe from "@/components/subscribe/subscribe";
 
 export default function Home() {
   return (
@@ -301,7 +302,7 @@ export default function Home() {
               placeholder="blur"
               quality={100}
             />
-            
+
             <div className="inline-flex self-center w-full justify-center pt-10">
               <Link
                 className="lg:hidden block rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
@@ -311,7 +312,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          
+
           <div className="px-6 lg:px-10 relative py-[76px] lg:pb-[140px] flex flex-col lg:flex-row items-end gap-4 lg:gap-8">
             <div className="flex w-full flex-col gap-6 lg:gap-11">
               <div className="flex self-start flex-col gap-6">
@@ -323,7 +324,7 @@ export default function Home() {
                   <p className="text-[#4d4d4d] max-w-[612px] leading-6">
                     As climate change grips the planet, here is Earth.
                     Org&apos;s selection of must-read books on climate change
-                    and sustainability to enlighten you. 
+                    and sustainability to enlighten you.
                   </p>
                 </div>
                 <button className="text-xl flex self-start font-bold px-10 py-[14px] rounded-[32px] text-white bg-[#009F00] ">
@@ -425,7 +426,9 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-[10px] pt-4 lg:pt-0">
-                    <h6 className="text-[#009f00] leading-6 text-[14px] lg:text-vase millik">About author</h6>
+                    <h6 className="text-[#009f00] leading-6 text-[14px] lg:text-vase millik">
+                      About author
+                    </h6>
                     <p className="text-[#B3B3B3] max-w-[484px]">
                       &quot;Lorem ipsum dolor sit amet, consectetur adipiscing
                       elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -512,36 +515,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bodyCon">
-          <div className="md:pt-[82px] px-4 md:px-0 md:pb-[132px] py-20 relative flex gap-6 justify-center items-center flex-col">
-            <div className="flex flex-col justify-center items-center gap-3 ">
-              <h3 className="millik text-[#121212] max-w-[358px] md:max-w-[845px] text-center text-[32px] leading-10 md:text-[56px] md:leading-[64px]">
-                Be the first to know when new{" "}
-                <span className="dunia-grd2">resources</span> are available
-              </h3>
-              <p className="max-w-[612px] text-[#4d4d4d] text-[14px] leading-[22px] md:text-base text-center">
-                As climate change grips the planet, here is Earth. Org&apos;s
-                selection of must-read books on climate change and
-                sustainability to enlighten you.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-8">
-              <input
-                className="py-[14px] px-5 outline-none subscribe rounded-full"
-                type="email"
-                placeholder="Enter your email address"
-              />
-              <button className="bg-[#009F00] font-bold text-xl text-white py-[14px] px-12 self-center rounded-full flex justify-center items-center">
-                Subscribe
-              </button>
-            </div>
-
-            <div className="absolute hidden lg:flex self-start lg:top-[38px] lg:right-[158px]">
-              <Image className="w-10 h-10" src={d7} alt="clover" />
-            </div>
-          </div>
-        </section>
+        <Subscribe />
       </main>
 
       <Footer />

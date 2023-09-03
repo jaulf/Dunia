@@ -18,6 +18,7 @@ import ratings from "@/public/images/ratings.png";
 import { like, unlike } from "@/components/redux/products/LikedProductsSlice";
 import { addToCart, removeFromCart } from "../redux/products/cartProductsSlice";
 import Link from "next/link";
+import Favorite from "../features/favorite";
 
 function ShopProductList() {
   const dispatch = useDispatch();
@@ -83,7 +84,7 @@ function ShopProductList() {
     const newMore = more + 3;
     setMore(newMore);
   };
-  
+
   // For Load All
   const addAll = () => {
     const newMore = allProducts.data.length + 1;
@@ -97,14 +98,13 @@ function ShopProductList() {
     return (
       <>
         <div className="flex justify-between items-center">
-          <h3 className="millik text-[32px] text-black leading-[30.94px]">
+          <h3 className="millik text-[20px] lg:text-[32px] text-black lg:leading-[30.94px]">
             Discover what you need ⚡
           </h3>
           {length < allProducts.data.length ? (
             <div
               onClick={() => addAll()}
-              className="rounded-full cursor-pointer font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
-              href="/"
+              className="hidden lg:block rounded-full cursor-pointer font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
             >
               See all
             </div>
@@ -113,31 +113,22 @@ function ShopProductList() {
           )}
         </div>
 
-        <div className="grid gap-5 grid-cols-4">
+        <div className="grid gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
           {slicedProducts.map((product) => (
             <div key={product.id} className="flex flex-col gap-4">
               <div
                 id="img-ccard"
-                className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
+                className="relative inline-flex rounded-[30px] justify-center overflow-hidden max-h-[400px] lg:max-w-[325px] items-center flex-col"
               >
                 <Image
-                  className="rounded-[30px] w-full h-auto"
+                  className="w-full h-auto"
                   sizes="100vw"
                   placeholder="blur"
                   src={tp1}
                   quality={100}
                   alt="Top Pick One"
                 />
-                <div
-                  onClick={() => saveItemHandler(product.id)}
-                  className="absolute cursor-pointer top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center"
-                >
-                  {checkIfLiked(product.id) ? (
-                    <Image className="w-6 h-6" src={heartf} alt="Heart Icon" />
-                  ) : (
-                    <Image className="w-6 h-6" src={hearte} alt="Heart Icon" />
-                  )}
-                </div>
+                <Favorite productID={product.id} />
                 <div className="absolute bottom-6 right-6 flex gap-3">
                   {checkIfInCart(product.id) && (
                     <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
@@ -207,16 +198,44 @@ function ShopProductList() {
             </div>
           ))}
         </div>
+
+        {length < allProducts.data.length ? (
+          <div className="inline-flex lg:hidden justify-center pt-4">
+            <div
+              onClick={() => addAll()}
+              className="lg:hidden block rounded-full font-bold py-[14px] px-6 leading-[19.36px] text-center text-[#009f00] border border-[#009f00]"
+              href="/discover"
+            >
+              See all
+            </div>
+          </div>
+        ) : (
+          <span></span>
+        )}
       </>
     );
   }
 
   if (productStatus == "failed") {
-    return <div>Please reload the page</div>;
+    return (
+      <div className="flex flex-col gap-8">
+        <h3 className="millik text-[20px] lg:text-[32px] text-black lg:leading-[30.94px]">
+          Discover what you need ⚡
+        </h3>
+        <div>Please reload the page</div>
+      </div>
+    );
   }
 
   if (productStatus == "pending") {
-    return <div>loading ...</div>;
+    return (
+      <div className="flex flex-col gap-8">
+        <h3 className="millik text-[20px] lg:text-[32px] text-black lg:leading-[30.94px]">
+          Discover what you need ⚡
+        </h3>
+        <div>loading ...</div>
+      </div>
+    );
   }
 }
 

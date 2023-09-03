@@ -54,15 +54,15 @@ function FavoriteList() {
     return (
       <>
         {newProductsInFavorites.length > 0 ? (
-          <div className="grid gap-5 grid-cols-4">
+          <div className="grid gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
             {newProductsInFavorites.map((product) => (
               <div key={product.id} className="flex flex-col gap-4">
                 <div
                   id="img-ccard"
-                  className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
+                  className="rounded-[30px] relative inline-flex justify-center max-h-[400px] overflow-hidden lg:max-w-[325px] items-center flex-col"
                 >
                   <Image
-                    className="rounded-[30px] w-full h-auto"
+                    className="w-full h-auto"
                     sizes="100vw"
                     placeholder="blur"
                     src={tp1}
@@ -126,7 +126,7 @@ function FavoriteList() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> 
         ) : (
           <div>
             No favourited books yet.{" "}
