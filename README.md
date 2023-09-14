@@ -16,3 +16,6 @@ Order summary Screen - https://cdunia.vercel.app/profile/ordersummary
 Favorites Screen - https://cdunia.vercel.app/profile/favorites
 Profile Screen - https://cdunia.vercel.app/profile
 Change Password - https://cdunia.vercel.app/profile/changepassword
+
+Old Api - "http://164.92.125.188/api/v1"
+New Api - "https://dunia.mrprotocoll.me/api/v1"
