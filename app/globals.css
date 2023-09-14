@@ -454,7 +454,8 @@ input:-ms-input-placeholder {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: -0.28px;}
+  letter-spacing: -0.28px;
+}
 
 .sub2 {
   display: flex;
@@ -532,22 +533,21 @@ input:-ms-input-placeholder {
 }
 
 #right-profile {
-  border-radius: 15px;
-  background: #fcfcfc;
-  padding: 50px 40px;
+  padding: 40px 24px 68px;
   width: 100%;
+  border-top: 4px solid #F2F2F2;
 }
 
 #connect {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 16px;
 }
 
 #account-details h2,
 #connect h2 {
   color: #000;
-  font-size: 36px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: 32px; /* 88.889% */
@@ -555,7 +555,7 @@ input:-ms-input-placeholder {
 
 #FacebookandGoogle {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
   align-items: center;
 }
@@ -566,6 +566,8 @@ input:-ms-input-placeholder {
   background: #fff;
   box-shadow: 0px 0px 0px 2px #e3e9ed inset;
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px 60px;
   width: 100%;
   gap: 5px;
@@ -586,7 +588,7 @@ input:-ms-input-placeholder {
 #account-details {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 16px;
 }
 
 #account-details > form {
@@ -601,7 +603,7 @@ input:-ms-input-placeholder {
   background: #fff;
   box-shadow: 0px 0px 0px 2px #e3e9ed inset;
   display: flex;
-  width: 389px;
+  width: 100%;
   padding: 20px 35px;
   align-items: center;
   gap: 10px;
@@ -619,8 +621,7 @@ input:-ms-input-placeholder {
 }
 .detail-cta {
   color: #009f00;
-  text-align: center;
-  font-size: 16px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
@@ -1020,7 +1021,7 @@ input {
 
 .header-grdi {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
 }
 
 .search-card-content {
@@ -1093,13 +1094,79 @@ input {
 .mildborow {
   column-gap: 15px;
   row-gap: 20px;
-} 
+}
+
+#Image-sidebar {
+  display: none;
+}
 
 @media only screen and (min-width: 1024px) {
   .bodyCon {
     max-width: 1440px;
   }
 
+  .detail-cta {
+    color: #009f00;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+  }
+
+  #account-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  #account-details input {
+    border-radius: 99px;
+    border: 1.5px solid #d9d9d9;
+    background: #fff;
+    box-shadow: 0px 0px 0px 2px #e3e9ed inset;
+    display: flex;
+    width: 389px;
+    padding: 20px 35px;
+    align-items: center;
+    gap: 10px;
+    outline: none;
+    font-weight: 500;
+  }
+
+  #connect {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  #account-details h2,
+  #connect h2 {
+    color: #000;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; /* 88.889% */
+  }
+  #right-profile {
+    border-radius: 15px;
+    background: #fcfcfc;
+    padding: 50px 40px;
+    width: 100%;
+  }  
+
+  #FacebookandGoogle {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+  }
+  #Image-sidebar {
+    display: block;
+  }
+  .header-grdi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   .comment-input {
     border: 1.5px solid #f2f2f2;
     border-radius: 40px;
@@ -1114,7 +1181,7 @@ input {
     line-height: 28px; /* 116.667% */
     letter-spacing: -0.48px;
   }
-  
+
   .comment-textarea {
     padding: 30px;
     height: 228px;
@@ -1128,7 +1195,7 @@ input {
     line-height: 28px; /* 116.667% */
     letter-spacing: -0.48px;
   }
-  
+
   .comment-input::placeholder,
   .comment-textarea::placeholder {
     color: #808080;
@@ -1138,7 +1205,7 @@ input {
     line-height: 28px; /* 116.667% */
     letter-spacing: -0.48px;
   }
-  
+
   .subscribe {
     width: 500px;
   }
@@ -1282,6 +1349,7 @@ input {
   #Image-sidebar {
     max-width: 100%;
   }
+
   #text-sidebar {
     justify-content: center;
   }

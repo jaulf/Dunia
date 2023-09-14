@@ -27,7 +27,7 @@ export default function EmailSignup() {
     if (localStorage.getItem('user-auth')) {
       router.push('/profile')
     }
-  })
+  }, [])
 
   // useState
   const [fname, setFname] = useState("");
@@ -75,7 +75,7 @@ export default function EmailSignup() {
           setSuccessM("Account created. You will be redirected shortly.");
           setTimeout(() => {
             router.push("/profile");
-          }, 3000);
+          }, 5000);
         })
         .catch((e) => {
           setSuccessM("");
@@ -99,29 +99,29 @@ export default function EmailSignup() {
     <>
       <div
         id="State-Manager"
-        className="fixed z-[99999] top-16 right-14 flex flex-col gap-4"
+        className="fixed z-[99999] max-w-[348px] lg:max-w-none top-16 right-5 lg:right-14 flex flex-col gap-4"
       >
         {errorM && (
           <div
             id="error"
             className="border-l-4 bg-[#FDEFED] border-[#EA5945] p-4 shadow-md flex flex-row gap-14 items-center rounded-[4px] overflow-hidden"
           >
-            <div className="flex flex-row gap-4 items-center">
-              <div className="w-8 h-8 grid grid-cols-1">
+            <div className="flex flex-row gap-2 lg:gap-4 items-center">
+              <div className="w-8 h-8 hidden lg:grid grid-cols-1 shrink-0">
                 <Image
-                  className="w-full h-auto"
+                  className="w-full h-auto shrink-0"
                   src={errorCircle}
                   alt="Error"
                 />
               </div>
               <div className="flex flex-col gap-2">
                 <h3 className="font-semibold text-[#121212]">Error</h3>
-                <p className=" text-sm leading-[119%] text-[#4d4d4d]">
+                <p className="text-sm leading-[150%] lg:leading-[119%] text-[#4d4d4d]">
                   {errorM}
                 </p>
               </div>
             </div>
-            <div onClick={closeErrorModal} className="grid grid-cols-1 shrink-0">
+            <div onClick={closeErrorModal} className="grid grid-cols-1 shrink-0 ">
               <Image className="w-5 h-5" src={close} alt="close" />
             </div>
           </div>
@@ -131,8 +131,8 @@ export default function EmailSignup() {
             id="success"
             className="border-l-4 bg-[#EDFDF9] border-[#13B288] p-4 shadow-md flex flex-row gap-14 items-center rounded-[4px] overflow-hidden"
           >
-            <div className="flex flex-row gap-4 items-center">
-              <div className="w-8 h-8 grid grid-cols-1">
+            <div className="flex flex-row gap-2 lg:gap-4 items-center">
+              <div className="w-8 h-8 hidden lg:grid grid-cols-1">
                 <Image
                   className="w-full h-auto"
                   src={successCircle}
@@ -141,7 +141,7 @@ export default function EmailSignup() {
               </div>
               <div className="flex flex-col gap-2">
                 <h3 className="font-semibold text-[#121212]">Success</h3>
-                <p className=" text-sm leading-[119%] text-[#4d4d4d]">
+                <p className=" text-sm leading-[150%] lg:leading-[119%] text-[#4d4d4d]">
                   {successM}
                 </p>
               </div>
@@ -176,7 +176,7 @@ export default function EmailSignup() {
           <Link
             id="baxk"
             href="/onboarding/signup/"
-            className="grid gr2auto items-center self-start pl-14 pt-16"
+            className="grid gr2auto items-center self-start pt-4 pl-5 lg:pl-14 lg:pt-16 sticky top-0"
           >
             <Image
               quality={100}
@@ -186,19 +186,19 @@ export default function EmailSignup() {
             />
           </Link>
 
-          <div className="px-[140px] pt-8 flex flex-col justify-center items-center">
+          <div className="px-5 lg:px-[140px] pt-7 lg:pt-8 flex flex-col justify-center items-center">
             <h2 className="millik text-[64px] leading-[62px] tracking-[-0.64px]">
               dunia
             </h2>
 
-            <div className="flex flex-col justify-center items-center gap-8 pt-16">
+            <div className="flex flex-col justify-center items-center gap-8 pt-16 pb-10">
               <h2 className="text-[28px] font-medium leading-8 text-center">
                 Create an account
               </h2>
 
               <form
                 onSubmit={submitHandler}
-                className="w-[389px] flex justify-center items-center flex-col gap-5"
+                className="w-full lg:w-[389px] flex justify-center items-center flex-col gap-5"
               >
                 <div className="flex whitespace-nowrap rounded-full gap-[10px] items-center w-full max-w-[389px] px-[35px] py-5 border-[1.5px] border-[#d9d9d9]">
                   <Image

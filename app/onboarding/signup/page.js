@@ -43,7 +43,7 @@ export default function Home() {
         </div>
         <div
           id="text-sidebar"
-          className="px-[140px] pt-24 pb-8 flex flex-col justify-center w-full items-center"
+          className="lg:px-[140px] px-5 pt-20 lg:pt-24 pb-8 flex flex-col justify-center w-full items-center"
         >
           <div className="flex flex-col w-full items-center">
             <h2 className="millik text-[64px] leading-[62px] tracking-[-0.64px]">
@@ -55,7 +55,7 @@ export default function Home() {
                 Create an account
               </h2>
 
-              <div className="w-[389px] flex justify-center items-center flex-col gap-5">
+              <div className="w-full lg:w-[389px] flex justify-center items-center flex-col gap-5">
                 <FacebookAuth />
                 <GoogleAuth />
                 <Link
@@ -77,7 +77,7 @@ export default function Home() {
                     email
                   </span>
                 </div>
-                <div className="text-sm leading-6 w-full lg:max-w-[300px] text-center">
+                <div className="text-sm leading-6 w-full max-w-[297px] lg:max-w-[300px] text-center">
                   By continuing, you agree to our company’s{" "}
                   <span className="text-[#F2665B] font-medium">
                     Terms of Use, Conditions

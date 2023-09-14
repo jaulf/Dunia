@@ -52,17 +52,16 @@ export default function UserProfile() {
 
   useEffect(() => {
     if (!localStorage.getItem("user-auth")) {
-      router.push('/onboarding/login')
+      router.push("/onboarding/login");
     }
 
     if (localStorage.getItem("user-auth")) {
       setBody(JSON.parse(localStorage.getItem("user-auth")));
     }
     if (localStorage.getItem("auth-method")) {
-      dispatch(updateAuth(localStorage.getItem("auth-method")))
+      dispatch(updateAuth(localStorage.getItem("auth-method")));
     }
   }, []);
-
 
   useEffect(() => {
     if (productStatus == "idle" || productStatus == "idle") {
@@ -73,12 +72,12 @@ export default function UserProfile() {
 
   return (
     <>
-      <header className="bg-white sticky top-0 z-[100]">
+      <header className="bg-white lg:sticky lg:top-0 z-[100]">
         <div class="flex justify-center shrink-0 items-center">
-          <div class="max-w-[1440px] shrink-0 w-full navspace px-20">
-            <nav className="flex justify-between py-4 px-8">
+          <div class="max-w-[1440px] shrink-0 w-full navspace lg:px-20">
+            <nav className="flex justify-between pb-11 py-6 lg:pb-6 px-6 lg:px-8 border-b-[2px] lg:border-b-0 border-[#F2F2F2]">
               <div className="flex gap-11 items-center">
-                <Link href="/">
+                <Link href="/" className="shrink-0">
                   <Image
                     className="w-[91px] h-[28px]"
                     src={dunia}
@@ -100,81 +99,6 @@ export default function UserProfile() {
                       alt="User Avatar"
                     />
                   </div>
-                  {/* Dropdown menu if needed */}
-                  {/* <div className="dropdown-menu pt-8 ">
-                <div className="text-black flex max-w-fit popup border-[2px] rounded-[15px] border-[#f2f2f2] bg-white flex-col gap-[30px] px-6 py-[34px]">
-                  <div className="flex flex-col gap-5">
-                    <div class="flex flex-row items-center gap-[15px]">
-                      <Image className="w-[70px] h-auto" src={uavatar} alt="" />
-                      <div className="flex flex-col gap-[6px]">
-                        <h2 className="font-medium text-xl leading-6">
-                          Nuel Adeleke
-                        </h2>
-                        <p className="font-medium text-[10px]">
-                          adelenuel@gmail.com
-                        </p>
-                      </div>
-                    </div>
-                    <div>
-                      <button className="bg-[#009F00] text-white leading-[19px] py-[12.5px] px-[98.5px] rounded-[32px]">
-                        Edit profile
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="flex flex-col gap-5">
-                    <div className="sub2">
-                      <div>
-                        <Image className="w-5 h-5" src={dp1} alt="" />
-                        <span>Favourites</span>
-                      </div>
-                      <div class="flex items-center gap-[115px!important]">
-                        <div class="flex item-center gap-[15px]">
-                          <Image className="w-5 h-5" src={dp2} alt="" />
-                          <span class="font-medium">Downloads</span>
-                        </div>
-                        <span class="text-[10px] block font-medium rounded-full py-[7px] px-[10px] bg-[#FEF0EF]">
-                          0/10
-                        </span>
-                      </div>
-                      <div>
-                        <Image className="w-5 h-5" src={dp3} alt="" />
-                        <span>Following</span>
-                      </div>
-                      <div>
-                        <Image className="w-5 h-5" src={dp4} alt="" />
-                        <span>Wishlist</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="bg-[#F2F2F2] h-[1.5px] w-[280px]"></div>
-                    </div>
-
-                    <div className="sub2">
-                      <div>
-                        <Image className="w-5 h-5" src={dp5} alt="" />
-                        <span>Order History</span>
-                      </div>
-                      <div>
-                        <Image className="w-5 h-5" src={dp6} alt="" />
-                        <span>Recommended</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="bg-[#F2F2F2] h-[1.5px] w-[280px]"></div>
-                    </div>
-
-                    <div className="sub2">
-                      <div>
-                        <Image className="w-5 h-5" src={dp7} alt="" />
-                        <span className="text-[#FF3333]">Log out</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
                 </div>
                 <div className="flex gap-5 items-center">
                   <Link href="/profile/cart" className="relative">
@@ -189,7 +113,7 @@ export default function UserProfile() {
                       </div>
                     )}
                   </Link>
-                  <div className="flex items-center gap-[28px]">
+                  <div className="hidden lg:flex items-center gap-[28px]">
                     <div className="flex gap-1 py-1 px-3 border-2 border-[#f5f5f5] rounded-full">
                       <span className="font-medium text-sm ">ENG</span>
                       <Image
@@ -204,13 +128,13 @@ export default function UserProfile() {
             </nav>
           </div>
         </div>
-        <SubNavbar />
       </header>
+      <SubNavbar />
 
       {body ? (
         <main class="bodyCon">
-          <section className="flex justify-center gap-5 pt-10 px-28">
-            <div id="left-profile" className="flex flex-col gap-5">
+          <section className="flex flex-col lg:flex-row justify-center gap-20 lg:gap-5 pt-12 lg:pt-10 lg:px-28">
+            <div id="left-profile" className="flex flex-col gap-5 px-6 lg:px-0">
               <div id="user" className="rounded-2xl overflow-hidden pb-5">
                 <div id="colorful" className="relative w-[392px] h-[120px]">
                   <Image
@@ -350,10 +274,10 @@ export default function UserProfile() {
               </div> */}
             </div>
 
-            <div id="right-profile" className="flex flex-col gap-10">
+            <div id="right-profile" className="flex flex-col gap-12 lg:gap-10">
               <div id="connect">
-                <h2>Connect</h2>
-                <div id="FacebookandGoogle">
+                <h2 class="text-center lg:text-left">Connect</h2>
+                <div id="FacebookandGoogle" className=" w-full">
                   {connectM == "facebook" ? (
                     <div className="">
                       <Image
@@ -384,18 +308,14 @@ export default function UserProfile() {
                 <h2>Account Details</h2>
                 <form>
                   <div>
-                    <input type="text" placeholder="nuel0x" />
+                    <input disabled='true' type="text" placeholder={(session && session.name) || (body && body.data.name)} />
                   </div>
-                  <div class="flex items-center gap-[29px]">
+                  <div class="flex lg:flex-row flex-col lg:items-center gap-2 lg:gap-[29px]">
                     <input type="password" placeholder="*************" />
-                    <span class="detail-cta">Change password</span>
+                    <Link href="/profile/changepassword" class="detail-cta">Change password</Link>
                   </div>
-                  <div class="flex items-center gap-[29px]">
-                    <input type="email" placeholder="adelekenuel@gmail.com" />
-                    <span class="detail-cta">Change Email</span>
-                  </div>
-                  <div class="pt-5">
-                    <button className="profile-cta">Save changes</button>
+                  <div class="flex lg:flex-row flex-col items-center lg:gap-[29px]">
+                    <input disabled='true' type="email" placeholder={(session && session.email) || (body && body.data.email)} />
                   </div>
                 </form>
               </div>
