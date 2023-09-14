@@ -32,7 +32,7 @@ function DiscoverProductList() {
   const [filterProducts, setFilterProducts] = useState(null);
 
   const handleFilter = async () => {
-    const url = new URL("http://164.92.125.188/api/v1/products/filter");
+    const url = new URL("https://dunia.mrprotocoll.me/api/v1/products/filter");
 
     if (!releaseDate && !price && !age) {
       return;

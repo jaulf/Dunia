@@ -19,7 +19,7 @@ export default function ListOfOrderHistory() {
   const requiredRun = async () => {
     if (typeof window !== "undefined") {
       const token = JSON.parse(localStorage.getItem("user-auth"));
-      const url = new URL("http://164.92.125.188/api/v1/orders");
+      const url = new URL("https://dunia.mrprotocoll.me/api/v1/orders");
 
       const headers = {
         Authorization: `Bearer ${token.token}`,

@@ -122,11 +122,11 @@ function Navbar() {
                 value={searchInput}
                 className="search bg-transparent outline-none w-full"
                 type="text"
-                placeholder="Search Books or authors"
+                placeholder="Search books or authors"
               />
             </div>
             {searchInput.length > 0 ? (
-              <div className="absolute pt-8 bg-transparent">
+              <div className="absolute mt-12 pt-4 bg-transparent">
                 <div className="rounded-[20px] flex-col justify-start left-0 bg-white popup py-6 px-0 w-[678px]">
                   <div className="flex searchmodal-res flex-col justify-start bg-white w-full">
                     {shouldRender ? (
@@ -362,11 +362,11 @@ function Navbar() {
                 value={searchInput}
                 className="search bg-transparent outline-none w-full"
                 type="text"
-                placeholder="Search Books or authors"
+                placeholder="Search books or authors"
               />
             </div>
             {searchInput.length > 0 ? (
-              <div className="absolute pt-8 bg-transparent">
+              <div className="absolute mt-12 pt-4 bg-transparent">
                 <div className="rounded-[20px] flex-col justify-start left-0 bg-white popup py-6 px-0 w-[678px]">
                   <div className="flex searchmodal-res flex-col justify-start bg-white w-full">
                     {shouldRender ? (

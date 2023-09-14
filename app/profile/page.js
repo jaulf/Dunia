@@ -38,9 +38,11 @@ import { getCartProducts } from "@/components/redux/products/cartProductsSlice";
 import ProfileFacebookAuth from "@/components/profile-reauth/facebookAuth";
 import ProfileGoogleAuth from "@/components/profile-reauth/googleAuth";
 import { updateAuth } from "@/components/redux/products/authSlice";
+import { useRouter } from "next/navigation";
 
 export default function UserProfile() {
   const { data: session, status } = useSession();
+  const router = useRouter();
   const [body, setBody] = useState(null);
   const dispatch = useDispatch();
   const listOfCartProducts =
@@ -49,6 +51,10 @@ export default function UserProfile() {
   const connectM = useSelector((state) => state.authMode.authMode);
 
   useEffect(() => {
+    if (!localStorage.getItem("user-auth")) {
+      router.push('/onboarding/login')
+    }
+
     if (localStorage.getItem("user-auth")) {
       setBody(JSON.parse(localStorage.getItem("user-auth")));
     }
@@ -56,6 +62,7 @@ export default function UserProfile() {
       dispatch(updateAuth(localStorage.getItem("auth-method")))
     }
   }, []);
+
 
   useEffect(() => {
     if (productStatus == "idle" || productStatus == "idle") {
