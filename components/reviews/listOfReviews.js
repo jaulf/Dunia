@@ -130,7 +130,7 @@ export default function ListofReviews({ productID }) {
             ))}
           </div>
         ) : (
-          <div>No Reviews yet.</div>
+          <div className="pb-20 lg:pb-[88px]">No Reviews yet.</div>
         )}
       </>
     );
