@@ -139,7 +139,7 @@ export default function ListofReviews({ productID }) {
   if (productStatus === "pending") {
     return (
       <>
-        <div>loading ...</div>
+        <div className="pb-20 lg:pb-[88px]">loading ...</div>
       </>
     );
   }

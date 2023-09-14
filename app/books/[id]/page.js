@@ -85,6 +85,7 @@ export default async function Page({ params }) {
                   className="lg:w-[28px] w-4 h-4 shrink-0 lg:h-[28px]"
                   src={pv1}
                   alt=""
+                  placeholder="blur"
                 />
                 <span className="text-[12px] lg:text-xl font-semibold tracking-[-0.24px] lg:tracking-[-0.4px] text-black">
                   Free shipping over #0000 in *location
