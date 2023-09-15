@@ -307,16 +307,12 @@ export default function UserProfile() {
               <div id="account-details">
                 <h2>Account Details</h2>
                 <form>
-                  <div>
-                    <input disabled='true' type="text" value={(session && session.name) || (body && body.data.name)} />
-                  </div>
+                  <span>{(session && session.name) || (body && body.data.name)}</span>
                   <div class="flex lg:flex-row flex-col lg:items-center gap-2 lg:gap-[29px]">
-                    <input disabled="true" type="password" value="*************" />
+                    <span>*************</span>
                     <Link href="/profile/changepassword" class="detail-cta">Change password</Link>
                   </div>
-                  <div class="flex lg:flex-row flex-col items-center lg:gap-[29px]">
-                    <input disabled='true' type="email" value={(session && session.email) || (body && body.data.email)} />
-                  </div>
+                  <span>{(session && session.email) || (body && body.data.email)}</span>
                 </form>
               </div>
             </div>

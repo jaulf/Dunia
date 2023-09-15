@@ -535,7 +535,7 @@ input:-ms-input-placeholder {
 #right-profile {
   padding: 40px 24px 68px;
   width: 100%;
-  border-top: 4px solid #F2F2F2;
+  border-top: 4px solid #f2f2f2;
 }
 
 #connect {
@@ -564,7 +564,6 @@ input:-ms-input-placeholder {
   border-radius: 99px;
   border: 1.5px solid #d9d9d9;
   background: #fff;
-  box-shadow: 0px 0px 0px 2px #e3e9ed inset;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -597,11 +596,11 @@ input:-ms-input-placeholder {
   gap: 20px;
 }
 
-#account-details input {
+#account-details input,
+#account-details span {
   border-radius: 99px;
   border: 1.5px solid #d9d9d9;
   background: #fff;
-  box-shadow: 0px 0px 0px 2px #e3e9ed inset;
   display: flex;
   width: 100%;
   padding: 20px 35px;
@@ -1121,7 +1120,9 @@ input {
     flex-direction: column;
     gap: 30px;
   }
-  #account-details input {
+
+  #account-details input,
+  #account-details span {
     border-radius: 99px;
     border: 1.5px solid #d9d9d9;
     background: #fff;
@@ -1155,7 +1156,7 @@ input {
     background: #fcfcfc;
     padding: 50px 40px;
     width: 100%;
-  }  
+  }
 
   #FacebookandGoogle {
     display: flex;
@@ -1163,6 +1164,11 @@ input {
     gap: 20px;
     align-items: center;
   }
+
+  #FacebookandGoogle > div {
+    box-shadow: 0px 0px 0px 2px #e3e9ed inset;
+  }
+
   #Image-sidebar {
     display: block;
   }
