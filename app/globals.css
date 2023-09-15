@@ -297,6 +297,17 @@ input:-ms-input-placeholder {
   border-radius: 30px;
 }
 
+
+.catb-new > button {
+  padding: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;;
+  color: #454545;
+  background: #f2f2f2;
+  border-radius: 30px;
+}
+
 .catb-active {
   padding: 13.5px 26.5px !important;
   background: #009f00 !important;

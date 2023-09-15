@@ -21,6 +21,7 @@ import { like, unlike } from "@/components/redux/products/LikedProductsSlice";
 import { addToCart, removeFromCart } from "../redux/products/cartProductsSlice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Favorite from "@/components/features/favorite";
 
 function DiscoverProductList() {
   const router = useRouter();
@@ -154,7 +155,7 @@ function DiscoverProductList() {
       setReleaseDate("default");
       setFilterProducts(null);
       router.refresh();
-      setReset(false)
+      setReset(false);
     }, 1000);
   };
 
@@ -166,14 +167,22 @@ function DiscoverProductList() {
 
     return (
       <>
-        <div class="flex pt-[51px] pb-[40px] justify-between items-center">
-          <div class="flex catb font-medium text-xl text-black items-center gap-[10px]">
-            <span class="catb-active py-[10px] px-[23px]">All</span>
-            <span class="px-[21px]">Climate change</span>
-            <span class="px-[16px]">sustainability</span>
-            <span class="px-[19.5px]">biodiversity</span>
+        <div class="flex py-6 lg:pt-[51px] lg:pb-[40px] justify-between items-center">
+          <div className="overflow-auto">
+            <div className="catb-new flex gap-4">
+              <button className="catb-active">All</button>
+              <button>Biodiversity</button>
+              <button>Pollution</button>
+              <button>Recycling</button>
+              <button>Global Warming</button>
+              <button>Renewable Energy</button>
+              <button>Wildlife Conservation</button>
+              <button>Nature-based Solutions</button>
+              <button>Waste Management</button>
+              <button>Environmental Justice</button>
+            </div>
           </div>
-          <button
+          {/* <button
             onClick={handleFilter}
             disabled={filterStatus}
             class="flex self-stretch cursor-pointer rounded-full text-[#FCFCFD] bg-[#009f00] gap-[10px] items-center py-[11px] px-[20px]"
@@ -186,10 +195,10 @@ function DiscoverProductList() {
                 className=" shrink-0 w-full h-auto"
               />
             </div>
-          </button>
+          </button> */}
         </div>
 
-        <div className="inline-blockgap-10 items-end">
+        <div className="hidden lg:inline-block">
           <div class="gap-4 flex items-end">
             <div class="filter">
               <h6>Release date</h6>
@@ -251,40 +260,23 @@ function DiscoverProductList() {
           </div>
         </div>
 
-        <div className="grid pt-[60px] gap-5 grid-cols-4">
+        <div className="lg:pt-[60px] grid gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
           {filterProducts
             ? slicedFilteredProducts.map((product) => (
                 <div key={product.id} className="flex flex-col gap-4">
                   <div
                     id="img-ccard"
-                    className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
+                    className="relative inline-flex rounded-[30px] justify-center overflow-hidden max-h-[400px] lg:max-w-[325px] items-center flex-col"
                   >
                     <Image
-                      className="rounded-[30px] w-full h-auto"
+                      className="w-full h-auto"
                       sizes="100vw"
                       placeholder="blur"
                       src={tp1}
                       quality={100}
                       alt="Top Pick One"
                     />
-                    <div
-                      onClick={() => saveItemHandler(product.id)}
-                      className="absolute cursor-pointer top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center"
-                    >
-                      {checkIfLiked(product.id) ? (
-                        <Image
-                          className="w-6 h-6"
-                          src={heartf}
-                          alt="Heart Icon"
-                        />
-                      ) : (
-                        <Image
-                          className="w-6 h-6"
-                          src={hearte}
-                          alt="Heart Icon"
-                        />
-                      )}
-                    </div>
+                    <Favorite productID={product.id} />
                     <div className="absolute bottom-6 right-6 flex gap-3">
                       {checkIfInCart(product.id) && (
                         <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
@@ -361,34 +353,17 @@ function DiscoverProductList() {
                 <div key={product.id} className="flex flex-col gap-4">
                   <div
                     id="img-ccard"
-                    className="relative inline-flex justify-center max-h-[400px] max-w-[325px] items-center flex-col"
+                    className="relative inline-flex rounded-[30px] justify-center overflow-hidden max-h-[400px] lg:max-w-[325px] items-center flex-col"
                   >
                     <Image
-                      className="rounded-[30px] w-full h-auto"
+                      className="w-full h-auto"
                       sizes="100vw"
                       placeholder="blur"
                       src={tp1}
                       quality={100}
                       alt="Top Pick One"
                     />
-                    <div
-                      onClick={() => saveItemHandler(product.id)}
-                      className="absolute cursor-pointer top-6 right-6 rounded-full w-10 h-10 flex bg-white justify-center items-center"
-                    >
-                      {checkIfLiked(product.id) ? (
-                        <Image
-                          className="w-6 h-6"
-                          src={heartf}
-                          alt="Heart Icon"
-                        />
-                      ) : (
-                        <Image
-                          className="w-6 h-6"
-                          src={hearte}
-                          alt="Heart Icon"
-                        />
-                      )}
-                    </div>
+                    <Favorite productID={product.id} />
                     <div className="absolute bottom-6 right-6 flex gap-3">
                       {checkIfInCart(product.id) && (
                         <div className="rounded-full w-10 h-10 flex bg-white justify-center items-center">
