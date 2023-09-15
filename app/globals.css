@@ -297,12 +297,11 @@ input:-ms-input-placeholder {
   border-radius: 30px;
 }
 
-
 .catb-new > button {
   padding: 15px;
   font-size: 12px;
   font-weight: 500;
-  white-space: nowrap;;
+  white-space: nowrap;
   color: #454545;
   background: #f2f2f2;
   border-radius: 30px;
@@ -1110,6 +1109,41 @@ input {
 
 #Image-sidebar {
   display: none;
+}
+
+#filter-cont-list {
+  display: grid;
+  row-gap: 32px;
+}
+
+#filter-cont-list > div {
+  display: grid;
+  row-gap: 12px;
+}
+
+#filter-cont-list h4 {
+  color: #212121;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.fcl-card-cont {
+  display: grid;
+  column-gap: 4px;
+}
+
+.fcl-card-cont > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.fcl-card-cont > div.active {
+  border-radius: 8px;
+  background: #f5f5f5;
 }
 
 @media only screen and (min-width: 1024px) {
