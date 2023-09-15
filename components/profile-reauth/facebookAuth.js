@@ -46,7 +46,6 @@ export default function ProfileFacebookAuth() {
       localStorage.setItem("user-auth", JSON.stringify(response.data));
       localStorage.setItem("auth-method", session.provider);
       dispatch(updateAuth(session.provider));
-      router.push("/profile");
     });
   };
 

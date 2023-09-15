@@ -101,7 +101,7 @@ export default function UserProfile() {
       new_password_confirmation: newConfirmationPassword,
     };
 
-    if (localStorage.getItem("auth-method") === "Email") {
+    if (localStorage.getItem("auth-method") !== "Email") {
       setErrorM(
         `Sorry, your Login Method is ${localStorage.getItem("auth-method")}` +
           ", password change from here isn't allowed."

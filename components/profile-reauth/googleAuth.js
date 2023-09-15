@@ -33,7 +33,7 @@ export default function ProfileGoogleAuth() {
 
   // calling NextAuth.js for google
   const { data: session, status } = useSession();
-  
+
   const yuno = () => {
     console.log(session);
 
@@ -49,7 +49,6 @@ export default function ProfileGoogleAuth() {
       localStorage.setItem("user-auth", JSON.stringify(response.data));
       localStorage.setItem("auth-method", session.provider);
       dispatch(updateAuth(session.provider));
-      router.push("/profile");
     });
   }
 

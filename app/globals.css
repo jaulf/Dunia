@@ -609,6 +609,7 @@ input:-ms-input-placeholder {
   gap: 10px;
   outline: none;
   font-weight: 500;
+  color: #808080;
 }
 
 #account-details input::placeholder,
@@ -635,7 +636,8 @@ input:-ms-input-placeholder {
   font-weight: 600;
   line-height: 24px;
   display: flex;
-  width: 389px;
+  width: 100%;
+  max-width: 389px;
   padding: 20px 60px;
   justify-content: center;
   align-items: center;
@@ -1131,6 +1133,7 @@ input {
     gap: 10px;
     outline: none;
     font-weight: 500;
+    color: #808080;
   }
 
   #connect {
