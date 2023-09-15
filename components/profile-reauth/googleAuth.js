@@ -23,7 +23,7 @@ export default function ProfileGoogleAuth() {
     "Content-Type": "application/json",
     Accept: "application/json",
   };
-
+ 
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -33,6 +33,29 @@ export default function ProfileGoogleAuth() {
 
   // calling NextAuth.js for google
   const { data: session, status } = useSession();
+  
+  const yuno = () => {
+    console.log(session);
+
+    const body = {
+      oauth: session.provider,
+      oauth_id: session.sub,
+      name: session.name,
+      email: session.email,
+    };
+
+    axios.post(url, body, config).then((response) => {
+      console.log(response.data);
+      localStorage.setItem("user-auth", JSON.stringify(response.data));
+      localStorage.setItem("auth-method", session.provider);
+      dispatch(updateAuth(session.provider));
+      router.push("/profile");
+    });
+  }
+
+  if (status == "authenticated") {
+    yuno();
+  }
 
   return (
     <div

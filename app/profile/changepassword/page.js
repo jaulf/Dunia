@@ -40,11 +40,17 @@ import ProfileGoogleAuth from "@/components/profile-reauth/googleAuth";
 import { updateAuth } from "@/components/redux/products/authSlice";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import errorCircle from "@/public/images/error-circle.png";
+import successCircle from "@/public/images/success-circle.png";
+import close from "@/public/images/x.png";
 
 export default function UserProfile() {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newConfirmationPassword, setNewConfirmationPassword] = useState("");
+  const [bearerToken, setBearerToken] = useState(null);
+  const [errorM, setErrorM] = useState("");
+  const [successM, setSuccessM] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -61,7 +67,9 @@ export default function UserProfile() {
     }
 
     if (localStorage.getItem("user-auth")) {
+      const user = JSON.parse(localStorage.getItem("user-auth"));
       setBody(JSON.parse(localStorage.getItem("user-auth")));
+      setBearerToken(user.token);
     }
     if (localStorage.getItem("auth-method")) {
       dispatch(updateAuth(localStorage.getItem("auth-method")));
@@ -75,44 +83,133 @@ export default function UserProfile() {
     }
   }, [productStatus, dispatch]);
 
-  // const passwordHandler = (e) => {
-  //   e.preventHandler();
-  //   const url = process.env.NEXT_PUBLIC_BASE_URL + "/changePassword";
-  //   // Header Definition
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   };
-  //   // Body Definition
-  //   const body = {
-  //     oldPassword,
-  //     newPassword,
-  //     newConfirmationPassword,
-  //   };
+  const passwordHandler = (e) => {
+    e.preventDefault();
+    const url = process.env.NEXT_PUBLIC_BASE_URL + "/changePassword";
+    // Header Definition
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${bearerToken}`,
+      },
+    };
+    // Body Definition
+    const body = {
+      current_password: oldPassword,
+      new_password: newPassword,
+      new_password_confirmation: newConfirmationPassword,
+    };
 
-  //   setIsSubmitting(true);
-  //   axios
-  //     .post(url, body, config)
-  //     .then((response) => {
-  //       localStorage.setItem("user-auth", JSON.stringify(response.data));
-  //       localStorage.setItem("auth-method", "Email");
-  //       setErrorM("");
-  //       setSuccessM("Login successful. You will be redirected shortly.");
-  //       setTimeout(() => {
-  //         router.push("/profile");
-  //       }, 5000);
-  //     })
-  //     .catch((e) => {
-  //       setSuccessM("");
-  //       setIsSubmitting(false);
-  //       setErrorM(e.response.data.message);
-  //     });
-  // };
+    if (localStorage.getItem("auth-method") === "Email") {
+      setErrorM(
+        `Sorry, your Login Method is ${localStorage.getItem("auth-method")}` +
+          ", password change from here isn't allowed."
+      );
+      return;
+    }
+    if (
+      (oldPassword.length ||
+        newPassword.length ||
+        newConfirmationPassword.length) < 7
+    ) {
+      setErrorM("Password can not be less than 8 characters.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    axios
+      .post(url, body, config)
+      .then((response) => {
+        setErrorM("");
+        setSuccessM(response.data.message);
+        setIsSubmitting(false);
+        setOldPassword("");
+        setNewPassword("");
+        setNewConfirmationPassword("");
+        setTimeout(() => {
+          router.push("/profile");
+        }, 5000);
+        console.log(response.data.message);
+      })
+      .catch((e) => {
+        setSuccessM("");
+        setIsSubmitting(false);
+        setErrorM(e.response.data.message || e.response.data.error);
+      });
+  };
+  const closeErrorModal = () => {
+    setErrorM("");
+  };
+
+  const closeSuccessModal = () => {
+    setSuccessM("");
+  };
 
   return (
     <>
+      <div
+        id="State-Manager"
+        className="fixed z-[99999] max-w-[348px] lg:max-w-none top-16 right-5 lg:right-14 flex flex-col gap-4"
+      >
+        {errorM && (
+          <div
+            id="error"
+            className="border-l-4 bg-[#FDEFED] border-[#EA5945] p-4 shadow-md flex flex-row gap-14 items-center rounded-[4px] overflow-hidden"
+          >
+            <div className="flex flex-row gap-2 lg:gap-4 items-center">
+              <div className="w-8 h-8 hidden lg:grid grid-cols-1 shrink-0">
+                <Image
+                  className="w-full h-auto shrink-0"
+                  src={errorCircle}
+                  alt="Error"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-semibold text-[#121212]">Error</h3>
+                <p className="text-sm leading-[150%] lg:leading-[119%] text-[#4d4d4d]">
+                  {errorM}
+                </p>
+              </div>
+            </div>
+            <div
+              onClick={closeErrorModal}
+              className="grid grid-cols-1 shrink-0 "
+            >
+              <Image className="w-5 h-5" src={close} alt="close" />
+            </div>
+          </div>
+        )}
+        {successM && (
+          <div
+            id="success"
+            className="border-l-4 bg-[#EDFDF9] border-[#13B288] p-4 shadow-md flex flex-row gap-14 items-center rounded-[4px] overflow-hidden"
+          >
+            <div className="flex flex-row gap-2 lg:gap-4 items-center">
+              <div className="w-8 h-8 hidden lg:grid grid-cols-1">
+                <Image
+                  className="w-full h-auto"
+                  src={successCircle}
+                  alt="Success"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="font-semibold text-[#121212]">Success</h3>
+                <p className=" text-sm leading-[150%] lg:leading-[119%] text-[#4d4d4d]">
+                  {successM}
+                </p>
+              </div>
+            </div>
+            <div
+              onClick={closeSuccessModal}
+              className="grid grid-cols-1 shrink-0"
+            >
+              <Image className="w-5 h-5" src={close} alt="close" />
+            </div>
+          </div>
+        )}
+      </div>
+
       <header className="bg-white z-[100]">
         <div class="flex justify-center shrink-0 items-center">
           <div class="max-w-[1440px] shrink-0 w-full navspace lg:px-20">
@@ -347,18 +444,40 @@ export default function UserProfile() {
               </div>
               <div id="account-details">
                 <h2>Change Password</h2>
-                <form>
+                <form onSubmit={passwordHandler}>
                   <div>
-                    <input type="password" placeholder="Old password" />
+                    <input
+                      onChange={(e) => setOldPassword(e.target.value)}
+                      value={oldPassword}
+                      type="password"
+                      required
+                      placeholder="Old password"
+                    />
                   </div>
                   <div>
-                    <input type="password" placeholder="New password" />
+                    <input
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      value={newPassword}
+                      type="password"
+                      required
+                      placeholder="New password"
+                    />
                   </div>
                   <div>
-                    <input type="password" placeholder="Confirm password" />
+                    <input
+                      onChange={(e) =>
+                        setNewConfirmationPassword(e.target.value)
+                      }
+                      value={newConfirmationPassword}
+                      type="password"
+                      required
+                      placeholder="Confirm password"
+                    />
                   </div>
                   <div class="pt-5">
-                    <button className="profile-cta">Save changes</button>
+                    <button disabled={isSubmitting} className="profile-cta">
+                      {isSubmitting ? "saving..." : "Save changes"}
+                    </button>
                   </div>
                 </form>
               </div>

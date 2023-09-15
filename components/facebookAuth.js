@@ -28,14 +28,17 @@ export default function FacebookAuth() {
 
   // calling NextAuth.js for Facebook
   const { data: session, status } = useSession();
-  if (status == "authenticated") {
+  
+  const yuno = () => {
     console.log(session);
+
     const body = {
       oauth: session.provider,
-      oauth_id: session.sub, 
+      oauth_id: session.sub,
       name: session.name,
       email: session.email,
     };
+
     axios.post(url, body, config).then((response) => {
       console.log(response.data);
       localStorage.setItem("user-auth", JSON.stringify(response.data));
@@ -43,6 +46,10 @@ export default function FacebookAuth() {
       dispatch(updateAuth(session.provider));
       router.push("/profile");
     });
+  }
+
+  if (status == "authenticated") {
+    yuno();
   }
 
   return (

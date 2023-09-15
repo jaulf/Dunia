@@ -32,7 +32,7 @@ export default function GoogleAuth() {
   // calling NextAuth.js for google
   const { data: session, status } = useSession();
 
-  if (status == "authenticated") {
+  const yuno = () => {
     console.log(session);
 
     const body = {
@@ -49,6 +49,10 @@ export default function GoogleAuth() {
       dispatch(updateAuth(session.provider));
       router.push("/profile");
     });
+  }
+
+  if (status == "authenticated") {
+    yuno()
   }
 
   return (
