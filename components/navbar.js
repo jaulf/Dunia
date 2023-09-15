@@ -28,6 +28,9 @@ import { getLikedProducts } from "./redux/products/LikedProductsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartProducts } from "./redux/products/cartProductsSlice";
 import menuMobile from "@/public/images/mobile-menu.png";
+import ai from "@/public/images/ai.svg";
+import Mcancel from "@/public/images/Mcancel.svg";
+import dropdown from "@/public/images/down-dropdown.svg";
 
 function Navbar() {
   const allProducts = useSelector(getAllProducts);
@@ -79,8 +82,122 @@ function Navbar() {
     };
   }, [searchHandler]);
 
+  const sidebarPopup = () => {
+    let modalpopup = document.getElementById("mobile-sidebar");
+    if (modalpopup.style.display === "block") {
+      modalpopup.style.display = "none";
+    } else {
+      modalpopup.style.display = "block";
+    }
+  };
+
+  const makeCategories = () => {
+    let modalpopup = document.getElementById("categories-down");
+
+    if (modalpopup.style.display === "grid") {
+      modalpopup.style.display = "none";
+      document.querySelector(".rotater").style.rotate = "0deg";
+    } else {
+      modalpopup.style.display = "grid";
+      document.querySelector(".rotater").style.rotate = "-90deg";
+    }
+  };
+
   return (
     <>
+      <div
+        id="mobile-sidebar"
+        className="fixed hidden p-8 modalpopup overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[99999999999999]"
+      >
+        <div id="top1" className="flex justify-between items-center">
+          <div
+            onClick={() => sidebarPopup()}
+            className="p-3 bg-[#FBE7E7] rounded-full "
+          >
+            <Image src={Mcancel} alt="cancel" />
+          </div>
+          <Link href="/profile/cart" className="relative shrink-0">
+            <Image
+              className="w-6 h-6"
+              src={shoppingbag}
+              alt="Shopping Bag Icon"
+            />
+            {numberOfCartItems.length > 0 && (
+              <div className="absolute flex flex-col justify-center items-center shrink-0 w-3 h-3 top-[-4px] right-[-7px] font-semibold text-[8px] bg-black text-white rounded-full ">
+                {numberOfCartItems.length}
+              </div>
+            )}
+          </Link>
+        </div>
+        <div id="top2" className="py-6">
+          <div className="flex self-center w-full px-5 py-4 gap-2 items-center rounded-full bg-[#0000000d]">
+            <Image
+              className="w-[16px] h-[16px]"
+              src={search}
+              alt="Search Icon"
+            />
+            <input
+              onChange={(e) => setSearchInput(e.target.value)}
+              value={searchInput}
+              className="search bg-transparent outline-none w-full"
+              type="text"
+              placeholder="Search books or authors"
+            />
+          </div>
+        </div>
+        <div>
+          <Link href="/discover" class="px-2 block py-4 font-bold">
+            Discover
+          </Link>
+          <div
+            onClick={makeCategories}
+            class="px-2 py-4 font-bold flex justify-between items-center"
+          >
+            Categories <Image className=" rotater" src={dropdown} alt="" />
+          </div>
+          <div
+            id="categories-down"
+            className="px-6 pt-5 grid gap-5 text-sm font-medium py-3"
+          >
+            <span>Biodiversity</span>
+            <span>Pollution</span>
+            <span>Recycling</span>
+            <span>Global Warming</span>
+            <span>Renewable Energy</span>
+            <span>Wildlife Conservation</span>
+            <span>Nature-based Solutions</span>
+            <span>Waste Management</span>
+            <span>Environmental Justice</span>
+          </div>
+        </div>
+
+        <div id="top3" className="grid gap-3 pt-9">
+          <div>
+            <Link
+              className="text-[#212121] whitespace-nowrap px-7 py-[14px] self-center rounded-full justify-center flex bg-[#f5f5f5] font-bold text-center"
+              href="/onboarding/login"
+            >
+              Log In
+            </Link>
+          </div>
+          <div>
+            <div className="ai-button">
+              <span>dunia.ai</span>
+              <Image src={ai} alt="AI logo" />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <ul className="text-[12px] leading-6 flex gap-10 justify-center items-center font-medium text-[#121212] pt-8">
+            <ol>Instagram</ol>
+            <ol>Twitter</ol>
+            <ol>Youtube</ol>
+            <ol>LinkedIn</ol>
+          </ul>
+        </div>
+      </div>
+
       {status == "authenticated" || body ? (
         <nav className="flex justify-between z-[999999999]">
           <div className="flex gap-11 items-center">
@@ -184,6 +301,13 @@ function Navbar() {
           </div>
 
           <div className="hidden xl:flex items-center gap-6">
+            <div className="pr-[42px]">
+              <div className="ai-button">
+                <span>dunia.ai</span>
+                <Image src={ai} alt="AI logo" />
+              </div>
+            </div>
+
             <div className="dropdown">
               <div className="dropdown-button relative w-[47px] h-[47px]">
                 <Image
@@ -318,7 +442,10 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="block xl:hidden w-10 h-10">
+          <div
+            onClick={() => sidebarPopup()}
+            className="block xl:hidden w-10 h-10"
+          >
             <Image className="w-full h-auto" src={menuMobile} alt="" />
           </div>
         </nav>
@@ -424,14 +551,21 @@ function Navbar() {
           </div>
 
           <div className="hidden xl:flex items-center gap-6">
+            <div className="pr-[42px]">
+              <div className="ai-button">
+                <span>dunia.ai</span>
+                <Image src={ai} alt="AI logo" />
+              </div>
+            </div>
+
             <Link
-              className="text-[#212121] px-7 py-[14px] self-center rounded-full flex bg-[#f5f5f5] font-bold text-center"
+              className="text-[#212121] whitespace-nowrap px-7 py-[14px] self-center rounded-full flex bg-[#f5f5f5] font-bold text-center"
               href="/onboarding/login"
             >
               Log In
             </Link>
             <div className="flex items-center gap-[32px]">
-              <Link href="/profile/cart" className="relative">
+              <Link href="/profile/cart" className="relative shrink-0">
                 <Image
                   className="w-6 h-6"
                   src={shoppingbag}
@@ -454,7 +588,10 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="block xl:hidden w-10 h-10">
+          <div
+            onClick={() => sidebarPopup()}
+            className="block xl:hidden w-10 h-10"
+          >
             <Image className="w-full h-auto" src={menuMobile} alt="" />
           </div>
         </nav>
