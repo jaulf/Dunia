@@ -64,7 +64,7 @@ export default function DuniaAi() {
                       <p>
                         Climate education refers to the process of teaching
                         individuals about climate science, environmental issues,
-                        and the impacts of human activities on the planet's
+                        and the impacts of human activities on the planet&apos;s
                         climate systems. It aims to raise awareness, promote
                         understanding, and encourage sustainable actions to
                         mitigate and adapt to climate change. This education can
