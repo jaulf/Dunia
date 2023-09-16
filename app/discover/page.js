@@ -16,38 +16,65 @@ import shopcart from "@/public/images/shopping-cart.png";
 import filter from "@/public/images/filter.svg";
 import ticked from "@/public/images/ticked.svg";
 import back from "@/public/images/back.png";
+import dunia from "@/public/images/dunia.png";
+import menuMobile from "@/public/images/mobile-menu.png";
 
 // Component Imports
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-import { useState } from "react";
-import Discover from "./incase";
+import { useEffect, useState } from "react";
 import DiscoverProductList from "@/components/displayProducts/discoverProductList";
 import Subscribe from "@/components/subscribe/subscribe";
 
-const filterD = () => {
-  let modalpopup = document.getElementById("modalpopup");
-  if (modalpopup.style.display === "block") {
-    modalpopup.style.display = "none";
-  } else {
-    modalpopup.style.display = "block";
-  }
-};
-
 export default function Home() {
+  useEffect(() => {
+    document.getElementById("mpx").style.display = "none";
+  }, []);
+
+  const filterD = () => {
+    let mpx = document.getElementById("mpx");
+    if (mpx.style.display === "block") {
+      mpx.style.display = "none";
+    } else {
+      mpx.style.display = "block";
+    }
+  };
   return (
     <>
-      <div id="modalpopup" className="fixed hidden modalpopup overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[99999999999999]">
+      <div
+        id="mpx"
+        className="absolute hidden mpx overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[99999]"
+      >
         <div>
-          <div class="flex justify-center shrink-0 items-center bg-white z-[100]">
+          <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
             <div class="max-w-[1440px] shrink-0 w-full navspace py-6 lg:py-4 px-6 lg:px-10">
-              <Navbar />
+              <nav className="flex justify-between w-full z-[999999999]">
+                <div className="flex justify-between w-full gap-11 items-center">
+                  <Link class="relative block w-[91px] h-[28px]" href="/">
+                    <Image
+                      className="object-cover object-center"
+                      src={dunia}
+                      fill
+                      alt="Dunia Logo"
+                      placeholder="blur"
+                      sizes="100vw"
+                    />
+                  </Link>
+
+                  <div
+                    onClick={() => sidebarPopup()}
+                    className="block xl:hidden w-10 h-10"
+                  >
+                    <Image className="w-full h-auto" src={menuMobile} alt="" />
+                  </div>
+                </div>
+              </nav>
             </div>
           </div>
 
           <div class="pt-6 px-6">
-            <div id="d-Arrow" onClick={() => filterD()}>
+            <div id="d-Arrow" onClick={filterD}>
               <div className="block backd sticky top-0">
                 <Image
                   quality={100}
@@ -142,7 +169,7 @@ export default function Home() {
                   Discover what you need ⚡
                 </h3>
                 <Image
-                  onClick={() => filterD()}
+                  onClick={filterD}
                   src={filter}
                   alt="Filter Icon"
                   className="block lg:hidden shrink-0"

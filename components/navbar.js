@@ -50,6 +50,7 @@ function Navbar() {
     if (localStorage.getItem("user-auth")) {
       setBody(JSON.parse(localStorage.getItem("user-auth")));
     }
+    document.getElementById("mobile-sidebar").style.display = "none";
   }, []);
 
   useEffect(() => {
@@ -83,23 +84,29 @@ function Navbar() {
   }, [searchHandler]);
 
   const sidebarPopup = () => {
-    let modalpopup = document.getElementById("mobile-sidebar");
-    if (modalpopup.style.display === "block") {
-      modalpopup.style.display = "none";
-    } else {
-      modalpopup.style.display = "block";
+    if (typeof window !== "undefined") {
+      let modalpopup2 = document.getElementById("mobile-sidebar");
+      if (modalpopup2.style.display === "block") {
+        modalpopup2.style.display = "none";
+      } else {
+        modalpopup2.style.display = "block";
+      }
     }
   };
 
   const makeCategories = () => {
-    let modalpopup = document.getElementById("categories-down");
+    if (typeof window !== "undefined") {
+      let mdr4 = document.getElementById("categories-down");
 
-    if (modalpopup.style.display === "grid") {
-      modalpopup.style.display = "none";
-      document.querySelector(".rotater").style.rotate = "0deg";
-    } else {
-      modalpopup.style.display = "grid";
-      document.querySelector(".rotater").style.rotate = "-90deg";
+      if (mdr4.style.display === "grid") {
+        mdr4.style.display = "none";
+        document.querySelector(".rotater").style.rotate = "0deg";
+        document.getElementById("top3-x").style.paddingTop = "72px";
+      } else {
+        mdr4.style.display = "grid";
+        document.querySelector(".rotater").style.rotate = "90deg";
+        document.getElementById("top3-x").style.paddingTop = "36px";
+      }
     }
   };
 
@@ -107,11 +114,11 @@ function Navbar() {
     <>
       <div
         id="mobile-sidebar"
-        className="fixed hidden p-8 modalpopup overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[99999999999999]"
+        className="fixed hidden p-8 overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[99999999999999999999999999]"
       >
         <div id="top1" className="flex justify-between items-center">
           <div
-            onClick={() => sidebarPopup()}
+            onClick={sidebarPopup}
             className="p-3 bg-[#FBE7E7] rounded-full "
           >
             <Image src={Mcancel} alt="cancel" />
@@ -153,11 +160,12 @@ function Navbar() {
             onClick={makeCategories}
             class="px-2 py-4 font-bold flex justify-between items-center"
           >
-            Categories <Image className=" rotater" src={dropdown} alt="" />
+            Categories{" "}
+            <Image className="rotate-[-90deg] rotater" src={dropdown} alt="" />
           </div>
           <div
             id="categories-down"
-            className="px-6 pt-5 grid gap-5 text-sm font-medium py-3"
+            className="px-6 pt-5 hidden gap-5 text-sm font-medium py-3"
           >
             <span>Biodiversity</span>
             <span>Pollution</span>
@@ -171,7 +179,7 @@ function Navbar() {
           </div>
         </div>
 
-        <div id="top3" className="grid gap-3 pt-9">
+        <div id="top3-x" className="grid gap-3 pt-[72px]">
           <div>
             <Link
               className="text-[#212121] whitespace-nowrap px-7 py-[14px] self-center rounded-full justify-center flex bg-[#f5f5f5] font-bold text-center"
@@ -180,12 +188,12 @@ function Navbar() {
               Log In
             </Link>
           </div>
-          <div>
+          <Link href="/ai">
             <div className="ai-button">
               <span>dunia.ai</span>
               <Image src={ai} alt="AI logo" />
             </div>
-          </div>
+          </Link>
         </div>
 
         <div>
@@ -302,10 +310,10 @@ function Navbar() {
 
           <div className="hidden xl:flex items-center gap-6">
             <div className="pr-[42px]">
-              <div className="ai-button">
+              <Link href="ai" className="ai-button">
                 <span>dunia.ai</span>
                 <Image src={ai} alt="AI logo" />
-              </div>
+              </Link>
             </div>
 
             <div className="dropdown">
@@ -552,10 +560,10 @@ function Navbar() {
 
           <div className="hidden xl:flex items-center gap-6">
             <div className="pr-[42px]">
-              <div className="ai-button">
+              <Link href="ai" className="ai-button">
                 <span>dunia.ai</span>
                 <Image src={ai} alt="AI logo" />
-              </div>
+              </Link>
             </div>
 
             <Link

@@ -1150,7 +1150,81 @@ input {
 }
 
 .rotater {
-  transition: .2s rotate;
+  transition: 0.2s rotate;
+}
+
+.ai {
+  padding-top: 72px;
+  padding-bottom: 84px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.chat-cont {
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: grid;
+  row-gap: 32px;
+}
+
+.chat-peep,
+.chat-ai {
+  display: grid;
+  row-gap: 12px;
+}
+
+.chat-peep > h4,
+.chat-ai > h4 {
+  color: #4a4a4a;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.chat-peep > p {
+  color: #a3bca3;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.chat-ai > p {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px; /* 150% */
+}
+
+.ai > h1 {
+  background: linear-gradient(92deg, #009f00 -11.28%, #ffc000 95.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "millik";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  width: max-content;
+  letter-spacing: -0.32px;
+}
+
+.ai  article.footer {
+  display: grid;
+  gap: 5px;
+  color: #414e41;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.14px;
 }
 
 .ai-button {
@@ -1172,10 +1246,172 @@ input {
   gap: 4px;
 }
 
+.ai-input {
+  background: #0b130b;
+  width: 100%;
+  height: 100%;
+  padding: 14px 0 14px 20px;
+  border-radius: 40px;
+  overflow: hidden;
+  color: #f5f5f5;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.ai-input::placeholder {
+  color: #4a4a4a;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.input-cont {
+  background: linear-gradient(
+    88deg,
+    #f2665b 0%,
+    #bb9f39 20.31%,
+    #009f00 47.92%,
+    #ffc000 73.46%
+  );
+  padding: 1px;
+  border-radius: 40px;
+  width: 100%;
+}
+
 @media only screen and (min-width: 1024px) {
   .bodyCon {
     max-width: 1440px;
   }
+  .ai {
+    padding-top: 153px;
+    padding-bottom: 84px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  .chat-cont {
+    padding-top: 32px;
+    padding-left: 32px;
+    display: grid;
+    gap: 32px;
+  }
+  
+  .chat-peep,
+  .chat-ai {
+    display: grid;
+    gap: 12px;
+  }
+  
+  .chat-peep > h4,
+  .chat-ai > h4 {
+    color: #4a4a4a;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .chat-peep > p {
+    color: #a3bca3;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+  
+  .chat-ai > p {
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 24px; /* 150% */
+  }
+  
+  .ai > h1 {
+    background: linear-gradient(92deg, #009f00 -11.28%, #ffc000 95.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "millik";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    width: max-content;
+    letter-spacing: -0.64px;
+  }
+  
+  .ai  article.footer {
+    display: grid;
+    gap: 5px;
+    color: #414e41;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.14px;
+  }
+  
+  .ai-button {
+    font-family: "Millik";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    leading-trim: both;
+    text-edge: cap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    background: linear-gradient(92deg, #009f00 -11.28%, #ffc000 95.98%);
+    color: #fff;
+    padding: 14px 28px;
+    gap: 4px;
+  }
+  
+  .ai-input {
+    background: #0b130b;
+    width: 100%;
+    height: 100%;
+    padding: 14px 0 14px 20px;
+    border-radius: 40px;
+    overflow: hidden;
+    color: #f5f5f5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .ai-input::placeholder {
+    color: #4a4a4a;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .input-cont {
+    background: linear-gradient(
+      88deg,
+      #f2665b 0%,
+      #bb9f39 20.31%,
+      #009f00 47.92%,
+      #ffc000 73.46%
+    );
+    padding: 1px;
+    border-radius: 40px;
+    width: 100%;
+  }
+  
 
   .detail-cta {
     color: #009f00;
@@ -1428,6 +1664,10 @@ input {
 @media only screen and (min-width: 1700px) {
   #Image-sidebar {
     max-width: 100%;
+  }
+
+  .ai {
+    height: 100vh;
   }
 
   #text-sidebar {

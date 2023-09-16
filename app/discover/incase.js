@@ -35,9 +35,7 @@ export default function Discover() {
 
   // setting the filter value
   const handleAgeFilter = () => {
-
   }
-
   return (
     <div className="text-[#4D4D4D] m-0">
       <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
