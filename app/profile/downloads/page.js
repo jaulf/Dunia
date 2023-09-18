@@ -34,66 +34,43 @@ import shopcart from "@/public/images/profile/cart-active.png";
 import rect from "@/public/images/downloads/rect.png";
 import closeB from "@/public/images/closeB.png";
 import Navbar from "@/components/navbar";
+import SubNavbar from "@/components/subnavbar";
 
 export default function NavbarUser() {
   return (
     <>
       <header className="bg-white sticky top-0 z-[100]">
         <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
-          <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+          <div class="max-w-[1440px] shrink-0 w-full navspace py-6 xl:py-4 px-6 xl:px-10">
             <Navbar />
           </div>
         </div>
-        <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
-          <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
-            <div className="content">Profile</div>
-            <div className="content">
-              Favourites{" "}
-              <div className="pl-2">
-                <span class="f-active">2</span>
-              </div>
-            </div>
-            <div className="content  active-c-g">
-              {2 == 1 ? (
-                <span>Downloads</span>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <div className="justify-start items-center gap-3 inline-flex">
-                    <div className="w-2.5 h-2.5 relative">
-                      <div className="w-2 h-2 left-[1px] top-[1px] absolute bg-green-700 rounded-full" />
-                    </div>
-                    <div className="">Downloads</div>
-                  </div>
-                  <div className="content-sub-active">3/4</div>
-                </div>
-              )}
-            </div>
-            <div className="content">Order History</div>
-            <div className="content">Cart</div>
-            <div className="content">Following</div>
-          </div>
-        </nav>
+
+        <SubNavbar />
       </header>
 
       <main>
         <section id="Discover" className="setbody">
-          <div className="p-10 flex flex-col gap-7">
+          <div className="py-12 px-6 lg:p-10 flex flex-col gap-1 lg:gap-7">
             <div>
               <h2 className="h2-one">Downloads</h2>
             </div>
-
             <table>
-              <tr>
+              <tr className="hidden lg:table-row">
                 <th>Details</th>
                 <th>Author</th>
                 <th>Category</th>
                 <th>License</th>
+                <th></th>
               </tr>
 
-              <tr className="font-semibold leading-5">
+              <Link
+                href="/profile/orderhistory/item"
+                className="font-semibold table-row leading-5"
+              >
                 <td>
                   <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
+                    <div class="w-[61px] h-[34px] lg:w-[90px] relative lg:h-[50px] inline-flex justify-center items-center">
                       <Image
                         className="object-cover"
                         fill
@@ -102,91 +79,41 @@ export default function NavbarUser() {
                         alt="download"
                       />
                     </div>
-                    <span className="millik font-normal text-[#121212]">
+                    <span className="millik text-sm lg:text-base font-normal text-[#121212]">
                       All We Can Save
                     </span>
                   </div>
                 </td>
-                <td>@nikkyblue</td>
-                <td>Crime</td>
-                <td colSpan={2} className="text-[#009F00] w-auto">
+                <td className="hidden lg:table-cell">@nikkyblue</td>
+                <td className="hidden lg:table-cell">Crime</td>
+                <td className="hidden lg:table-cell text-[#009F00]">
                   Download license
                 </td>
                 <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
-                </td>
-              </tr>
-              <tr className="font-semibold leading-5">
-                <td>
-                  <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
-                      <Image
-                        className="object-cover"
-                        fill
-                        sizes="100vw"
-                        src={rect}
-                        alt="download"
-                      />
-                    </div>
-                    <span className="millik font-normal text-[#121212]">
-                      All We Can Save
-                    </span>
-                  </div>
-                </td>
-                <td>@nikkyblue</td>
-                <td>Crime</td>
-                <td colSpan={2} className="text-[#009F00] w-auto">
-                  Download license
-                </td>
-                <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
-                </td>
-              </tr>
-              <tr className="font-semibold leading-5">
-                <td>
-                  <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
-                      <Image
-                        className="object-cover"
-                        fill
-                        sizes="100vw"
-                        src={rect}
-                        alt="download"
-                      />
-                    </div>
-                    <span className="millik font-normal text-[#121212]">
-                      All We Can Save
-                    </span>
-                  </div>
-                </td>
-                <td>@nikkyblue</td>
-                <td>Crime</td>
-                <td colSpan={2} className="text-[#009F00] w-auto">
-                  Download license
-                </td>
-                <td>
-                  <div className="flex gap-5 items-center justify-end">
-                    <button className="leading-6 py-[10px] px-[43.5px] bg-[#F1FEF1] text-[#808080] rounded-full">
+                  {/* <Link href="/" className="leading-6 text-[14px] hover:opacity-80 lg:text-[16px] px-6 py-2 lg:py-[10px] lg:px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
+                Download
+              </Link> */}
+                  <div className="inline-flex float-right gap-1 lg:gap-5 py-[10px] bg-[#F1F1F1] rounded-full px-[22px] items-center justify-end">
+                    <p className="leading-6 text-[14px] lg:text-[16px] text-[#808080]">
                       In progress
-                    </button>
+                    </p>
                     <div>
                       <Image
                         src={closeB}
-                        className="w-6 h-6"
+                        className="lg:w-6 lg:h-6 w-4 h-4"
                         alt="close button"
                       />
                     </div>
                   </div>
                 </td>
-              </tr>
-              <tr className="font-semibold leading-5">
+              </Link>
+              <Link
+                href="/profile/orderhistory/item"
+                className="font-semibold table-row leading-5"
+              >
                 <td>
                   <div className="flex items-center gap-[10px]">
-                    <div class="w-[90px] relative h-[50px] inline-flex justify-center items-center">
+                    <div class="w-[61px] h-[34px] lg:w-[90px] relative lg:h-[50px] inline-flex justify-center items-center">
                       <Image
                         className="object-cover"
                         fill
@@ -195,22 +122,76 @@ export default function NavbarUser() {
                         alt="download"
                       />
                     </div>
-                    <span className="millik font-normal text-[#121212]">
+                    <span className="millik text-sm lg:text-base font-normal text-[#121212]">
                       All We Can Save
                     </span>
                   </div>
                 </td>
-                <td>@nikkyblue</td>
-                <td>Crime</td>
-                <td colSpan={2} className="text-[#009F00] w-auto">
+                <td className="hidden lg:table-cell">@nikkyblue</td>
+                <td className="hidden lg:table-cell">Crime</td>
+                <td className="hidden lg:table-cell text-[#009F00]">
                   Download license
                 </td>
                 <td>
-                  <button className="leading-6 py-[10px] px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
-                    Download
-                  </button>
+                  {/* <Link href="/" className="leading-6 text-[14px] hover:opacity-80 lg:text-[16px] px-6 py-2 lg:py-[10px] lg:px-[43.5px] float-right bg-[#009f00] text-white rounded-full">
+                Download
+              </Link> */}
+                  <div className="inline-flex float-right gap-1 lg:gap-5 py-[10px] bg-[#F1F1F1] rounded-full px-[22px] items-center justify-end">
+                    <p className="leading-6 text-[14px] lg:text-[16px] text-[#808080]">
+                      In progress
+                    </p>
+                    <div>
+                      <Image
+                        src={closeB}
+                        className="lg:w-6 lg:h-6 w-4 h-4"
+                        alt="close button"
+                      />
+                    </div>
+                  </div>
                 </td>
-              </tr>
+              </Link>
+              <Link
+                href="/profile/orderhistory/item"
+                className="font-semibold table-row leading-5"
+              >
+                <td>
+                  <div className="flex items-center gap-[10px]">
+                    <div class="w-[61px] h-[34px] lg:w-[90px] relative lg:h-[50px] inline-flex justify-center items-center">
+                      <Image
+                        className="object-cover"
+                        fill
+                        sizes="100vw"
+                        src={rect}
+                        alt="download"
+                      />
+                    </div>
+                    <span className="millik text-sm lg:text-base font-normal text-[#121212]">
+                      All We Can Save
+                    </span>
+                  </div>
+                </td>
+                <td className="hidden lg:table-cell">@nikkyblue</td>
+                <td className="hidden lg:table-cell">Crime</td>
+                <td className="hidden lg:table-cell text-[#009F00]">
+                  Download license
+                </td>
+                <td>
+                  <Link
+                    href="/"
+                    className="leading-6 text-[14px] hover:opacity-80 lg:text-[16px] px-6 py-2 lg:py-[10px] lg:px-[43.5px] float-right bg-[#009f00] text-white rounded-full"
+                  >
+                    Download
+                  </Link>
+                  {/* <div className="inline-flex float-right gap-1 lg:gap-5 py-[10px] bg-[#F1F1F1] rounded-full px-[22px] items-center justify-end">
+                <p className="leading-6 text-[14px] lg:text-[16px] text-[#808080]">
+                  In progress
+                </p>
+                <div>
+                  <Image src={closeB} className="lg:w-6 lg:h-6 w-4 h-4" alt="close button" />
+                </div>
+              </div> */}
+                </td>
+              </Link>
             </table>
           </div>
         </section>

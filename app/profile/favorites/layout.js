@@ -1,5 +1,3 @@
-
-
 export const metadata = {
   title: 'Favorites | Dunia ',
   description: 'Created by Howard Otuya',

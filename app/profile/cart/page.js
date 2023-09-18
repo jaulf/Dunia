@@ -35,46 +35,17 @@ import Navbar from "@/components/navbar";
 import CartList from "@/components/displayProducts/cartList";
 import SubNavbar from "@/components/subnavbar";
 
-export default function NavbarUser() {
+export default function Cart() {
   return (
-    <>
-      <header className="bg-white sticky top-0 z-[100]">
-        <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
-          <div class="max-w-[1440px] shrink-0 w-full navspace py-6 xl:py-4 px-6 xl:px-10">
-            <Navbar />
-          </div>
-        </div>
-        {/* <nav className="flex justify-center items-center py-3 border-b border-t-[2px] border-[#F2F2F2]">
-          <div className="content-container items-center flex gap-3 justify-center max-w-[1440px]">
-            <div className="content">Profile</div>
-            <div className="content">
-              Favourites{" "}
-              <div className="pl-2">
-                <span class="f-active">2</span>
-              </div>
-            </div>
-            <div className="content">
-              {1 == 1 ? (
-                <span>Downloads</span>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <div className="justify-start items-center gap-3 inline-flex">
-                    <div className="w-2.5 h-2.5 relative">
-                      <div className="w-2 h-2 left-[1px] top-[1px] absolute bg-green-700 rounded-full" />
-                    </div>
-                    <div className="">Downloads</div>
-                  </div>
-                  <div className="content-sub-active">10/20</div>
-                </div>
-              )}
-            </div>
-            <div className="content">Order History</div>
-            <div className="content  active-c-g">Cart</div>
-            <div className="content">Following</div>
-          </div>
-        </nav> */}
-        <SubNavbar />
-      </header>
+    <><header className="bg-white lg:sticky lg:top-0 z-[100]">
+    <div class="flex justify-center shrink-0 items-center bg-white lg:sticky lg:top-0 z-[100]">
+      <div class="max-w-[1440px]  shrink-0 w-full navspace py-6 xl:py-4 px-6 xl:px-10">
+        <Navbar />
+      </div>
+    </div>
+  </header>
+  <div className="bg-[#F2F2F2] mt-5 h-1 w-full lg:hidden"></div>
+    <SubNavbar />
 
       <main>
         <section id="Discover" className="bodyCon">

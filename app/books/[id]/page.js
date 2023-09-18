@@ -71,7 +71,7 @@ export default async function Page({ params }) {
   return (
     <div className="text-[#4D4D4D] m-0">
       <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
-        <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+        <div class="max-w-[1440px] shrink-0 w-full navspace lg:py-4 p-6 lg:px-10">
           <Navbar />
         </div>
       </div>
@@ -226,9 +226,9 @@ export default async function Page({ params }) {
                   <div className="hidden lg:flex flex-col gap-5">
                     <QuantityUpdate productID={book.id} />
                     <div className="self-start flex gap-4">
-                      <div className="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]">
+                      <Link href="/profile/ordersummary" className="px-10 py-[14px] text-white leading-6 self-end text-xl font-bold rounded-full bg-[#009F00]">
                         Buy now
-                      </div>
+                      </Link>
                       <CartUpdateButton productID={book.id} />
                       <div className="px-10 py-[14px] text-black leading-6 self-end text-xl font-medium border-[2px] border-[#f2f2f2] rounded-full ">
                         Preview book

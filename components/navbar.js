@@ -114,7 +114,7 @@ function Navbar() {
     <>
       <div
         id="mobile-sidebar"
-        className="fixed hidden p-8 overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[99999999999999999999999999]"
+        className="fixed hidden p-8 overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[10001]"
       >
         <div id="top1" className="flex justify-between items-center">
           <div
@@ -136,7 +136,7 @@ function Navbar() {
             )}
           </Link>
         </div>
-        <div id="top2" className="py-6">
+        <div id="top2" className="py-6 relative">
           <div className="flex self-center w-full px-5 py-4 gap-2 items-center rounded-full bg-[#0000000d]">
             <Image
               className="w-[16px] h-[16px]"
@@ -151,6 +151,62 @@ function Navbar() {
               placeholder="Search books or authors"
             />
           </div>
+          {searchInput.length > 0 ? (
+            <div className="absolute mt-0 pt-4 bg-transparent">
+              <div className="rounded-[20px] flex-col justify-start left-0 bg-white popup py-6 px-0 w-full">
+                <div className="flex searchmodal-res flex-col justify-start bg-white w-full">
+                  {shouldRender ? (
+                    filteredList.length > 0 ? (
+                      filteredList.map((found) => {
+                        return (
+                          <Link
+                            href={"/books/" + found.id}
+                            key={found.id}
+                            class="search-card flex items-center py-3 px-6 gap-6 w-full justify-start"
+                          >
+                            <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                              <Image
+                                className="object-cover object-center"
+                                fill
+                                src={s1}
+                                alt="Naomi Klien"
+                              />
+                            </div>
+                            <div className="search-card-content flex flex-col gap-3">
+                              <h6>{found.author.name}</h6>
+                              <h4>{found.name}</h4>
+                              <div className="search-card-content-sub">
+                                <h5>${found.price}</h5>
+                                <span></span>
+                                <h6>{found.categories[0].name}</h6>
+                                <span></span>
+                                <div className="flex gap-[3px] items-center ">
+                                  <Image
+                                    className="h-3 w-auto"
+                                    src={ratings}
+                                    alt="rating Icon"
+                                  />
+                                  <span className="font-medium text-[10px]">
+                                    4.5 (55 ratings)
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })
+                    ) : (
+                      <div className="py-3 px-6">No result found.</div>
+                    )
+                  ) : (
+                    <div className="py-3 px-6">searching ...</div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <span></span>
+          )}
         </div>
         <div>
           <Link href="/discover" class="px-2 block py-4 font-bold">
@@ -251,7 +307,7 @@ function Navbar() {
               />
             </div>
             {searchInput.length > 0 ? (
-              <div className="absolute mt-12 pt-4 bg-transparent">
+              <div className="absolute mt-12 pt-4 bg-white">
                 <div className="rounded-[20px] flex-col justify-start left-0 bg-white popup py-6 px-0 w-[678px]">
                   <div className="flex searchmodal-res flex-col justify-start bg-white w-full">
                     {shouldRender ? (

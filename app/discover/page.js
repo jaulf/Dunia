@@ -26,11 +26,24 @@ import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
 import DiscoverProductList from "@/components/displayProducts/discoverProductList";
 import Subscribe from "@/components/subscribe/subscribe";
+import axios from "axios";
 
 export default function Home() {
+  const [rages, setRages] = useState(null);
+  const [date, setDate] = useState(null);
+  
+
+  const fetcha = async () => {
+    const urlA = process.env.NEXT_PUBLIC_BASE_URL + "/ages";
+    axios.get(urlA).then((e) => setRages(e.data));
+  };
+
   useEffect(() => {
     document.getElementById("mpx").style.display = "none";
+    fetcha();
   }, []);
+
+  const urlA = process.env.NEXT_PUBLIC_BASE_URL + "/ages";
 
   const filterD = () => {
     let mpx = document.getElementById("mpx");
@@ -40,9 +53,26 @@ export default function Home() {
       mpx.style.display = "block";
     }
   };
+
+  let handleAgeSelection = () => {
+    return;
+  };
+
+ let crelease = (element) => {
+    if (typeof window !== "undefined") {
+      const childDivs = document.querySelectorAll(".childRelease");
+      childDivs.forEach((div) => {
+        div.classList.remove("active"); 
+      });
+
+      // Add the "active" class to the clicked child div
+      element.classList.add("active");
+    }
+  };
+
   return (
     <>
-      <div
+      <div 
         id="mpx"
         className="absolute hidden mpx overflow-auto top-0 bg-white left-0 right-0 bottom-0 z-[99999]"
       >
@@ -89,15 +119,17 @@ export default function Home() {
               <div>
                 <h4>Release date</h4>
                 <div className="fcl-card-cont">
-                  <div className="active">
+                  <div id="new" class="childRelease" onClick={this.crelease}>
                     <h6>Newest</h6>
-                    <Image src={ticked} alt="selected" className="shrink-0" />
+                    <Image src={ticked} alt="selected" class="shrink-0" />
                   </div>
-                  <div>
+                  <div id="l3d" class="childRelease" onClick={this.crelease}>
                     <h6>Last 30 days</h6>
+                    <Image src={ticked} alt="selected" class="shrink-0" />
                   </div>
-                  <div>
+                  <div id="l9d" class="childRelease" onClick={this.crelease}>
                     <h6>Last 90 days</h6>
+                    <Image src={ticked} alt="selected" class="shrink-0" />
                   </div>
                 </div>
               </div>
@@ -131,16 +163,12 @@ export default function Home() {
               <div>
                 <h4>Age</h4>
                 <div className="fcl-card-cont">
-                  <div className="active">
-                    <h6>3 - 8 years old</h6>
-                    <Image src={ticked} alt="selected" className="shrink-0" />
-                  </div>
-                  <div>
-                    <h6>8 - 12 years old</h6>
-                  </div>
-                  <div>
-                    <h6>12 - 18 years old</h6>
-                  </div>
+                  {rages &&
+                    rages.map((age) => (
+                      <div key={age.name} onClick={handleAgeSelection}>
+                        <h6>{age.name}</h6>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
@@ -175,7 +203,7 @@ export default function Home() {
                   className="block lg:hidden shrink-0"
                 />
               </div>
-              <DiscoverProductList />
+              <DiscoverProductList ages={rages} />
             </div>
           </section>
 

@@ -23,7 +23,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Favorite from "@/components/features/favorite";
 
-function DiscoverProductList() {
+function DiscoverProductList({ ages }) {
   const router = useRouter();
   const [releaseDate, setReleaseDate] = useState(null);
   const [price, setPrice] = useState(null);
@@ -31,10 +31,12 @@ function DiscoverProductList() {
   const [filterStatus, setFilterStatus] = useState(false);
   const [reset, setReset] = useState(false);
   const [filterProducts, setFilterProducts] = useState(null);
+  const [Fap, setFap] = useState(false);
 
   const handleFilter = async () => {
     const url = new URL("https://dunia.mrprotocoll.me/api/v1/products/filter");
 
+    
     if (!releaseDate && !price && !age) {
       return;
     }
@@ -72,6 +74,7 @@ function DiscoverProductList() {
         setFilterProducts(filteredData.data);
         setFilterStatus(false);
         setMore(4);
+        setFap(true)
         console.log(filteredData);
       }
     } catch (error) {
@@ -146,13 +149,14 @@ function DiscoverProductList() {
 
   const resetFilter = () => {
     setReset(true);
+    setFap(false);
     setTimeout(() => {
-      document.getElementById("age").value = "3 - 8";
-      document.getElementById("price").value = "default";
-      document.getElementById("release_date").value = "default";
-      setAge("default");
-      setPrice("default");
-      setReleaseDate("default");
+      document.getElementById("age").value = "default";
+      document.getElementById("price").value = "ASC";
+      document.getElementById("release_date").value = "ASC";
+      setAge("");
+      setPrice("");
+      setReleaseDate("");
       setFilterProducts(null);
       router.refresh();
       setReset(false);
@@ -182,20 +186,6 @@ function DiscoverProductList() {
               <button>Environmental Justice</button>
             </div>
           </div>
-          {/* <button
-            onClick={handleFilter}
-            disabled={filterStatus}
-            class="flex self-stretch cursor-pointer rounded-full text-[#FCFCFD] bg-[#009f00] gap-[10px] items-center py-[11px] px-[20px]"
-          >
-            {filterStatus ? <span>applying </span> : <span>Filter</span>}
-            <div className="inline-flex w-[18px]">
-              <Image
-                src={filter}
-                alt="Filter"
-                className=" shrink-0 w-full h-auto"
-              />
-            </div>
-          </button> */}
         </div>
 
         <div className="hidden lg:inline-block">
@@ -203,7 +193,10 @@ function DiscoverProductList() {
             <div class="filter">
               <h6>Release date</h6>
               <select
-                onChange={(e) => setReleaseDate(e.target.value)}
+                onChange={(e) => {
+                  setReleaseDate(e.target.value);
+                  handleFilter();
+                }}
                 name="release_date"
                 id="release_date"
               >
@@ -216,7 +209,10 @@ function DiscoverProductList() {
             <div class="filter">
               <h6>Price</h6>
               <select
-                onChange={(e) => setPrice(e.target.value)}
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                  handleFilter();
+                }}
                 name="price"
                 id="price"
               >
@@ -236,13 +232,20 @@ function DiscoverProductList() {
             <div class="filter">
               <h6>Age</h6>
               <select
-                onChange={(e) => setAge(e.target.value)}
+                onChange={(e) => {
+                  setAge(e.target.value);
+                  handleFilter();
+                }}
                 name="age"
                 id="age"
               >
-                <option value="3 - 8">3 - 8 years old</option>
-                <option value="8 - 12">8 - 12 years old</option>
-                <option value="12 - 18">12 - 18 years old</option>
+                <option value="default" disabled selected>
+                  Select an option
+                </option>
+                {ages &&
+                  ages.map((age) => (
+                    <option value={age.id}>{age.name} years old</option>
+                  ))}
               </select>
             </div>
             <button
@@ -261,7 +264,7 @@ function DiscoverProductList() {
         </div>
 
         <div className="lg:pt-[60px] grid gap-8 lg:gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {filterProducts
+          {filterProducts 
             ? slicedFilteredProducts.map((product) => (
                 <div key={product.id} className="flex flex-col gap-4">
                   <div
@@ -436,9 +439,10 @@ function DiscoverProductList() {
                   </div>
                 </div>
               ))}
+            {(filterProducts && filterProducts.length < 1) && <div>No products found.</div>}
         </div>
 
-        {length < allProducts.data.length ? (
+        {(length < allProducts.data.length) ? (
           <div className="pt-[60px] flex justify-center items-center">
             <button
               onClick={() => addMore()}

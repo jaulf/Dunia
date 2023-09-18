@@ -522,20 +522,34 @@ input:-ms-input-placeholder {
 }
 
 .active-c {
-  color: #000;
+  color: #009F00!important;
   border-radius: 6px;
   font-weight: 600;
-  background: #fef0ef;
+  background: #EFFEEF;
 }
 
+.active-c2 {
+  color: #344054!important;
+  border-radius: 6px;
+  font-weight: 600;
+  background: #EFFEEF;
+}
+
+.comingn > a {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.childRelease > img {
+  display: none;
+}
 .content-sub-active {
   display: flex;
   padding: 2px 8px;
   align-items: center;
   font-family: "Circular";
   border-radius: 16px;
-  background-color: #fef0ef;
-  color: #4e4e4e;
+  background-color: #009F00;
+  color: #fff;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -761,7 +775,7 @@ button:disabled {
 }
 
 .active-c-g {
-  color: #344054;
+  color: #009F00!important;
   border-radius: 6px;
   font-weight: 500;
   background: #effeef;
@@ -789,11 +803,11 @@ button:disabled {
 
 .h2-one {
   color: #000;
-  font-size: 40px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.4px;
 }
 
 td,
@@ -808,9 +822,13 @@ th {
 }
 
 td {
-  border-top: 1.5px solid #f2f2f2;
-  border-bottom: 1.5px solid #f2f2f2;
-  padding: 10px 0;
+  border-top: 4px solid #f2f2f2;
+  border-bottom: 4px solid #f2f2f2;
+  padding: 20px 0;
+}
+
+tr:nth-of-type(2) > td, table > a:nth-of-type(1) > td {
+  border-top: none;
 }
 
 tr:nth-child(1):hover {
@@ -818,12 +836,9 @@ tr:nth-child(1):hover {
 }
 
 tr:hover,
-.search-card:hover {
+.search-card:hover,
+table > a:hover {
   background-color: #f1fef1;
-}
-
-td:last-child {
-  padding-right: 20px;
 }
 
 #following-card {
@@ -875,10 +890,9 @@ td:last-child {
 }
 
 .undersummary {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 50% 50%;
-  padding: auto 30px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 30px;
 }
 
 .undersummary > div {
@@ -886,7 +900,7 @@ td:last-child {
   padding-top: 40px;
 }
 
-.undersummary > div:nth-child(1) {
+.us-one {
   padding-right: 40px;
   border-right: 2px solid #f2f2f2;
 }
@@ -1216,7 +1230,7 @@ input {
   letter-spacing: -0.32px;
 }
 
-.ai  article.footer {
+.ai article.footer {
   display: grid;
   gap: 5px;
   color: #414e41;
@@ -1281,9 +1295,36 @@ input {
   width: 100%;
 }
 
+td {
+  vertical-align: middle;
+}
+
 @media only screen and (min-width: 1024px) {
   .bodyCon {
     max-width: 1440px;
+  }
+
+  td {
+    border-top: 1.5px solid #f2f2f2;
+    border-bottom: 1.5px solid #f2f2f2;
+    padding: 10px 0;
+  }
+
+  tr:nth-of-type(2) > td {
+    border-top: 1.5px solid #f2f2f2;
+  }
+
+  td:last-child {
+    padding-right: 20px;
+  }
+
+  .h2-one {
+    color: #000;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.8px;
   }
   .ai {
     padding-top: 153px;
@@ -1295,20 +1336,20 @@ input {
     border-radius: 20px;
     width: 100%;
   }
-  
+
   .chat-cont {
     padding-top: 32px;
     padding-left: 32px;
     display: grid;
     gap: 32px;
   }
-  
+
   .chat-peep,
   .chat-ai {
     display: grid;
     gap: 12px;
   }
-  
+
   .chat-peep > h4,
   .chat-ai > h4 {
     color: #4a4a4a;
@@ -1317,7 +1358,7 @@ input {
     font-weight: 400;
     line-height: normal;
   }
-  
+
   .chat-peep > p {
     color: #a3bca3;
     font-size: 16px;
@@ -1325,7 +1366,7 @@ input {
     font-weight: 300;
     line-height: normal;
   }
-  
+
   .chat-ai > p {
     color: #fff;
     font-size: 16px;
@@ -1333,7 +1374,7 @@ input {
     font-weight: 300;
     line-height: 24px; /* 150% */
   }
-  
+
   .ai > h1 {
     background: linear-gradient(92deg, #009f00 -11.28%, #ffc000 95.98%);
     background-clip: text;
@@ -1346,8 +1387,8 @@ input {
     width: max-content;
     letter-spacing: -0.64px;
   }
-  
-  .ai  article.footer {
+
+  .ai article.footer {
     display: grid;
     gap: 5px;
     color: #414e41;
@@ -1357,7 +1398,7 @@ input {
     line-height: normal;
     letter-spacing: -0.14px;
   }
-  
+
   .ai-button {
     font-family: "Millik";
     font-size: 12px;
@@ -1376,7 +1417,7 @@ input {
     padding: 14px 28px;
     gap: 4px;
   }
-  
+
   .ai-input {
     background: #0b130b;
     width: 100%;
@@ -1390,7 +1431,7 @@ input {
     font-weight: 400;
     line-height: normal;
   }
-  
+
   .ai-input::placeholder {
     color: #4a4a4a;
     font-size: 16px;
@@ -1398,7 +1439,7 @@ input {
     font-weight: 400;
     line-height: normal;
   }
-  
+
   .input-cont {
     background: linear-gradient(
       88deg,
@@ -1411,7 +1452,6 @@ input {
     border-radius: 40px;
     width: 100%;
   }
-  
 
   .detail-cta {
     color: #009f00;

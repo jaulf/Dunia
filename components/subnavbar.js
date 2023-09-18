@@ -38,17 +38,24 @@ export default function SubNavbar() {
         element.classList.add("active-c-g");
       });
     }
+    // downloads Link
+    if (pathname == "/profile/downloads") {
+      const elements = document.querySelectorAll(".downloads");
+      elements.forEach((element) => {
+        element.classList.add("active-c2");
+      });
+    }
   }, [pathname]);
-
+ 
   return (
-    <nav className="flex sticky lg:relative top-0 bg-white z-[100] overflow-auto lg:justify-center items-center py-3 border-b lg:border-t-[2px] border-[#F2F2F2]">
-      <div className="px-6 lg:px-0 content-container items-center flex gap-3 whitespace-nowrap lg:justify-center max-w-[1440px]">
-        <Link href="/profile" className="content profile">
+    <nav className="flex sticky lg:relative top-0 bg-white z-[100] overflow-auto lg:justify-center items-center border-b lg:border-t-[2px] border-[#F2F2F2]">
+      <div className="px-6 lg:px-0 content-container comingn items-center flex gap-3 whitespace-nowrap lg:justify-center max-w-[1440px]">
+        <Link href="/profile" className="content profile border-b-4">
           Profile
         </Link>
         {likedProducts.length > 0 ? (
           <Link href="/profile/favorites" className="content favorites ">
-            Favourites{" "}
+            Favourites{" "} 
             <div className="pl-2">
               <span class="f-active">{likedProducts.length}</span>
             </div>
@@ -58,8 +65,8 @@ export default function SubNavbar() {
             Favourites
           </Link>
         )}
-        <div className="content">
-          {1 == 1 ? (
+        <Link href="/profile/downloads" className="content downloads">
+          {2 == 1 ? (
             <span>Downloads</span>
           ) : (
             <div className="flex items-center gap-2">
@@ -72,7 +79,7 @@ export default function SubNavbar() {
               <div className="content-sub-active">10/20</div>
             </div>
           )}
-        </div>
+        </Link>
         <Link href="/profile/orderhistory" className="content order-history">
           Order History
         </Link>

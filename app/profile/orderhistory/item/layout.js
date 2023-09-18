@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Cart | Dunia ',
+  title: 'Item - Order History | Dunia ',
   description: 'Created by Howard Otuya',
 } 
 

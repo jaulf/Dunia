@@ -41,7 +41,7 @@ export default function NavbarUser() {
     <>
       <header className="bg-white sticky top-0 z-[100]">
         <div class="flex justify-center shrink-0 items-center bg-white sticky top-0 z-[100]">
-          <div class="max-w-[1440px] shrink-0 w-full navspace py-4 px-10">
+          <div class="max-w-[1440px] shrink-0 w-full navspace py-6 xl:py-4 px-6 xl:px-10">
             <Navbar />
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function NavbarUser() {
 
       <main>
         <section id="Discover" className="setbody">
-          <div className="p-10 flex flex-col gap-7">
+          <div className="py-12 px-6 lg:p-10 flex flex-col gap-1 lg:gap-7">
             <div>
               <h2 className="h2-one">Order History</h2>
             </div>

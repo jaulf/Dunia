@@ -128,7 +128,7 @@ export default function UserProfile() {
             </nav>
           </div>
         </div>
-      </header>
+      </header> 
       <SubNavbar />
 
       {body ? (
