@@ -136,7 +136,7 @@ function Navbar() {
             )}
           </Link>
         </div>
-        <div id="top2" className="py-6 relative">
+        <div id="top2" className="py-6">
           <div className="flex self-center w-full px-5 py-4 gap-2 items-center rounded-full bg-[#0000000d]">
             <Image
               className="w-[16px] h-[16px]"
@@ -152,8 +152,8 @@ function Navbar() {
             />
           </div>
           {searchInput.length > 0 ? (
-            <div className="absolute mt-0 pt-4 bg-transparent">
-              <div className="rounded-[20px] flex-col justify-start left-0 bg-white popup py-6 px-0 w-full">
+            <div className="absolute left-0 right-0 mt-0 pt-4 bg-transparent z-20 w-full">
+              <div className="flex-col justify-start left-0 bg-white popup py-6 px-0 w-full">
                 <div className="flex searchmodal-res flex-col justify-start bg-white w-full">
                   {shouldRender ? (
                     filteredList.length > 0 ? (
@@ -162,9 +162,9 @@ function Navbar() {
                           <Link
                             href={"/books/" + found.id}
                             key={found.id}
-                            class="search-card flex items-center py-3 px-6 gap-6 w-full justify-start"
+                            class="search-card flex items-center py-3 px-6 gap-4 lg:gap-6 w-full justify-start"
                           >
-                            <div class="search-card-img relative w-[120px] h-[108px] overflow-hidden">
+                            <div class="search-card-img relative w-[80px] h-[64px] lg:w-[120px] lg:h-[108px] overflow-hidden">
                               <Image
                                 className="object-cover object-center"
                                 fill
@@ -172,15 +172,15 @@ function Navbar() {
                                 alt="Naomi Klien"
                               />
                             </div>
-                            <div className="search-card-content flex flex-col gap-3">
+                            <div className="search-card-content flex flex-col gap-2 md:gap-3">
                               <h6>{found.author.name}</h6>
                               <h4>{found.name}</h4>
                               <div className="search-card-content-sub">
                                 <h5>${found.price}</h5>
                                 <span></span>
-                                <h6>{found.categories[0].name}</h6>
-                                <span></span>
-                                <div className="flex gap-[3px] items-center ">
+                                <h6 class="ctrrxx">{found.categories[0].name}</h6>
+                                <span className="hidden md:block"></span>
+                                <div className="hidden md:flex gap-[3px] items-center ">
                                   <Image
                                     className="h-3 w-auto"
                                     src={ratings}
