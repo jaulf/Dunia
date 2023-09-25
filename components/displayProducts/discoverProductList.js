@@ -244,7 +244,7 @@ function DiscoverProductList({ ages }) {
                 </option>
                 {ages &&
                   ages.map((age) => (
-                    <option value={age.id}>{age.name} years old</option>
+                    <option key={age.id} value={age.id}>{age.name} years old</option>
                   ))}
               </select>
             </div>
