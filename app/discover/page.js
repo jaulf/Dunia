@@ -58,17 +58,17 @@ export default function Home() {
     return;
   };
 
- let crelease = (element) => {
-    if (typeof window !== "undefined") {
-      const childDivs = document.querySelectorAll(".childRelease");
-      childDivs.forEach((div) => {
-        div.classList.remove("active"); 
-      });
+//  let crelease = (element) => {
+//     if (typeof window !== "undefined") {
+//       const childDivs = document.querySelectorAll(".childRelease");
+//       childDivs.forEach((div) => {
+//         div.classList.remove("active"); 
+//       });
 
-      // Add the "active" class to the clicked child div
-      element.classList.add("active");
-    }
-  };
+//       // Add the "active" class to the clicked child div
+//       element.classList.add("active");
+//     }
+//   };
 
   return (
     <>
@@ -119,15 +119,15 @@ export default function Home() {
               <div>
                 <h4>Release date</h4>
                 <div className="fcl-card-cont">
-                  <div id="new" class="childRelease" onClick={this.crelease}>
+                  <div id="new" class="childRelease">
                     <h6>Newest</h6>
                     <Image src={ticked} alt="selected" class="shrink-0" />
                   </div>
-                  <div id="l3d" class="childRelease" onClick={this.crelease}>
+                  <div id="l3d" class="childRelease">
                     <h6>Last 30 days</h6>
                     <Image src={ticked} alt="selected" class="shrink-0" />
                   </div>
-                  <div id="l9d" class="childRelease" onClick={this.crelease}>
+                  <div id="l9d" class="childRelease"> 
                     <h6>Last 90 days</h6>
                     <Image src={ticked} alt="selected" class="shrink-0" />
                   </div>
